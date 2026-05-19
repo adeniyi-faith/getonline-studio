@@ -1,9 +1,0 @@
-#ai-chat-root .ai-widget{ font-family: sans-serif; width: 320px; max-width: calc(100% - 20px); box-shadow: 0 6px 18px rgba(0,0,0,.12); border-radius:8px; overflow:hidden; }
-.ai-floating-root{ position: fixed; bottom: 20px; right: 20px; z-index: 99999; }
-.ai-header{ background: var(--ai-primary,#0a84ff); color:#fff; padding:10px; }
-.ai-body{ background:#fff; max-height:300px; overflow:auto; padding:10px; }
-.ai-footer{ padding:8px; display:flex; gap:6px; background:#f8f8f8; }
-.ai-footer input{ flex:1; padding:8px; }
-.ai-footer button{ padding:8px 12px; }
-.ai-messages .ai-message{ margin:6px 0; }
-.ai-message-user{ text-align:right; }

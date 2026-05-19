@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json.schemastore.org/block.json",
+  "apiVersion": 2,
+  "name": "igd/shortcodes",
+  "version": "1.0.0",
+  "title": "Google Drive Modules",
+  "category": "igd-category",
+  "icon": "shortcode",
+  "description": "Insert an existing Google Drive module or create a new one.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "id": {
+      "type": "number"
+    },
+    "isHidden": {
+      "type": "boolean"
+    }
+  },
+  "example": {
+    "attributes": {
+      "id": null,
+      "isHidden": false
+    }
+  },
+  "keywords": [
+    "google drive",
+    "drive",
+    "shortcode",
+    "module",
+    "cloud",
+    "shortcode"
+  ],
+  "textdomain": "igd",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css"
+}

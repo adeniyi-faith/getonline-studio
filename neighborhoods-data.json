@@ -1,0 +1,1844 @@
+{
+  "_comment": "Complete Neighborhood overrides for all 35 cities. Not niche-specific. One pricing object per neighborhood.",
+  
+  "lagos": {
+    "lekki": {
+      "avg_cost_low": 350000,
+      "avg_cost_high": 900000,
+      "price_context": "Lekki businesses expect premium digital positioning and fast load times, catering to a tech-forward and affluent demographic.",
+      "competitive_landscape": "The Lekki market is highly saturated; businesses compare 4-5 agencies before deciding. A slow or outdated website loses clients instantly.",
+      "local_insight": "Emerging startups and real estate firms along the Lekki-Epe corridor are digitally active but require modern, conversion-optimized platforms.",
+      "neighborhood_uniqueness": "Lekki acts as the modern luxury and tech-startup capital of West Africa, creating a fast-paced, highly aesthetic-driven business environment."
+    },
+    "ikeja": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "Ikeja businesses are practical and ROI-focused, requiring professional but budget-friendly web solutions.",
+      "competitive_landscape": "Competition in Ikeja relies heavily on local SEO. Brands bidding for state government contracts need credibility-first websites.",
+      "local_insight": "Businesses around Allen Avenue and the capital hub see high search volume on mobile devices and prioritize local map rankings.",
+      "neighborhood_uniqueness": "As the state capital and central mainland hub, Ikeja blends heavy administrative presence with a dense, pragmatic commercial ecosystem."
+    },
+    "victoria-island": {
+      "avg_cost_low": 500000,
+      "avg_cost_high": 2500000,
+      "price_context": "VI corporates have larger budgets, longer procurement cycles, and require extensive security compliance.",
+      "competitive_landscape": "Corporate procurement teams in VI conduct due diligence across 3-6 weeks before signing a retainer.",
+      "local_insight": "Multinational subsidiaries on Adeola Odeku Street increasingly require enterprise-grade platforms and secure portals.",
+      "neighborhood_uniqueness": "Victoria Island is Nigeria's undisputed financial and corporate headquarters, defined by high-rise offices, diplomatic missions, and enterprise transactions."
+    },
+    "ikoyi": {
+      "avg_cost_low": 600000,
+      "avg_cost_high": 3000000,
+      "price_context": "Ikoyi clients consist of high-net-worth individuals and elite corporations who demand ultra-premium, discreet digital experiences.",
+      "competitive_landscape": "Brands in Ikoyi compete on prestige. Websites must project absolute authority, using high-end design to reflect top-tier status.",
+      "local_insight": "Family offices and luxury real estate developers along Bourdillon look for agencies with impeccable, high-end digital portfolios.",
+      "neighborhood_uniqueness": "Ikoyi is the pinnacle of generational wealth and exclusivity in Nigeria, demanding the highest level of discretion and premium branding."
+    },
+    "yaba": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Yaba's tech ecosystem demands modern, functional websites, but operates on tighter, seed-stage startup budgets.",
+      "competitive_landscape": "Agencies targeting Yaba must demonstrate technical competence. Outdated websites are immediately dismissed by tech founders.",
+      "local_insight": "Innovation hubs around Herbert Macaulay Way frequently search for modern MVP development and tech-compliant platforms.",
+      "neighborhood_uniqueness": "Often dubbed the 'Yabacon Valley,' this neighborhood is the gritty, innovative birthplace of Nigeria's tech and developer ecosystem."
+    },
+    "surulere": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Surulere features a mix of traditional SMEs, entertainment hubs, and local retail looking for affordable visibility.",
+      "competitive_landscape": "A strong Google Business Profile paired with a fast, mobile-friendly site easily dominates the local Surulere market.",
+      "local_insight": "Service businesses along Adeniran Ogunsanya need hyper-local SEO to capture the dense residential consumer base.",
+      "neighborhood_uniqueness": "Surulere perfectly bridges the old and new Lagos mainland, heavily rooted in pop culture, sports, and dense community commerce."
+    },
+    "ajah": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "Ajah's rapidly expanding real estate and retail sectors are adopting digital tools but remain price-sensitive compared to Lekki.",
+      "competitive_landscape": "Local businesses are just waking up to SEO. First-movers with optimized websites quickly capture local search traffic.",
+      "local_insight": "Vendors and property agents along the Addo road axis heavily rely on mobile visibility to attract middle-class residents.",
+      "neighborhood_uniqueness": "Ajah serves as the primary gateway to the rapidly developing Ibeju-Lekki corridor, characterized by massive middle-class migration and retail expansion."
+    },
+    "festac": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Festac Town relies on legacy businesses and local commerce. Budgets are conservative but demand functional e-commerce or booking setups.",
+      "competitive_landscape": "Most Festac businesses rely on WhatsApp and Instagram. A dedicated website provides an immediate competitive edge in trust.",
+      "local_insight": "Hospitality and retail businesses in the Amuwo-Odofin axis need lightweight websites that load quickly on standard mobile networks.",
+      "neighborhood_uniqueness": "Festac is a historic federal housing estate with a rich cultural legacy, maintaining a deeply loyal, insular community economy."
+    },
+    "gbagada": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 550000,
+      "price_context": "Gbagada is a highly residential mid-tier hub. Businesses here require professional websites to serve corporate workers living in the area.",
+      "competitive_landscape": "There is a high demand for home services, schools, and clinics. Local SEO targeting 'Gbagada Phase 1 & 2' is highly effective.",
+      "local_insight": "Service providers who optimize for 'near me' searches in Gbagada capture significant traffic from residents commuting to the Island.",
+      "neighborhood_uniqueness": "Gbagada's central location makes it the ultimate commuter's haven, heavily populated by young corporate professionals and families."
+    },
+    "maryland": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 650000,
+      "price_context": "Maryland acts as a premium intersection on the mainland. Businesses here have moderate to high budgets for corporate branding.",
+      "competitive_landscape": "Visibility around the Maryland Mall axis is competitive. Brands need fast, lead-generating websites to stand out.",
+      "local_insight": "Professional services located in the Mende and Ikeja-boundary areas benefit massively from localized Google search authority.",
+      "neighborhood_uniqueness": "Maryland is the pivotal traffic and commercial bottleneck connecting the Lagos mainland to the Island, highly visible and premium."
+    },
+    "magodo": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 700000,
+      "price_context": "Magodo is an affluent residential estate. Businesses targeting residents here must have high-quality, trustworthy web presentations.",
+      "competitive_landscape": "Trust signals are critical. Businesses without a polished website struggle to convert high-income residents of Magodo GRA.",
+      "local_insight": "Private schools, premium clinics, and high-end home services see the highest ROI from targeted SEO in the Magodo phase 2 axis.",
+      "neighborhood_uniqueness": "Magodo is a highly structured, affluent gated community that values security, exclusivity, and premium localized services."
+    },
+    "ogba": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Ogba is a heavy commercial and industrial zone. Pricing reflects the need for functional B2B portals and SME retail sites.",
+      "competitive_landscape": "The digital landscape is underdeveloped. A well-structured B2B website easily outranks traditional competitors relying on word-of-mouth.",
+      "local_insight": "Manufacturing and logistics businesses along the Acme Road axis need websites that highlight fleet capacity and corporate compliance.",
+      "neighborhood_uniqueness": "Ogba is an industrious, highly functional neighborhood known for its factories, printing presses, and bustling retail corridors."
+    },
+    "ilupeju": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Ilupeju hosts large industrial corporations and expatriate communities. Budgets scale quickly for enterprise B2B solutions.",
+      "competitive_landscape": "Competition involves securing supply chain contracts. Websites must reflect corporate governance and international standards.",
+      "local_insight": "Factories and FMCG distributors in Ilupeju Industrial Estate use their platforms primarily for vendor management and B2B lead generation.",
+      "neighborhood_uniqueness": "Ilupeju uniquely blends massive industrial estates with a thriving, long-standing expatriate (specifically Indian) residential community."
+    },
+    "vgc": {
+      "avg_cost_low": 350000,
+      "avg_cost_high": 1000000,
+      "price_context": "Victoria Garden City (VGC) demands absolute premium quality. Businesses here serve the ultra-wealthy and require flawless digital branding.",
+      "competitive_landscape": "Exclusivity is the main selling point. Websites must have premium UI/UX design to match the expectations of VGC residents.",
+      "local_insight": "High-end interior designers, luxury auto dealers, and elite private practices thrive here when their digital footprint reflects luxury.",
+      "neighborhood_uniqueness": "VGC is one of Nigeria's original luxury gated communities, epitomizing serene, elite suburban living away from the city's chaos."
+    },
+    "sangotedo": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "Sangotedo is a rapidly developing corridor. Businesses are investing in digital infrastructure to capture new residential estates.",
+      "competitive_landscape": "The market is growing fast. Early adopters with SEO-optimized sites around the Novare Mall axis are dominating local search.",
+      "local_insight": "Real estate developers and building material suppliers in Sangotedo need lead-capture websites to convert diaspora investors.",
+      "neighborhood_uniqueness": "Sangotedo is the new frontier of Lagos real estate, rapidly transitioning from outskirts to a major, structured residential and retail hub."
+    },
+    "ikorodu": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Ikorodu is a massive, densely populated suburb. Budgets are highly conservative, focusing strictly on functional SME websites.",
+      "competitive_landscape": "Digital adoption is low. A simple, fast website provides immediate local authority over competitors using only Facebook.",
+      "local_insight": "Local schools, agro-allied businesses, and retail stores in Ikorodu see massive success with mobile-first websites integrated with WhatsApp.",
+      "neighborhood_uniqueness": "Ikorodu is a massive, self-sustaining satellite city with a deep agricultural history and an exploding commuter population."
+    },
+    "apapa": {
+      "avg_cost_low": 300000,
+      "avg_cost_high": 1500000,
+      "price_context": "Apapa is strictly maritime and logistics. Budgets are large, requiring complex portals for freight tracking and B2B corporate profiles.",
+      "competitive_landscape": "Websites must project reliability. Shipping and clearing agencies compete heavily for international import/export contracts.",
+      "local_insight": "Customs licensed agents and logistics firms near the Port require highly secure websites to build trust with foreign partners.",
+      "neighborhood_uniqueness": "Apapa is the maritime heart of Nigeria, entirely dominated by the seaports, massive tank farms, and intense heavy-duty logistics."
+    },
+    "oshodi": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Oshodi is a major transport and commercial hub. The demand is for fast, accessible e-commerce and wholesale business profiles.",
+      "competitive_landscape": "Local visibility relies on speed and direct contact. Websites must be aggressively mobile-optimized for traders on the move.",
+      "local_insight": "Wholesale distributors and logistics hubs in Oshodi use simple landing pages to funnel nationwide leads directly to their sales teams.",
+      "neighborhood_uniqueness": "Oshodi is the ultimate transit and wholesale nerve center of Lagos, characterized by immense daily foot traffic and relentless commerce."
+    }
+  },
+
+  "abuja": {
+    "wuse": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Wuse businesses are growing but budget-conscious, looking for a balance between corporate credibility and affordability.",
+      "competitive_landscape": "Government contractors along Ahmadu Bello Way need credibility-first websites to pass procurement verifications.",
+      "local_insight": "Wuse 2's density of professional services firms creates high demand for trust-signalling platforms that rank well locally.",
+      "neighborhood_uniqueness": "Wuse is the vibrant commercial heart of Abuja, blending thriving nightlife, high-end retail, and dense professional offices."
+    },
+    "maitama": {
+      "avg_cost_low": 600000,
+      "avg_cost_high": 3000000,
+      "price_context": "Maitama requires enterprise-level pricing. Clients here are federal parastatals and political elites who value exclusivity.",
+      "competitive_landscape": "Brands in Maitama use their websites as digital brochures for high-level networking, requiring immaculate design.",
+      "local_insight": "Businesses near Transcorp Hilton or Gana Street must optimize for international investors looking for local partnerships.",
+      "neighborhood_uniqueness": "Maitama is the playground of Nigeria's political and diplomatic elite, characterized by palatial mansions, quiet streets, and embassies."
+    },
+    "garki": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "Garki focuses on standard civil service and SME budgets, prioritizing functional and informative websites.",
+      "competitive_landscape": "Many businesses in Garki rely on foot traffic near Area 11. A strong local SEO presence easily disrupts this traditional model.",
+      "local_insight": "Civil servants and local businesses in Garki frequently search for affordable healthcare, real estate, and retail services online.",
+      "neighborhood_uniqueness": "Garki is the traditional administrative center of Abuja, heavily populated by federal ministries, parastatals, and civil servants."
+    },
+    "asokoro": {
+      "avg_cost_low": 700000,
+      "avg_cost_high": 3500000,
+      "price_context": "Asokoro commands the highest budgets. Clients expect international-standard web security and bilingual capabilities.",
+      "competitive_landscape": "Websites here must appeal to embassies, diplomats, and international NGOs conducting rigorous background checks.",
+      "local_insight": "Service providers operating near the ECOWAS secretariat benefit massively from websites optimized for diplomatic and expat clientele.",
+      "neighborhood_uniqueness": "Asokoro is the most exclusive and highly secured district in the capital, home to the Presidential Villa and ECOWAS."
+    },
+    "gwarinpa": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 550000,
+      "price_context": "Gwarinpa is Africa's largest single estate. Budgets are mid-tier, focusing on B2C services, retail, and local commerce.",
+      "competitive_landscape": "The sheer size of Gwarinpa means local SEO is highly profitable. Businesses must rank for 'near me' searches on the major avenues.",
+      "local_insight": "Supermarkets, clinics, and home maintenance services along 1st to 3rd Avenue rely on mobile optimization to capture resident traffic.",
+      "neighborhood_uniqueness": "Gwarinpa functions as a massive, self-contained mini-city within Abuja, boasting an enormous and diverse residential population."
+    },
+    "kubwa": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Kubwa is a massive satellite town with highly conservative budgets, requiring functional, entry-level web presence.",
+      "competitive_landscape": "Digital competition is low. Having a registered domain and a Google Maps integration instantly builds local authority.",
+      "local_insight": "Schools, local hospitals, and retail stores in Kubwa use lightweight websites to modernize their operations and build local trust.",
+      "neighborhood_uniqueness": "Kubwa is Abuja's most prominent satellite town, providing affordable housing and a bustling local economy for the city's working class."
+    },
+    "jabi": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Jabi is a rapidly appreciating commercial and recreational hub. Businesses here have healthy budgets for modern, sleek platforms.",
+      "competitive_landscape": "Proximity to Jabi Lake Mall means consumer expectations are high. Websites must have modern UI/UX to attract upper-middle-class residents.",
+      "local_insight": "Hospitality, real estate, and premium retail brands in Jabi see massive ROI from visually rich, conversion-focused websites.",
+      "neighborhood_uniqueness": "Jabi uniquely blends high-end recreation around its lake with premium retail and rapidly rising upscale residential developments."
+    },
+    "utako": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 700000,
+      "price_context": "Utako is a major transport and commercial district. Pricing reflects the need for logistics portals and professional service sites.",
+      "competitive_landscape": "Transport companies and corporate offices in Utako compete for nationwide visibility. Fast load times are critical.",
+      "local_insight": "Logistics firms and interstate transport companies based in Utako heavily require online booking integrations and route management portals.",
+      "neighborhood_uniqueness": "Utako is the logistics and interstate transport backbone of Abuja, bridging commercial trade with growing residential sectors."
+    },
+    "wuye": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "Wuye is an emerging, structured district. Budgets are mid-range, heavily focused on real estate and emerging B2B services.",
+      "competitive_landscape": "As the district populates, early digital adopters are capturing the new resident market before established brands move in.",
+      "local_insight": "Real estate agencies and facility management companies in Wuye use SEO to attract government workers moving into the district.",
+      "neighborhood_uniqueness": "Wuye is a strategically located, fast-developing district acting as a quiet but premium residential alternative to Wuse."
+    },
+    "apo": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Apo is split between legislative quarters and commercial zones. Websites range from premium political profiles to retail SME sites.",
+      "competitive_landscape": "Apo requires a dual approach. High-end services target the legislative quarters, while retail targets the Apo Resettlement area.",
+      "local_insight": "Auto dealerships and high-end retail around the Apo mechanic village axis use digital showrooms to attract political and corporate buyers.",
+      "neighborhood_uniqueness": "Apo is a district of stark contrasts, housing both the serene Legislative Quarters and the bustling, massive Apo Mechanic Village."
+    },
+    "lugbe": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Lugbe is a fast-growing airport road corridor. Budgets are cost-conscious, focused on capturing the massive influx of new residents.",
+      "competitive_landscape": "Competition is mostly offline. A functional website allows local businesses to capture the commuter demographic working in the city center.",
+      "local_insight": "Building materials, estate agents, and schools along the Airport Road corridor use local SEO to target middle-class families.",
+      "neighborhood_uniqueness": "Lugbe is the primary expansion corridor along the Airport Road, absorbing Abuja's rapidly growing middle-class workforce."
+    },
+    "lokogoma": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Lokogoma is a dense residential estate district. Businesses here need localized, B2C websites to serve the massive housing developments.",
+      "competitive_landscape": "Residents frequently search for home services online. A strong digital presence beats relying on estate WhatsApp groups.",
+      "local_insight": "Home maintenance, private schools, and grocery delivery services in Lokogoma thrive on mobile-first, locally optimized websites.",
+      "neighborhood_uniqueness": "Lokogoma is defined entirely by its massive concentration of private housing estates, creating a huge captive market for home services."
+    },
+    "life-camp": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Life Camp houses top construction executives and expats. Budgets are premium, requiring highly professional and secure websites.",
+      "competitive_landscape": "Trust and premium aesthetics are required. Service providers here must look internationally competitive to win contracts.",
+      "local_insight": "Engineering firms, high-end clinics, and specialized B2B services in Life Camp use corporate websites to target top-tier residents.",
+      "neighborhood_uniqueness": "Originally built for expatriate construction workers, Life Camp retains an elite, highly secure, and quiet suburban exclusivity."
+    },
+    "guzape": {
+      "avg_cost_low": 350000,
+      "avg_cost_high": 1200000,
+      "price_context": "Guzape is Abuja's newest premium hilltop district. Businesses here serve elite clients and require ultra-modern, luxury web design.",
+      "competitive_landscape": "The market is driven by exclusivity. Websites must feature high-end photography, smooth animations, and flawless mobile experiences.",
+      "local_insight": "Luxury real estate, high-end lounges, and elite service providers in Guzape rely entirely on premium digital branding to justify their pricing.",
+      "neighborhood_uniqueness": "Guzape is the 'Asokoro Extension', known for its stunning hilltop topography, breathtaking city views, and ultra-modern luxury developments."
+    },
+    "dawaki": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Dawaki is an expanding residential area near Gwarinpa. Budgets are moderate, focused on essential services and SME growth.",
+      "competitive_landscape": "Visibility is key. Businesses that rank on Google Maps for Dawaki easily capture traffic from residents avoiding the Gwarinpa traffic.",
+      "local_insight": "Pharmacies, local logistics, and trade services in Dawaki use digital presence to establish themselves as the convenient local alternative.",
+      "neighborhood_uniqueness": "Dawaki offers a structured, quiet residential alternative nestled just beside Gwarinpa, popular among rising mid-level professionals."
+    }
+  },
+
+  "port-harcourt": {
+    "gra": {
+      "avg_cost_low": 400000,
+      "avg_cost_high": 1500000,
+      "price_context": "GRA Port Harcourt expects premium pricing, driven by oil and gas executives and high-end hospitality businesses.",
+      "competitive_landscape": "Brands in GRA compete for lucrative energy sector retainers. A robust digital footprint is mandatory for corporate due diligence.",
+      "local_insight": "Expatriates and executives living in GRA Phase 1-3 heavily rely on Google to find vetted, high-end services and hospitality.",
+      "neighborhood_uniqueness": "GRA is the premier residential and high-end lifestyle hub of Port Harcourt, heavily skewed towards oil executives and expatriates."
+    },
+    "obio-akpor": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Obio-Akpor is vast and heavily commercial. Budgets reflect a mix of university demographics and emerging medium-scale businesses.",
+      "competitive_landscape": "Visibility is key here. Firms that optimize for local map packs quickly dominate the less digitally-savvy traditional practices.",
+      "local_insight": "Proximity to the major roadways means a high volume of local searches for B2C services, auto repair, and SME suppliers.",
+      "neighborhood_uniqueness": "Obio-Akpor is the vast, energetic commercial engine room of Rivers State, mixing heavy local trade with student populations."
+    },
+    "eleme": {
+      "avg_cost_low": 300000,
+      "avg_cost_high": 1200000,
+      "price_context": "Eleme is heavily industrial, hosting the refinery and seaport. Websites here require enterprise-grade B2B and logistics capabilities.",
+      "competitive_landscape": "Agencies must demonstrate industrial competence. Websites need to feature HSE compliance, fleet details, and secure B2B portals.",
+      "local_insight": "Engineering and maritime logistics companies in Eleme use their platforms primarily to bid for international and federal contracts.",
+      "neighborhood_uniqueness": "Eleme is the industrial powerhouse of the region, dominated by the petrochemical refinery, heavy industries, and deep-sea port logistics."
+    },
+    "rumuola": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "Rumuola is a major commercial intersection. Budgets are moderate, focusing on retail, training centers, and local commerce.",
+      "competitive_landscape": "Traffic is heavy both offline and online. A fast-loading, mobile-friendly website captures the dense commuter demographic.",
+      "local_insight": "IT training centers, retail showrooms, and clinics around the Rumuola junction require strong local SEO to capture immediate demand.",
+      "neighborhood_uniqueness": "Rumuola is a critical transit and commercial intersection, famous for its high concentration of IT hubs and professional training centers."
+    },
+    "rumuigbo": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Rumuigbo features residential and growing SME sectors. Businesses require functional, affordable websites to build trust.",
+      "competitive_landscape": "Digital adoption is growing. Early movers using optimized landing pages easily stand out from offline-only competitors.",
+      "local_insight": "Private healthcare and residential real estate in Rumuigbo use local search to target families moving away from the congested city center.",
+      "neighborhood_uniqueness": "Rumuigbo is a rapidly stabilizing residential corridor, increasingly favored by families seeking quieter living outside the city center."
+    },
+    "d-line": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 750000,
+      "price_context": "D-Line is a historic commercial district. Budgets are solid, aimed at modernizing legacy businesses and professional services.",
+      "competitive_landscape": "D-Line is dense with corporate offices. A modern web redesign helps established firms maintain authority over new market entrants.",
+      "local_insight": "Law firms, accounting practices, and legacy trading companies in D-Line use digital upgrades to appeal to younger corporate clients.",
+      "neighborhood_uniqueness": "D-Line is the traditional grid-structured business district, home to legacy corporate offices, legal practices, and long-standing agencies."
+    },
+    "trans-amadi": {
+      "avg_cost_low": 500000,
+      "avg_cost_high": 2000000,
+      "price_context": "Trans Amadi is highly industrial. Pricing reflects the need for robust B2B platforms, secure portals, and corporate compliance.",
+      "competitive_landscape": "Energy servicing companies require their partners to have highly secure, corporate-grade digital infrastructure.",
+      "local_insight": "Firms targeting the Trans Amadi Industrial Layout should highlight environmental compliance, ISO certifications, and corporate governance.",
+      "neighborhood_uniqueness": "Trans-Amadi is the beating heart of Port Harcourt's oil servicing sector, packed with fabrication yards and multinational energy HQs."
+    },
+    "peter-odili": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Peter Odili Road is a premium residential and commercial corridor. Businesses here cater to upper-middle-class residents with good budgets.",
+      "competitive_landscape": "Aesthetics matter deeply here. High-quality UI/UX design is necessary to capture the affluent demographic living in the estates.",
+      "local_insight": "Supermarkets, high-end gyms, and lounges along Peter Odili Road rely on visually appealing websites and local SEO for customer acquisition.",
+      "neighborhood_uniqueness": "Peter Odili Road is a sprawling, modern boulevard lined with upscale estates, premium supermarkets, and high-end lifestyle businesses."
+    },
+    "woji": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 550000,
+      "price_context": "Woji is a densely populated residential hub. Budgets are tailored to community-focused SMEs and everyday B2C services.",
+      "competitive_landscape": "Local visibility is strictly offline. A local business that launches a fully optimized website gains a massive regional advantage.",
+      "local_insight": "Schools, pharmacies, and local artisans in Woji see strong conversion rates from mobile searches for 'services near me'.",
+      "neighborhood_uniqueness": "Woji is a deeply communal, densely populated residential hub that acts as a vital workforce base for the Trans-Amadi industrial area."
+    },
+    "ada-george": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Ada George is an expanding residential axis. Businesses here require lead-generation websites to capture new home-owners and families.",
+      "competitive_landscape": "The corridor is highly competitive for building materials and home services. Fast, mobile-responsive sites win the market.",
+      "local_insight": "Interior decorators, schools, and real estate agents along Ada George heavily utilize SEO to target the continuous influx of new residents.",
+      "neighborhood_uniqueness": "Ada George is an exploding suburban corridor, characterized by non-stop real estate development and a massive influx of new homeowners."
+    },
+    "agip": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Agip Estate area blends residential with oil-sector adjacent businesses. Budgets are stable, requiring professional corporate profiling.",
+      "competitive_landscape": "Trust signals are vital. Businesses serving the Agip demographic need professional domains and secure hosting to be taken seriously.",
+      "local_insight": "Contractors and B2B suppliers near the Agip base use their digital footprint to project capacity and regulatory compliance.",
+      "neighborhood_uniqueness": "The Agip area revolves entirely around the multinational oil base, creating a localized economy of corporate vendors and secure estates."
+    },
+    "choba": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Choba is anchored by the University of Port Harcourt. Budgets are lower but volume is high for student-focused and retail services.",
+      "competitive_landscape": "The student demographic is hyper-online. E-commerce, booking platforms, and mobile-optimized sites dominate the local market.",
+      "local_insight": "Hostel agents, tech hubs, and affordable dining in Choba capture massive traffic by targeting UNIPORT-specific search queries.",
+      "neighborhood_uniqueness": "Choba is a quintessential university town, driven by the massive youth demographic, academia, and fast-paced micro-commerce."
+    }
+  },
+
+  "kano": {
+    "nasarawa": {
+      "avg_cost_low": 300000,
+      "avg_cost_high": 1200000,
+      "price_context": "Nasarawa GRA hosts Kano's political elite, top NGOs, and major corporate executives who expect enterprise-grade digital platforms.",
+      "competitive_landscape": "Brands in Nasarawa must project immense authority. Competition relies on securing retainers from international NGOs and large conglomerates.",
+      "local_insight": "Firms located near State Road or the Government House highlight their expertise in corporate governance and international trade.",
+      "neighborhood_uniqueness": "Nasarawa is the historical seat of power and wealth in Kano, hosting the Government House, elite estates, and major NGO headquarters."
+    },
+    "tarauni": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Tarauni is a dense residential and local commercial area. Budgets are tailored to SMEs needing essential digital visibility.",
+      "competitive_landscape": "The market relies heavily on traditional referrals. A modern, mobile-friendly website provides a massive leap over local competition.",
+      "local_insight": "Local clinics, schools, and trading stores in Tarauni benefit from multilingual (Hausa/English) SEO to capture local search intent.",
+      "neighborhood_uniqueness": "Tarauni is a bustling, deeply traditional residential district that forms the densely populated core of the Kano metropolis."
+    },
+    "fagge": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Fagge is Kano's commercial nerve center (Kwari market). Budgets reflect massive trade volumes requiring e-commerce and B2B portals.",
+      "competitive_landscape": "Traditional practices dominate, but wholesale traders are rapidly moving online. B2B e-commerce platforms are highly lucrative here.",
+      "local_insight": "Textile merchants and large-scale importers in Fagge require robust websites to handle nationwide wholesale orders and logistics.",
+      "neighborhood_uniqueness": "Fagge hosts the legendary Kwari Market, functioning as the undisputed textile and commercial wholesale heartbeat of Northern Nigeria."
+    },
+    "bompai": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 900000,
+      "price_context": "Bompai is a major industrial estate. Pricing reflects the need for corporate manufacturing profiles, export portals, and B2B catalogs.",
+      "competitive_landscape": "Factories here compete nationally and internationally. Websites must feature production capacity, ISO certifications, and export logistics.",
+      "local_insight": "Manufacturing companies in Bompai use their digital platforms to secure federal supply contracts and attract foreign investors.",
+      "neighborhood_uniqueness": "Bompai is a heavy industrial zone, famous for its massive manufacturing plants, agro-processing factories, and export-oriented industries."
+    },
+    "sabon-gari": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Sabon Gari features a diverse, commercial demographic looking for accessible, functional, and fast digital representation.",
+      "competitive_landscape": "Retail, hospitality, and transport dominate. Websites targeting Sabon Gari need to emphasize clear pricing and easy mobile contact.",
+      "local_insight": "There is a high search volume for interstate logistics, electronics retail, and hospitality from the dense SME population on France Road.",
+      "neighborhood_uniqueness": "Sabon Gari is Kano's most diverse enclave, operating as a melting pot for non-indigenous traders, hospitality, and interstate logistics."
+    },
+    "hotoro": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Hotoro is a strategic logistics and residential hub near the NNPC depot. Businesses need websites to manage transport and supply chain leads.",
+      "competitive_landscape": "Visibility on the bypass is crucial. Logistics firms with strong local SEO capture the heavy haulage and distribution market.",
+      "local_insight": "Haulage companies and agro-dealers in Hotoro require websites that highlight fleet size and secure nationwide delivery capabilities.",
+      "neighborhood_uniqueness": "Hotoro is fundamentally shaped by the NNPC depot, making it a critical hub for heavy-duty haulage, logistics, and bulk distribution."
+    },
+    "sharada": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 750000,
+      "price_context": "Sharada is another key industrial phase. Budgets are solid, aimed at modernizing factory operations with B2B websites and portals.",
+      "competitive_landscape": "Industrial clients need credibility. A corporate website acts as a digital brochure for securing large-scale distribution partnerships.",
+      "local_insight": "Agro-processing and plastics manufacturing firms in Sharada use their websites to interface with distributors across Northern Nigeria.",
+      "neighborhood_uniqueness": "Sharada is a major organized industrial layout, deeply integrated with Kano's plastics, leather, and massive agro-allied processing sectors."
+    }
+  },
+
+  "ibadan": {
+    "bodija": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Bodija represents old wealth, affluent retirees, and premium real estate developers who expect polished, professional web design.",
+      "competitive_landscape": "Brands in Bodija compete on prestige and legacy. A high-end website helps newer firms disrupt established, older practices.",
+      "local_insight": "Premium real estate, high-end schools, and specialized clinics in Bodija require immaculate digital branding to convert affluent residents.",
+      "neighborhood_uniqueness": "Bodija is the epitome of generational wealth and old money in Ibadan, characterized by serene estates, legacy homes, and affluent calm."
+    },
+    "oluyole": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 900000,
+      "price_context": "Oluyole is a mix of high-end residential and heavy industrial zones. Pricing is premium, tailored to factories and corporate HQs.",
+      "competitive_landscape": "Corporate credibility is key. Manufacturing companies in the Oluyole Industrial Estate need B2B portals for supply chain management.",
+      "local_insight": "FMCG factories and logistics hubs in Oluyole use their digital platforms to secure nationwide distribution networks.",
+      "neighborhood_uniqueness": "Oluyole uniquely balances a highly organized industrial estate with an upscale residential sector, anchoring Ibadan's manufacturing power."
+    },
+    "agodi": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 700000,
+      "price_context": "Agodi houses the state secretariat and premium parks. Budgets are solid, focused on B2B services, hospitality, and government contractors.",
+      "competitive_landscape": "Government contractors need highly secure, professional websites to pass due diligence during state procurement processes.",
+      "local_insight": "Hospitality brands near Agodi Gardens and corporate consultants near the Secretariat rely heavily on prestige-focused web design.",
+      "neighborhood_uniqueness": "Agodi is the administrative nerve center of Oyo State, hosting the Secretariat, quiet premium real estate, and historic green spaces."
+    },
+    "samonda": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Samonda is close to UI and the Poly. It's a vibrant, youth-centric hub requiring fast, modern, and engaging web platforms.",
+      "competitive_landscape": "The demographic is hyper-online. Brands must have mobile-first, socially integrated websites to capture the student and young professional market.",
+      "local_insight": "Tech hubs, lounges, and retail stores in Samonda thrive by using SEO and digital marketing to target the massive university population.",
+      "neighborhood_uniqueness": "Driven heavily by the University of Ibadan ecosystem, Samonda is a hyper-energetic, youth-centric hub for retail, tech, and nightlife."
+    },
+    "challenge": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Challenge is a major transport and commercial intersection. Budgets are cost-effective, prioritizing lead generation and local visibility.",
+      "competitive_landscape": "Traffic is heavy offline. Local SEO and fast-loading mobile sites help businesses capture commuters and local residents.",
+      "local_insight": "Auto dealers, transport companies, and retail outlets in Challenge use websites to drive foot traffic and handle remote bookings.",
+      "neighborhood_uniqueness": "Challenge is a bustling, high-traffic commercial crossroad that dictates the daily commuter flow across the southern part of the city."
+    },
+    "ring-road": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Ring Road is a bustling commercial and entertainment hub, attracting mid-tier corporate clients and growing startups.",
+      "competitive_landscape": "Businesses here face moderate digital competition. Ranking in the local map pack for commercial services is highly lucrative.",
+      "local_insight": "Retailers, hospitals, and corporate services along the Ring Road corridor heavily rely on mobile searches to capture immediate local intent.",
+      "neighborhood_uniqueness": "Ring Road acts as Ibadan's modern commercial spine, packed with contemporary malls, corporate banks, and premium entertainment centers."
+    },
+    "akobo": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "Akobo is a rapidly expanding, affluent residential area. Businesses are investing in digital infrastructure to serve new estate owners.",
+      "competitive_landscape": "The market is growing fast. Early adopters with SEO-optimized sites are dominating local search for home and family services.",
+      "local_insight": "Real estate developers, premium supermarkets, and private schools in Akobo use lead-capture websites to convert new high-income residents.",
+      "neighborhood_uniqueness": "Akobo is Ibadan's fastest-growing upscale suburban sprawl, absorbing the new wave of young affluence and returning diaspora."
+    },
+    "mokola": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Mokola is central and highly accessible. The focus is on high-volume, affordable digital services for everyday citizens and SMEs.",
+      "competitive_landscape": "Visibility is primarily offline here. Launching a locally optimized, fast-loading website gives an immediate first-mover advantage.",
+      "local_insight": "Businesses near the Mokola roundabout get massive foot traffic, but a strong digital presence captures lucrative general city-wide searches.",
+      "neighborhood_uniqueness": "Mokola is the chaotic, highly accessible center of Ibadan, famous for its massive roundabout and high-volume, everyday commerce."
+    }
+  },
+
+  "enugu": {
+    "independence-layout": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Independence Layout houses government institutions and political figures who require top-tier, highly secure digital profiles.",
+      "competitive_landscape": "Businesses here use websites as digital brochures for political and high-stakes corporate networking. Design must be impeccable.",
+      "local_insight": "Service providers located near the State Secretariat get high-value government contractor clients who verify representation online.",
+      "neighborhood_uniqueness": "Independence Layout is the stately administrative core of Enugu, known for its spacious boulevards, government buildings, and political elite."
+    },
+    "gra": {
+      "avg_cost_low": 300000,
+      "avg_cost_high": 900000,
+      "price_context": "Enugu GRA caters to wealthy expatriates, top-tier business owners, and diaspora clients managing local investments.",
+      "competitive_landscape": "Competition for diaspora retainers is fierce. A website must have international payment integrations and secure client portals.",
+      "local_insight": "Diaspora clients heavily search for real estate, legal, and premium services in Enugu GRA to manage portfolios remotely.",
+      "neighborhood_uniqueness": "Enugu GRA offers serene, old-money exclusivity, featuring historic architecture, lush greenery, and the city's highest property values."
+    },
+    "new-haven": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "New Haven is the commercial and entertainment pulse of Enugu. Budgets are geared towards retail, hospitality, and fast-moving services.",
+      "competitive_landscape": "The crowd is young and digital-first. Mobile-optimized, visually appealing websites with booking engines dominate here.",
+      "local_insight": "Lounges, boutiques, and tech startups in New Haven use vibrant web design and local SEO to capture the city's youth and middle class.",
+      "neighborhood_uniqueness": "New Haven is the undisputed lifestyle and nightlife capital of the city, driven by youth culture, chic boutiques, and constant activity."
+    },
+    "trans-ekulu": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Trans Ekulu is a massive residential district. Businesses focus on affordable, community-driven web presence to capture local families.",
+      "competitive_landscape": "Digital competition is moderate. Ranking on Google Maps for local services guarantees a steady stream of residential clients.",
+      "local_insight": "Hospitals, schools, and home service artisans in Trans Ekulu thrive by optimizing for 'near me' searches in the dense estates.",
+      "neighborhood_uniqueness": "Trans-Ekulu is an enormous, self-sustaining residential grid that houses the bulk of Enugu's working and middle-class families."
+    },
+    "achara-layout": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Achara Layout is highly populated with legacy SMEs. Budgets are conservative, requiring simple, highly functional websites.",
+      "competitive_landscape": "Most businesses rely on physical storefronts. A dedicated website instantly positions a local brand as the premium choice in the area.",
+      "local_insight": "Trading companies and local clinics in Achara Layout use basic, fast-loading websites to build trust and capture city-wide referrals.",
+      "neighborhood_uniqueness": "Achara Layout is a deeply traditional, densely populated urban area where legacy businesses and tight-knit community commerce thrive."
+    },
+    "ogui": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Ogui is a busy commercial and transit hub. The demand is for corporate profiles, travel portals, and fast B2C service sites.",
+      "competitive_landscape": "Proximity to the stadium and transport hubs means visibility is key. Digital portals must be optimized for quick, mobile transactions.",
+      "local_insight": "Transport companies, wholesalers, and legacy corporate offices along Ogui Road use digital upgrades to maintain market dominance.",
+      "neighborhood_uniqueness": "Ogui is the commercial and transport epicenter, characterized by the hum of the stadium and the chaotic energy of interstate travelers."
+    }
+  },
+
+  "benin-city": {
+    "gra": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Benin GRA clients have significant spending power, heavily driven by diaspora remittances and premium real estate investments.",
+      "competitive_landscape": "Digital trust is paramount in Benin City. A premium website with verified credentials helps overcome the local 'trust deficit'.",
+      "local_insight": "There is a massive market for diaspora clients needing trusted real estate, legal, and premium services to manage investments remotely.",
+      "neighborhood_uniqueness": "Benin GRA serves as the secure, upscale haven for the city's elites and acts as the primary investment ground for wealthy diaspora."
+    },
+    "ugbowo": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Ugbowo is driven by the UNIBEN ecosystem. Budgets are student-focused, requiring fast, e-commerce, and mobile-friendly setups.",
+      "competitive_landscape": "The student population searches online for everything. Businesses without a strong mobile web presence are completely invisible to them.",
+      "local_insight": "Hostel agents, tech retailers, and affordable hospitality brands in Ugbowo capture massive volume through targeted local SEO.",
+      "neighborhood_uniqueness": "Anchored entirely by the University of Benin, Ugbowo is a high-energy district dominated by students, hostels, and rapid retail."
+    },
+    "ekenwan": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Ekenwan road mixes UNIBEN's second campus with local commerce. Budgets are modest, focusing on lead generation and simple portfolios.",
+      "competitive_landscape": "Local visibility offline is tough due to traffic. A solid local SEO strategy helps businesses stand out easily on mobile maps.",
+      "local_insight": "Agro-allied businesses and local real estate agents along Ekenwan use websites to broadcast their services beyond their immediate street.",
+      "neighborhood_uniqueness": "Ekenwan Road is a massive, sprawling corridor that bridges deep urban commerce with expanding, newer residential peripheries."
+    },
+    "sapele-road": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 700000,
+      "price_context": "Sapele Road is commercial and industrial. Businesses here serve heavy machinery, hotels, and large-scale traders with solid budgets.",
+      "competitive_landscape": "Most firms rely on traditional networking. A functional, B2B-focused website instantly captures commercial procurement searches.",
+      "local_insight": "Heavy equipment vendors and corporate services along this corridor use websites to attract contracts from bypass traffic and industries.",
+      "neighborhood_uniqueness": "Sapele Road is the heavy-duty industrial spine of the city, lined with car dealerships, large hotels, and major corporate offices."
+    },
+    "airport-road": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 750000,
+      "price_context": "Airport Road is a premium commercial corridor. Businesses here cater to travelers, corporate HQs, and upper-middle-class residents.",
+      "competitive_landscape": "Aesthetics and speed are critical. High-end hotels, corporate offices, and boutiques need visually striking sites to convert traffic.",
+      "local_insight": "Hospitality and logistics businesses on Airport Road heavily rely on SEO to capture executives and expats landing in the city.",
+      "neighborhood_uniqueness": "Airport Road is the polished, premium gateway to Benin, heavily favored by luxury hospitality, corporate banks, and affluent travelers."
+    },
+    "akpakpava": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Akpakpava is the traditional commercial heart of Benin. Budgets are focused on modernizing legacy trading and financial businesses.",
+      "competitive_landscape": "The street is packed with banks and major distributors. SMEs here need websites to project the same level of corporate trust as the banks.",
+      "local_insight": "Wholesale distributors and legacy enterprises on Akpakpava are aggressively using digital portals to expand sales nationwide.",
+      "neighborhood_uniqueness": "Akpakpava is the chaotic, historic commercial engine of the city, characterized by banking headquarters and massive wholesale trading."
+    }
+  },
+
+  "uyo": {
+    "ewet-housing": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Ewet Housing Estate is Uyo's premier residential and hospitality zone. Budgets are high, demanding luxury aesthetics and booking portals.",
+      "competitive_landscape": "The hospitality and lounge sector here is fiercely competitive. A premium, fast-loading website with reservations is mandatory.",
+      "local_insight": "High-end restaurants, boutique hotels, and corporate consultants in Ewet Housing use digital branding to capture politicians and expats.",
+      "neighborhood_uniqueness": "Ewet Housing is Uyo's undisputed luxury playground, where high-end residential living meets the city's most exclusive nightlife and dining."
+    },
+    "osongama": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Osongama is a rapidly developing upscale estate. Businesses here serve new homeowners and require professional, trust-building web designs.",
+      "competitive_landscape": "As the estate grows, early digital adopters in home services and retail are capturing the loyalties of new, affluent residents.",
+      "local_insight": "Private schools, interior designers, and high-end clinics in Osongama Estate use local SEO to dominate 'near me' luxury searches.",
+      "neighborhood_uniqueness": "Osongama is a fast-rising upscale estate attracting a new wave of middle-to-upper-class professionals seeking quiet, structured living."
+    },
+    "shelter-afrique": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Shelter Afrique is a highly secure, elite estate. Budgets are premium, tailored to businesses offering exclusive, high-ticket services.",
+      "competitive_landscape": "Exclusivity is the selling point. Websites must have premium UI/UX design to match the expectations of Shelter Afrique residents.",
+      "local_insight": "Luxury real estate developers and specialized private healthcare providers thrive here when their digital footprint reflects absolute luxury.",
+      "neighborhood_uniqueness": "Shelter Afrique represents the pinnacle of secured, elite suburban living in Uyo, heavily favored by expatriates and top politicians."
+    },
+    "aka-road": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Aka Road is a busy commercial artery. The demand is for fast, accessible e-commerce, local retail, and corporate profiles.",
+      "competitive_landscape": "Traffic is heavy both offline and online. A fast-loading, mobile-friendly website captures the dense commuter demographic.",
+      "local_insight": "Retail showrooms, banks' allied services, and corporate offices along Aka Road use digital upgrades to maintain local authority.",
+      "neighborhood_uniqueness": "Aka Road is a bustling, high-traffic commercial artery that seamlessly connects everyday retail with serious corporate businesses."
+    },
+    "oron-road": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Oron Road is a massive transit and trading corridor. Budgets are cost-conscious, focused on capturing commuter and wholesale traffic.",
+      "competitive_landscape": "Visibility is primarily offline. A local business that launches a fully optimized website gains a massive advantage over offline rivals.",
+      "local_insight": "Logistics companies, auto parts dealers, and wholesalers on Oron Road use basic, fast-loading websites to build trust and capture city-wide leads.",
+      "neighborhood_uniqueness": "Oron Road serves as a rugged, vital logistical and transit corridor, moving people and heavy goods in and out of the state."
+    }
+  },
+
+  "kaduna": {
+    "barnawa": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "Barnawa is a vibrant, mixed-use hub south of the river. Budgets are solid, aimed at modernizing retail, hospitality, and corporate services.",
+      "competitive_landscape": "The demographic is young and middle-class. Mobile-optimized, visually appealing websites with booking engines dominate here.",
+      "local_insight": "Lounges, clinics, and modern retail in Barnawa use vibrant web design and local SEO to capture the city's youth and middle class.",
+      "neighborhood_uniqueness": "Barnawa acts as the lively, cosmopolitan heart south of the river, known for its modern retail culture and vibrant middle-class energy."
+    },
+    "malali": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Malali (GRA) houses top political figures and elite business owners. Budgets are premium, requiring highly professional and secure websites.",
+      "competitive_landscape": "Trust and premium aesthetics are required. Service providers here must look internationally competitive to win high-level contracts.",
+      "local_insight": "Government contractors, elite private schools, and specialized B2B services in Malali use corporate websites to target top-tier residents.",
+      "neighborhood_uniqueness": "Malali serves as the quiet, heavily fortified domain of Kaduna's political elite, military top brass, and old-money families."
+    },
+    "narayi": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Narayi is a dense, emerging residential area. Budgets are highly conservative, focusing strictly on functional SME and community websites.",
+      "competitive_landscape": "Digital adoption is low. A simple, fast website provides immediate local authority over competitors using only offline marketing.",
+      "local_insight": "Local schools, building material vendors, and retail stores in Narayi see success with mobile-first websites integrated with WhatsApp.",
+      "neighborhood_uniqueness": "Narayi is a rapidly expanding, community-driven district that heavily supports Kaduna's working-class and everyday artisans."
+    },
+    "gra": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Kaduna GRA caters to wealthy families, top-tier business owners, and corporate executives who expect enterprise-grade digital platforms.",
+      "competitive_landscape": "Brands in GRA compete on prestige. Websites must project immense authority, using high-end design to reflect top-tier status.",
+      "local_insight": "High-end real estate, security firms, and corporate consultants in Kaduna GRA highlight their expertise and elite portfolios online.",
+      "neighborhood_uniqueness": "Kaduna GRA maintains its legacy as the city's original premium enclave, boasting wide, tree-lined streets and historic affluence."
+    },
+    "sabon-tasha": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Sabon Tasha is a massive commercial and residential district. The focus is on high-volume, affordable digital services for everyday SMEs.",
+      "competitive_landscape": "Visibility is highly competitive offline. Local SEO and fast-loading mobile sites help businesses capture commuters and local residents.",
+      "local_insight": "Traders, local logistics, and private clinics in Sabo use simple landing pages to funnel local leads directly to their sales teams.",
+      "neighborhood_uniqueness": "Sabon Tasha is the incredibly dense, non-stop commercial engine of Southern Kaduna, fueled by massive markets and transport hubs."
+    },
+    "kawo": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Kawo is a major transport and commercial intersection heading North. Budgets prioritize lead generation and logistics visibility.",
+      "competitive_landscape": "Transport companies and agro-dealers compete for nationwide visibility. Fast load times and clear contact portals are critical.",
+      "local_insight": "Logistics hubs, agro-allied distributors, and interstate transport companies based in Kawo heavily require online routing and contact platforms.",
+      "neighborhood_uniqueness": "Kawo is a critical northern transit gateway, characterized by heavy military presence, massive motor parks, and interstate logistics."
+    },
+    "unguwan-rimi": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Unguwan Rimi is an affluent, serene residential area. Businesses targeting residents here must have high-quality, trustworthy web presentations.",
+      "competitive_landscape": "Trust signals are critical. Businesses without a polished website struggle to convert the high-income, educated residents.",
+      "local_insight": "Private schools, premium healthcare, and specialized home services see the highest ROI from targeted SEO in the Unguwan Rimi axis.",
+      "neighborhood_uniqueness": "Unguwan Rimi offers a highly educated, serene residential atmosphere that appeals heavily to academics, expatriates, and doctors."
+    }
+  },
+
+  "jos": {
+    "rayfield": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Rayfield is the elite hub of Jos, housing government officials and expats. Budgets are high, demanding luxury aesthetics and corporate portals.",
+      "competitive_landscape": "The hospitality and elite service sector here is competitive. A premium, fast-loading website with excellent UI is mandatory.",
+      "local_insight": "High-end resorts, boutique hotels, and corporate consultants in Rayfield use digital branding to capture politicians and NGO executives.",
+      "neighborhood_uniqueness": "Rayfield is the crown jewel of Jos, featuring exclusive golf courses, elite estates, and a cool, resort-like atmosphere."
+    },
+    "bukuru": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Bukuru is a heavy commercial and industrial zone. Pricing reflects the need for functional B2B portals and SME retail sites.",
+      "competitive_landscape": "The digital landscape is developing. A well-structured B2B website easily outranks traditional competitors relying on word-of-mouth.",
+      "local_insight": "Agro-processing plants, mining support services, and logistics businesses in Bukuru need websites that highlight industrial capacity.",
+      "neighborhood_uniqueness": "Bukuru operates almost as a twin city to Jos, driven heavily by local industry, old mining legacies, and dense commerce."
+    },
+    "anglo-jos": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Anglo Jos features a mix of corporate HQs (like NTA) and residential zones. Budgets are moderate, requiring professional service sites.",
+      "competitive_landscape": "Proximity to corporate offices means visibility is key. Digital portals must be optimized for quick, professional B2B interactions.",
+      "local_insight": "Media agencies, corporate suppliers, and real estate firms in Anglo Jos use digital upgrades to maintain corporate relevance.",
+      "neighborhood_uniqueness": "Anglo Jos acts as a quiet but important corporate and media corridor, bridging the industrial south with the city center."
+    },
+    "lamingo": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Lamingo is known for the Dam and JUTH. Budgets are focused on healthcare-adjacent services, hospitality, and residential real estate.",
+      "competitive_landscape": "Residents and visitors frequently search for services online. A strong digital presence captures the medical and tourism demographic.",
+      "local_insight": "Pharmacies, medical suppliers, and hospitality brands near Lamingo Dam thrive by optimizing for targeted 'near me' searches.",
+      "neighborhood_uniqueness": "Dominated by the massive Teaching Hospital and the scenic dam, Lamingo balances intense healthcare needs with natural tourism."
+    },
+    "tudun-wada": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Tudun Wada is a highly populated student and youth-centric area (near Unijos). Budgets are cost-effective and highly mobile-focused.",
+      "competitive_landscape": "The student demographic is hyper-online. E-commerce, tech repairs, and mobile-optimized entertainment sites dominate the local market.",
+      "local_insight": "Hostel agents, tech hubs, and affordable dining in Tudun Wada capture massive traffic by targeting Unijos-specific search queries.",
+      "neighborhood_uniqueness": "Tudun Wada is the hyper-active, student-fueled heartbeat of Jos, characterized by tight streets and non-stop micro-commerce."
+    }
+  },
+  
+  "calabar": {
+    "state-housing": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "State Housing Estate is a premium residential area. Businesses here serve civil servants and elites, requiring professional, clean web design.",
+      "competitive_landscape": "Trust and premium aesthetics are required. Service providers here must look highly professional to win local contracts.",
+      "local_insight": "Private clinics, elite schools, and real estate agencies in State Housing use corporate websites to target top-tier Calabar residents.",
+      "neighborhood_uniqueness": "State Housing Estate is a highly organized, leafy neighborhood favored by top civil servants, politicians, and established professionals."
+    },
+    "ekorinim": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 700000,
+      "price_context": "Ekorinim is a rapidly appreciating residential and hospitality hub. Businesses here have healthy budgets for modern, sleek platforms.",
+      "competitive_landscape": "The hospitality sector here is competitive. A premium, fast-loading website with reservations is mandatory for hotels and lounges.",
+      "local_insight": "Boutique hotels, premium retail, and high-end services in Ekorinim see massive ROI from visually rich, conversion-focused websites.",
+      "neighborhood_uniqueness": "Ekorinim has rapidly transformed into Calabar's premium hospitality and lifestyle hub, boasting modern estates and trendy lounges."
+    },
+    "marian-road": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Marian Road is Calabar's bustling commercial pulse. Budgets are geared towards retail, hospitality, and fast-moving consumer services.",
+      "competitive_landscape": "Traffic is heavy offline. Local SEO and fast-loading mobile sites help businesses capture commuters and the vibrant nightlife crowd.",
+      "local_insight": "Supermarkets, clubs, and corporate offices along Marian Road use digital upgrades to maintain market dominance and local authority.",
+      "neighborhood_uniqueness": "Marian Road is the undisputed commercial and nightlife artery of Calabar, rarely sleeping and constantly buzzing with retail."
+    },
+    "satellite-town": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Satellite Town is a growing residential district. Businesses focus on affordable, community-driven web presence to capture local families.",
+      "competitive_landscape": "Digital competition is moderate. Ranking on Google Maps for local services guarantees a steady stream of residential clients.",
+      "local_insight": "Hospitals, schools, and home service artisans in Satellite Town thrive by optimizing for 'near me' searches in the dense estates.",
+      "neighborhood_uniqueness": "Satellite Town provides a quiet, community-focused residential sprawl that caters heavily to the growing middle-class workforce."
+    },
+    "epz": {
+      "avg_cost_low": 300000,
+      "avg_cost_high": 1200000,
+      "price_context": "The Export Processing Zone (EPZ) is strictly industrial. Budgets are large, requiring complex portals for B2B corporate profiles and logistics.",
+      "competitive_landscape": "Websites must project absolute reliability and international compliance. Factories compete heavily for export/import contracts.",
+      "local_insight": "Manufacturing companies and logistics firms in the EPZ require highly secure websites to build trust with foreign investors and partners.",
+      "neighborhood_uniqueness": "The EPZ is a strictly regulated, high-security industrial free-trade zone focused entirely on manufacturing, export, and heavy logistics."
+    },
+    "8-miles": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "8 Miles is a major transit and entry point to the city. Budgets are cost-conscious, focused on capturing commuter and wholesale traffic.",
+      "competitive_landscape": "Visibility is primarily offline. A local business that launches a fully optimized website gains a massive advantage over offline rivals.",
+      "local_insight": "Agro-dealers, transport companies, and wholesalers at 8 Miles use basic, fast-loading websites to build trust and capture city-wide leads.",
+      "neighborhood_uniqueness": "8 Miles acts as the rugged, high-volume logistical gateway into Calabar, dominated by heavy transport and wholesale trade."
+    }
+  },
+
+  "asaba": {
+    "core-area": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "The Core Area houses government institutions and political figures who require top-tier, highly secure digital profiles.",
+      "competitive_landscape": "Brands here use websites as digital brochures for political and high-stakes corporate networking. Design must be impeccable.",
+      "local_insight": "Service providers located near the State Secretariat get high-value government contractor clients who verify representation online.",
+      "neighborhood_uniqueness": "The Core Area is the meticulously planned administrative nerve center of Delta State, defined by the Secretariat and elite estates."
+    },
+    "okpanam-road": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Okpanam Road is a rapidly expanding commercial and residential corridor. Businesses are investing in digital infrastructure to capture new growth.",
+      "competitive_landscape": "The market is growing fast. Early adopters with SEO-optimized sites are dominating local search for home and commercial services.",
+      "local_insight": "Real estate developers, premium supermarkets, and lounges along Okpanam Road use lead-capture websites to convert affluent residents.",
+      "neighborhood_uniqueness": "Okpanam Road is the fastest-appreciating corridor in Asaba, transforming from outskirts into a major hub of luxury retail and housing."
+    },
+    "nnebisi-road": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Nnebisi Road is the historic commercial artery. Budgets are solid, aimed at modernizing legacy trading businesses and professional services.",
+      "competitive_landscape": "The street is packed with banks and major distributors. SMEs here need websites to project the same level of corporate trust.",
+      "local_insight": "Wholesale distributors and legacy enterprises on Nnebisi Road are aggressively using digital portals to expand sales beyond Asaba.",
+      "neighborhood_uniqueness": "Nnebisi Road is the historical and relentless commercial spine of Asaba, carrying the bulk of the city's banking and retail traffic."
+    },
+    "infant-jesus": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Infant Jesus is a serene residential area. Businesses targeting residents here must have high-quality, trustworthy web presentations.",
+      "competitive_landscape": "Trust signals are critical. Businesses without a polished website struggle to convert the mid-to-high-income residents.",
+      "local_insight": "Private schools, premium healthcare, and specialized home services see the highest ROI from targeted SEO in the Infant Jesus axis.",
+      "neighborhood_uniqueness": "Infant Jesus is a serene, highly sought-after residential enclave known for its safety, good schools, and upper-middle-class calm."
+    },
+    "summit-road": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 700000,
+      "price_context": "Summit Road is a premium commercial intersection. Businesses here cater to corporate HQs, politicians, and upper-middle-class residents.",
+      "competitive_landscape": "Aesthetics and speed are critical. High-end hotels, corporate offices, and boutiques need visually striking sites to convert traffic.",
+      "local_insight": "Hospitality and corporate consultants on Summit Road heavily rely on SEO to capture executives and government contractors.",
+      "neighborhood_uniqueness": "Summit Road represents the polished, modern face of Asaba, lined with upscale hotels, event centers, and corporate headquarters."
+    }
+  },
+
+  "warri": {
+    "effurun": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 700000,
+      "price_context": "Effurun is the commercial and transit nerve center of the Warri metropolis. Budgets reflect strong retail, hospitality, and corporate SME presence.",
+      "competitive_landscape": "Traffic is heavy both offline and online. A fast-loading, mobile-friendly website captures the dense commuter and resident demographic.",
+      "local_insight": "Hotels, corporate suppliers, and retail hubs around the PTI junction require strong local SEO to capture immediate commercial demand.",
+      "neighborhood_uniqueness": "Effurun acts as the chaotic but highly lucrative commercial gateway to Warri, famous for the PTI junction and massive retail flow."
+    },
+    "enerhen": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Enerhen mixes heavy industry with local commerce. Budgets are tailored to factories, B2B services, and community-focused SMEs.",
+      "competitive_landscape": "The digital landscape is underdeveloped. A well-structured B2B website easily outranks traditional competitors relying on word-of-mouth.",
+      "local_insight": "Manufacturing companies and logistics businesses along Enerhen road need websites that highlight industrial capacity and fleet size.",
+      "neighborhood_uniqueness": "Enerhen is defined by its deep-rooted industrial layout, bridging heavy manufacturing with working-class residential zones."
+    },
+    "ptdf": {
+      "avg_cost_low": 300000,
+      "avg_cost_high": 1200000,
+      "price_context": "The PTDF area caters to oil and gas executives and elite training institutes. Budgets are premium, requiring highly professional, secure websites.",
+      "competitive_landscape": "Brands compete for lucrative energy sector retainers. A robust digital footprint is mandatory for corporate due diligence and contracts.",
+      "local_insight": "Engineering firms and specialized training centers near PTDF heavily rely on Google to capture high-end corporate and expat clients.",
+      "neighborhood_uniqueness": "The PTDF zone is an elite, highly academic, and corporate bubble focused intensely on petroleum training and oil sector dominance."
+    },
+    "edjeba": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Edjeba is a premium residential and corporate hub (near the Chevron footprint). Businesses serve the wealthy and require flawless digital branding.",
+      "competitive_landscape": "Exclusivity and trust are the main selling points. Websites must have premium UI/UX design to match the expectations of oil sector residents.",
+      "local_insight": "High-end real estate, luxury hospitality, and elite private practices thrive here when their digital footprint reflects corporate luxury.",
+      "neighborhood_uniqueness": "Edjeba is heavily influenced by the Chevron facility, creating a highly secure, upscale residential haven for oil executives."
+    },
+    "udu": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Udu is a massive, densely populated suburb across the bridge. Budgets are highly conservative, focusing strictly on functional SME websites.",
+      "competitive_landscape": "Digital adoption is growing. A simple, fast website provides immediate local authority over competitors using only offline marketing.",
+      "local_insight": "Local schools, agro-allied businesses, and retail stores in Udu see massive success with mobile-first websites integrated with local maps.",
+      "neighborhood_uniqueness": "Udu is a massive, highly populated twin-city across the river, marked by dense everyday commerce and local industrial plants."
+    },
+    "ogun": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Ogunu is an elite oil-company residential enclave (Shell footprint). Budgets are premium, tailored to businesses offering exclusive services.",
+      "competitive_landscape": "Trust and premium aesthetics are required. Service providers here must look internationally competitive to win high-level contracts.",
+      "local_insight": "Elite private schools, specialized clinics, and corporate B2B services in Ogunu use corporate websites to target top-tier oil executives.",
+      "neighborhood_uniqueness": "Ogunu's identity is inextricably linked to the SPDC (Shell) residential area, demanding absolute premium, heavily vetted services."
+    }
+  },
+
+  "owerri": {
+    "ikenegbu": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Ikenegbu is a vibrant commercial and residential hub. Budgets are geared towards retail, hospitality, and fast-moving consumer services.",
+      "competitive_landscape": "The crowd is young and digital-first. Mobile-optimized, visually appealing websites with booking engines dominate here.",
+      "local_insight": "Lounges, boutiques, and tech startups in Ikenegbu use vibrant web design and local SEO to capture Owerri's massive student and youth population.",
+      "neighborhood_uniqueness": "Ikenegbu is the high-energy, upscale retail heartbeat of Owerri, packed with chic boutiques, eateries, and a youthful, affluent crowd."
+    },
+    "aladinma": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Aladinma houses major institutions (IMSU, FMC). Budgets are focused on student-centric services, healthcare, and residential real estate.",
+      "competitive_landscape": "The demographic searches online for everything. Businesses without a strong mobile web presence are completely invisible to them.",
+      "local_insight": "Medical laboratories near FMC and hostel agents near IMSU capture massive volume through targeted, mobile-first local SEO.",
+      "neighborhood_uniqueness": "Anchored by IMSU and the Federal Medical Centre, Aladinma blends intense student life with a high concentration of healthcare services."
+    },
+    "new-owerri": {
+      "avg_cost_low": 300000,
+      "avg_cost_high": 1000000,
+      "price_context": "New Owerri is the premium hospitality and corporate capital. Budgets are high, demanding luxury aesthetics and high-end booking portals.",
+      "competitive_landscape": "The hospitality sector here is fiercely competitive. A premium, fast-loading website with reservations is mandatory for top hotels.",
+      "local_insight": "High-end resorts, elite clubs, and corporate consultants in New Owerri use digital branding to capture politicians, diaspora, and expats.",
+      "neighborhood_uniqueness": "New Owerri is the undisputed hospitality capital of the East, famous for its sprawling boulevards, luxury hotels, and mega-clubs."
+    },
+    "world-bank": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "World Bank Estate is a massive, densely populated residential area. Businesses focus on affordable, community-driven web presence.",
+      "competitive_landscape": "Digital competition is moderate. Ranking on Google Maps for local services guarantees a steady stream of residential clients.",
+      "local_insight": "Hospitals, schools, and home service artisans in World Bank thrive by optimizing for 'near me' searches in the dense housing zones.",
+      "neighborhood_uniqueness": "World Bank Estate is an enormous residential grid that functions as a self-sustaining micro-city for Owerri's working and middle classes."
+    },
+    "amakohia": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Amakohia is a growing residential and transit corridor. Budgets are modest, focusing on lead generation and simple portfolios.",
+      "competitive_landscape": "Local visibility offline is tough due to traffic. A solid local SEO strategy helps businesses stand out easily on mobile maps.",
+      "local_insight": "Building materials vendors and local real estate agents along Amakohia use websites to broadcast their services to new home builders.",
+      "neighborhood_uniqueness": "Amakohia acts as a major transitional corridor, bridging the bustling city center with quieter, expanding northern residential suburbs."
+    },
+    "orji": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Orji is rapidly expanding with a mix of students and new residents. Budgets are cost-effective and highly mobile-focused.",
+      "competitive_landscape": "Visibility is primarily offline. A local business that launches a fully optimized website gains a massive advantage over offline rivals.",
+      "local_insight": "Hostel agents, local logistics, and affordable dining in Orji capture massive traffic by targeting youth and new resident search queries.",
+      "neighborhood_uniqueness": "Orji is rapidly urbanizing, heavily influenced by student overspill and the rugged, everyday commerce along the Okigwe road axis."
+    }
+  },
+
+  "aba": {
+    "gra": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Aba GRA caters to wealthy industrialists, top-tier business owners, and corporate executives who expect professional digital platforms.",
+      "competitive_landscape": "Brands in GRA compete on corporate prestige. Websites must project immense authority to reflect top-tier manufacturing status.",
+      "local_insight": "High-end real estate, corporate legal firms, and elite schools in Aba GRA highlight their premium services online to capture affluent residents.",
+      "neighborhood_uniqueness": "Aba GRA is a quiet, heavily guarded oasis of old money and industrial wealth amid the otherwise chaotic manufacturing hub."
+    },
+    "umungasi": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Umungasi is a busy commercial and residential transit route. Budgets reflect strong retail, hospitality, and corporate SME presence.",
+      "competitive_landscape": "Traffic is heavy offline. Local SEO and fast-loading mobile sites help businesses capture commuters and local residents.",
+      "local_insight": "Auto dealers, transport companies, and retail outlets in Umungasi use websites to drive foot traffic and handle remote inquiries.",
+      "neighborhood_uniqueness": "Umungasi is a prime commercial artery that captures the heavy commuter flow entering the city, deeply rooted in auto and transport trade."
+    },
+    "osisioma": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 750000,
+      "price_context": "Osisioma is a major industrial and logistics hub. Pricing reflects the need for functional B2B portals, factory profiles, and export logistics.",
+      "competitive_landscape": "Factories here compete nationally. Websites must feature production capacity, certifications, and B2B wholesale portals.",
+      "local_insight": "Manufacturing companies and haulage logistics hubs in Osisioma use their digital platforms to secure nationwide distribution networks.",
+      "neighborhood_uniqueness": "Osisioma is the undeniable heavy industrial and haulage capital of Aba, dominated by massive depots, factories, and truck logistics."
+    },
+    "ogbor-hill": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Ogbor Hill is a densely populated residential and emerging commercial area. Businesses require functional, affordable websites to build trust.",
+      "competitive_landscape": "Most businesses rely on physical storefronts. A dedicated website instantly positions a local brand as the premium choice in the area.",
+      "local_insight": "Private clinics, schools, and agro-allied businesses in Ogbor Hill use basic, fast-loading websites to build trust and capture referrals.",
+      "neighborhood_uniqueness": "Separated by the waterside, Ogbor Hill is a massive, sprawling residential domain that supports the workforce of the main city."
+    },
+    "ariaria": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Ariaria is one of West Africa's largest manufacturing and trade markets. Budgets reflect massive trade volumes requiring robust e-commerce.",
+      "competitive_landscape": "Traditional practices dominate, but top manufacturers are moving online. B2B e-commerce platforms are highly lucrative here.",
+      "local_insight": "Shoe and garment manufacturers in Ariaria require robust websites to handle nationwide wholesale orders and international export logistics.",
+      "neighborhood_uniqueness": "Ariaria is globally recognized as the 'China of Africa', an overwhelmingly massive hub for indigenous manufacturing and international wholesale."
+    }
+  },
+
+  "onitsha": {
+    "gra": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Onitsha GRA is home to wealthy industrialists, top importers, and expatriates who demand premium, highly secure digital profiles.",
+      "competitive_landscape": "Corporate prestige is paramount. Websites here must project immense authority to match the multi-million naira import/export deals negotiated daily.",
+      "local_insight": "Major importers and legacy businesses in Onitsha GRA use corporate websites primarily to build trust with their Asian and European manufacturing partners.",
+      "neighborhood_uniqueness": "Onitsha GRA is an exclusive, highly secured enclave of extreme wealth, housing the billionaire importers and industrialists who control the city."
+    },
+    "fegge": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Fegge borders the Main Market. Budgets reflect massive wholesale trade volumes requiring fast, highly functional B2B catalogs.",
+      "competitive_landscape": "Traditional offline trading still dominates, but leading merchants are adopting e-commerce to sell nationwide without buyers visiting the market.",
+      "local_insight": "Wholesale distributors in Fegge rely heavily on lightweight, WhatsApp-integrated websites to handle bulk orders from other states.",
+      "neighborhood_uniqueness": "Fegge is intensely commercial, acting as the immediate residential and warehousing spillover for the legendary Onitsha Main Market."
+    },
+    "awada": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Awada is a dense residential and commercial mix. Budgets are cost-conscious, focused on local visibility and essential SME services.",
+      "competitive_landscape": "Local SEO is a blue ocean here. A functional, mobile-friendly website instantly ranks highly for localized 'near me' service searches.",
+      "local_insight": "Private clinics, local logistics, and schools in Awada see significant growth by moving from pure word-of-mouth to Google Business listings.",
+      "neighborhood_uniqueness": "Awada is a chaotic, incredibly dense residential layout that houses the massive workforce driving the commercial city."
+    },
+    "woliwo": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "Woliwo handles heavy industrial logistics and warehousing. Pricing reflects the need for corporate profiles and inventory portals.",
+      "competitive_landscape": "B2B credibility is key. Haulage companies and warehouse managers compete for contracts with major manufacturers.",
+      "local_insight": "Logistics firms operating out of Woliwo require websites that clearly display fleet capacity, warehouse sizes, and security certifications.",
+      "neighborhood_uniqueness": "Woliwo is the gritty, heavy-lifting backbone of Onitsha, dominated by massive warehouses, articulated trucks, and logistics yards."
+    },
+    "omagba": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 550000,
+      "price_context": "Omagba is a growing, structured residential estate area. Businesses cater to middle-class residents demanding professional services.",
+      "competitive_landscape": "Visibility is primarily offline. First-movers who launch modern websites for home and retail services dominate the estate market.",
+      "local_insight": "Pharmacies, supermarkets, and premium home service artisans in Omagba rely on localized SEO to capture the estate's affluent families.",
+      "neighborhood_uniqueness": "Omagba provides a structured, modern residential alternative for middle-class professionals seeking order away from the intense market hustle."
+    }
+  },
+
+  "awka": {
+    "ngozika-estate": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Ngozika Estate is a premium residential zone for political figures and wealthy returnees. Budgets are high for luxury, trust-building web design.",
+      "competitive_landscape": "Exclusivity is critical. Service providers targeting this estate must have a highly polished digital presence to be taken seriously.",
+      "local_insight": "Luxury real estate developers and high-end security firms in Ngozika heavily rely on visual, premium web design to convert elite clients.",
+      "neighborhood_uniqueness": "Ngozika Estate is Awka's most prestigious address, characterized by extravagant mansions, tight security, and returning diaspora wealth."
+    },
+    "udoka-estate": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 700000,
+      "price_context": "Udoka Estate houses senior government workers and professionals. Budgets support professional, lead-generating corporate websites.",
+      "competitive_landscape": "Brands compete on reliability. A well-structured website builds the necessary trust required by the educated, professional demographic.",
+      "local_insight": "Specialized clinics, elite schools, and corporate consultants in Udoka Estate use digital branding to justify premium pricing.",
+      "neighborhood_uniqueness": "Udoka Estate is the highly organized, serene domain of Awka's top civil servants, professors, and established professionals."
+    },
+    "agu-awka": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Agu Awka is the administrative and political hub. Businesses here require highly secure, corporate-grade digital platforms.",
+      "competitive_landscape": "Government contractors need credibility-first websites to pass strict procurement verifications during state bidding processes.",
+      "local_insight": "Firms located near the State Secretariat get high-value government contractor clients who verify representation online before engaging.",
+      "neighborhood_uniqueness": "Agu Awka is the bureaucratic heart of Anambra State, defined by sprawling government secretariats and intense political activity."
+    },
+    "unizik-junction": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Unizik Junction is hyper-commercial and student-heavy. Budgets are cost-effective, prioritizing mobile speed and booking features.",
+      "competitive_landscape": "The student demographic searches online for everything. Businesses without a strong mobile web presence are completely invisible to them.",
+      "local_insight": "Tech repair hubs, fast-food delivery, and transport logistics at Unizik Junction capture massive volume through mobile-first local SEO.",
+      "neighborhood_uniqueness": "Unizik Junction is a chaotic, neon-lit hive of student activity, interstate transport, and relentless 24-hour retail."
+    },
+    "okpuno": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Okpuno is rapidly expanding to absorb student and new-resident overspill. Budgets are modest, focusing on lead generation.",
+      "competitive_landscape": "Local visibility is offline. A solid local SEO strategy helps businesses stand out easily on mobile maps as the area populates.",
+      "local_insight": "Hostel agents and local real estate developers in Okpuno use websites to broadcast housing availability to students and young professionals.",
+      "neighborhood_uniqueness": "Okpuno is heavily defined by its massive concentration of student hostels, rapidly transforming into a dense, youth-driven suburb."
+    }
+  },
+
+  "ilorin": {
+    "gra": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Ilorin GRA houses top political figures, academics, and elites. Budgets are premium, demanding highly professional, clean web design.",
+      "competitive_landscape": "Trust and premium aesthetics are required. Service providers here must look highly professional to win lucrative local contracts.",
+      "local_insight": "Premium hospitality, elite private schools, and specialized medical centers in Ilorin GRA use corporate websites to target top-tier residents.",
+      "neighborhood_uniqueness": "Ilorin GRA is defined by its quiet exclusivity, acting as the serene sanctuary for top politicians, judges, and senior academics."
+    },
+    "tanke": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Tanke is driven by the UNILORIN ecosystem. Budgets are student-focused, requiring fast, e-commerce, and mobile-friendly setups.",
+      "competitive_landscape": "The student population is highly digital. Brands must have socially integrated, mobile-first websites to capture the youth market.",
+      "local_insight": "Hostel agents, tech hubs, and affordable dining in Tanke capture massive traffic by targeting UNILORIN-specific search queries.",
+      "neighborhood_uniqueness": "Tanke is the undisputed student capital of Ilorin, functioning as a vibrant, retail-heavy corridor heavily influenced by university culture."
+    },
+    "taiwo-road": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Taiwo Road is Ilorin's busiest commercial artery. Budgets are geared towards retail, electronics, and fast-moving consumer services.",
+      "competitive_landscape": "Traffic is heavy offline. Local SEO and fast-loading mobile sites help businesses capture commuters and active shoppers.",
+      "local_insight": "Electronics dealers, boutiques, and corporate offices along Taiwo Road use digital catalogs to maintain market dominance.",
+      "neighborhood_uniqueness": "Taiwo Road is Ilorin's 'High Street', an immensely busy commercial boulevard packed with banks, electronics plazas, and major retailers."
+    },
+    "fate": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Fate mixes high-end residential with emerging SMEs. Budgets are moderate, requiring professional portals and SME retail sites.",
+      "competitive_landscape": "Visibility relies on speed and modern design. A well-structured website easily outranks competitors relying strictly on social media.",
+      "local_insight": "Lounges, private clinics, and modern retail in Fate use vibrant web design and local SEO to capture the city's middle class.",
+      "neighborhood_uniqueness": "Fate uniquely balances calm, upscale residential living with a rising tide of modern cafes, lounges, and contemporary SMEs."
+    },
+    "adewole": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Adewole is an established residential district. Businesses focus on affordable, community-driven web presence to capture local families.",
+      "competitive_landscape": "Digital competition is moderate. Ranking on Google Maps for local services guarantees a steady stream of residential clients.",
+      "local_insight": "Hospitals, schools, and home service artisans in Adewole thrive by optimizing for 'near me' searches in the housing zones.",
+      "neighborhood_uniqueness": "Adewole is a sprawling, deeply established housing estate characterized by generational family homes and quiet, communal living."
+    },
+    "gaa-akanbi": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Gaa Akanbi is a busy intersection for local trade. Budgets prioritize lead generation, transport logistics, and SME visibility.",
+      "competitive_landscape": "Most businesses rely on physical storefronts. A dedicated website instantly positions a local brand as the premium choice in the area.",
+      "local_insight": "Agro-allied businesses, local logistics, and traditional traders in Gaa Akanbi use basic, fast-loading websites to build trust.",
+      "neighborhood_uniqueness": "Gaa Akanbi serves as a vital, high-density junction for local commerce, deeply tied to everyday artisanal services and transport."
+    }
+  },
+
+  "akure": {
+    "alagbaka": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Alagbaka is Akure's premium corporate and government hub. Clients expect enterprise-grade digital platforms and corporate compliance.",
+      "competitive_landscape": "Brands compete on prestige. Websites must project immense authority to secure retainers from state parastatals and major banks.",
+      "local_insight": "Corporate legal firms, financial consultants, and government contractors in Alagbaka highlight their premium portfolios online.",
+      "neighborhood_uniqueness": "Alagbaka is the distinguished administrative and corporate face of Akure, lined with bank headquarters and the State Secretariat."
+    },
+    "ijapo": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 700000,
+      "price_context": "Ijapo Estate represents old wealth and affluent retirees. Businesses here need polished, professional, and highly trustworthy web design.",
+      "competitive_landscape": "Competition relies on legacy. A high-end website helps newer firms disrupt established, older practices that lack a digital footprint.",
+      "local_insight": "Premium real estate developers, top-tier schools, and specialized clinics in Ijapo require immaculate branding to convert residents.",
+      "neighborhood_uniqueness": "Ijapo is the classic 'old money' estate of Akure, maintaining an aura of quiet wealth, large properties, and exclusivity."
+    },
+    "oba-ile": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 550000,
+      "price_context": "Oba Ile is an expanding residential axis. Businesses are investing in digital infrastructure to capture new home-owners and families.",
+      "competitive_landscape": "The corridor is highly competitive for building materials and home services. Fast, mobile-responsive sites win the market.",
+      "local_insight": "Interior decorators, private schools, and real estate agents along Oba Ile heavily utilize SEO to target the influx of new residents.",
+      "neighborhood_uniqueness": "Oba Ile is Akure's fastest-expanding suburban frontier, drawing the new middle class into modern, structured housing developments."
+    },
+    "oda-road": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Oda Road is a rapidly developing commercial and residential corridor. Budgets are tailored to community-focused SMEs.",
+      "competitive_landscape": "Local visibility is strictly offline. A local business that launches a fully optimized website gains a massive regional advantage.",
+      "local_insight": "Pharmacies, supermarkets, and local artisans on Oda Road see strong conversion rates from mobile searches for local services.",
+      "neighborhood_uniqueness": "Oda Road is a deeply communal but rapidly modernizing corridor, connecting traditional city roots with new urban sprawl."
+    },
+    "futa": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "FUTA area is heavily anchored by the tech-savvy student population. Budgets are cost-effective and highly mobile-focused.",
+      "competitive_landscape": "The student demographic is hyper-online. E-commerce, tech repairs, and mobile-optimized entertainment sites dominate.",
+      "local_insight": "Hostel agents, tech hubs, and affordable dining around FUTA capture massive traffic by targeting university-specific search queries.",
+      "neighborhood_uniqueness": "The FUTA zone is the technology and youth epicenter of Akure, teeming with student hostels, cyber cafes, and late-night retail."
+    },
+    "ado-road": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Ado Road is a major transit and trading entry point. Budgets are cost-conscious, focused on capturing commuter and wholesale traffic.",
+      "competitive_landscape": "Visibility is primarily offline. A local business that launches a fully optimized website gains a massive advantage over offline rivals.",
+      "local_insight": "Agro-dealers, transport companies, and wholesalers on Ado Road use fast-loading websites to build trust and capture inter-state leads.",
+      "neighborhood_uniqueness": "Ado Road serves as the gritty, high-volume interstate artery connecting Akure to Ekiti, dominated by haulage and wholesale."
+    }
+  },
+
+  "abeokuta": {
+    "ibara": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Ibara is a premium residential and commercial zone. Businesses cater to politicians and elites, requiring professional, clean web design.",
+      "competitive_landscape": "Trust and premium aesthetics are required. Service providers here must look highly professional to win local high-end contracts.",
+      "local_insight": "Premium hospitality, elite private schools, and real estate agencies in Ibara use corporate websites to target top-tier residents.",
+      "neighborhood_uniqueness": "Ibara is the upscale, polished heart of Abeokuta, housing the Government House, premium estates, and the city's political elite."
+    },
+    "kuto": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Kuto is a major market and transit hub. The demand is for fast, accessible e-commerce, local retail, and transport business profiles.",
+      "competitive_landscape": "Traffic is heavy offline. Local SEO and fast-loading mobile sites help businesses capture commuters and massive market crowds.",
+      "local_insight": "Wholesale distributors and logistics hubs in Kuto use simple landing pages to funnel nationwide leads directly to their sales teams.",
+      "neighborhood_uniqueness": "Kuto is defined by its massive, chaotic market and central motor park, acting as the primary engine for local city trade."
+    },
+    "idi-aba": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Idi Aba focuses on healthcare (near FMC) and growing residential sectors. Budgets require functional, affordable, trust-building websites.",
+      "competitive_landscape": "Digital adoption is growing. Early movers using optimized landing pages easily stand out from offline-only medical competitors.",
+      "local_insight": "Private healthcare, medical labs, and residential real estate in Idi Aba use local search to target patients and new families.",
+      "neighborhood_uniqueness": "Anchored by the Federal Medical Centre, Idi Aba is heavily influenced by the healthcare sector and an expanding residential base."
+    },
+    "camp": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Camp is the FUNAAB student hub. Budgets are student-focused, requiring fast, e-commerce, and mobile-friendly setups.",
+      "competitive_landscape": "The student population searches online for everything. Businesses without a strong mobile web presence are completely invisible to them.",
+      "local_insight": "Hostel agents, tech retailers, and affordable hospitality brands in Camp capture massive volume through targeted local SEO.",
+      "neighborhood_uniqueness": "Camp is a high-energy satellite town driven entirely by the FUNAAB student demographic, buzzing with hostels and student commerce."
+    },
+    "oke-ilewo": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 700000,
+      "price_context": "Oke Ilewo is the central business district. Budgets are solid, aimed at modernizing legacy businesses, banks, and professional services.",
+      "competitive_landscape": "The street is packed with corporate offices. SMEs here need websites to project the same level of corporate trust as the banks.",
+      "local_insight": "Law firms, accounting practices, and legacy trading companies in Oke Ilewo use digital upgrades to appeal to younger corporate clients.",
+      "neighborhood_uniqueness": "Oke Ilewo is the modern commercial nerve center, lined with high-rise bank headquarters, corporate offices, and urban retail."
+    },
+    "onikolobo": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Onikolobo is a vibrant, youth-centric commercial hub. Budgets are geared towards retail, hospitality, and fast-moving consumer services.",
+      "competitive_landscape": "The crowd is young and digital-first. Mobile-optimized, visually appealing websites with booking engines dominate here.",
+      "local_insight": "Lounges, boutiques, and tech startups in Onikolobo use vibrant web design and local SEO to capture the city's youth and middle class.",
+      "neighborhood_uniqueness": "Onikolobo acts as the primary lifestyle and entertainment spine for Abeokuta's youth, packed with lounges, eateries, and boutiques."
+    }
+  },
+
+  "ile-ife": {
+    "modakeke": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Modakeke is a highly dense, traditional commercial area. Budgets are highly conservative, focusing strictly on functional SME websites.",
+      "competitive_landscape": "Digital adoption is low. A simple, fast website provides immediate local authority over competitors using only offline marketing.",
+      "local_insight": "Local schools, agro-allied businesses, and retail stores in Modakeke see success with mobile-first websites integrated with WhatsApp.",
+      "neighborhood_uniqueness": "Modakeke is a fiercely independent, highly dense, and deeply traditional community driven by raw, everyday commerce."
+    },
+    "lagere": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Lagere is the commercial heart of Ife. Budgets are focused on modernizing legacy trading, retail, and financial businesses.",
+      "competitive_landscape": "Visibility is highly competitive offline. Local SEO and fast-loading mobile sites help businesses capture commuters and local residents.",
+      "local_insight": "Electronics dealers, corporate suppliers, and retail hubs in Lagere require strong local SEO to capture immediate commercial demand.",
+      "neighborhood_uniqueness": "Lagere is the chaotic, central commercial crossroad of Ile-Ife, heavily saturated with banks, transport parks, and major retail."
+    },
+    "mayfair": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Mayfair is a premium residential and hospitality zone for expats and top academics. Budgets are high, demanding luxury aesthetics.",
+      "competitive_landscape": "The hospitality and lounge sector here is fiercely competitive. A premium, fast-loading website with reservations is mandatory.",
+      "local_insight": "High-end restaurants, boutique hotels, and corporate consultants in Mayfair use digital branding to capture university elites and expats.",
+      "neighborhood_uniqueness": "Mayfair is the most modernized, affluent corridor in the city, serving as the premium lifestyle hub for professors and expatriates."
+    },
+    "oau-campus": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "OAU Campus and its immediate environs are student-dominated. Budgets are cost-effective and highly mobile-focused.",
+      "competitive_landscape": "The student demographic is hyper-online. E-commerce, booking platforms, and mobile-optimized sites dominate the local market.",
+      "local_insight": "Tech hubs, print shops, and affordable dining in OAU capture massive traffic by targeting university-specific search queries.",
+      "neighborhood_uniqueness": "The OAU environment is a massive intellectual and cultural bubble, dictating a micro-economy driven entirely by student needs."
+    },
+    "eparun": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Eparun is a growing residential district. Businesses focus on affordable, community-driven web presence to capture local families.",
+      "competitive_landscape": "Digital competition is moderate. Ranking on Google Maps for local services guarantees a steady stream of residential clients.",
+      "local_insight": "Hospitals, schools, and home service artisans in Eparun thrive by optimizing for 'near me' searches in the dense estates.",
+      "neighborhood_uniqueness": "Eparun is rapidly transforming into a structured residential layout for Ife's growing class of civil servants and educators."
+    }
+  },
+
+  "ilesa": {
+    "imo": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "Imo caters to wealthy returnees, diaspora retirees, and elite residents. Budgets are premium, requiring highly professional websites.",
+      "competitive_landscape": "Trust signals are critical. Businesses without a polished website struggle to convert high-income diaspora residents building homes here.",
+      "local_insight": "Premium real estate developers, specialized clinics, and elite schools in Imo require immaculate digital branding.",
+      "neighborhood_uniqueness": "Imo is known for its sprawling mansions and quiet affluence, heavily favored by returning diaspora and wealthy retirees."
+    },
+    "isokun": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Isokun is a major educational and commercial route. Budgets are moderate, focusing on lead generation and essential SME visibility.",
+      "competitive_landscape": "Traffic is heavy offline. Local SEO and fast-loading mobile sites help businesses capture commuters and student traffic.",
+      "local_insight": "Private schools, retail outlets, and local hospitals in Isokun use simple landing pages to build trust and capture city-wide referrals.",
+      "neighborhood_uniqueness": "Isokun balances its deep educational heritage with a thriving, highly visible commercial street layout."
+    },
+    "ilaje": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Ilaje is a densely populated trading area. Budgets are highly conservative, focusing strictly on functional, mobile-friendly websites.",
+      "competitive_landscape": "Most businesses rely on physical storefronts. A dedicated website instantly positions a local brand as the premium choice in the area.",
+      "local_insight": "Agro-dealers and wholesalers in Ilaje use basic, fast-loading websites to build trust and capture inter-state logistics leads.",
+      "neighborhood_uniqueness": "Ilaje is a gritty, high-energy trading district deeply connected to interstate agricultural and wholesale logistics."
+    },
+    "oke-oye": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Oke Oye is the historical commercial center. Budgets are solid, aimed at modernizing legacy trading businesses and retail.",
+      "competitive_landscape": "Traditional practices dominate, but wholesale traders are rapidly moving online. E-commerce platforms are highly lucrative here.",
+      "local_insight": "Legacy trading companies and distributors in Oke Oye are aggressively using digital portals to expand sales nationwide.",
+      "neighborhood_uniqueness": "Oke Oye is the historical heartbeat of Ilesa's commerce, dominated by generational traders and large wholesale distributors."
+    }
+  },
+
+  "ede": {
+    "agbale": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Agbale is rapidly developing due to Adeleke University proximity. Budgets are student and academic-focused, requiring modern setups.",
+      "competitive_landscape": "The student and staff population searches online for everything. Businesses without a mobile web presence are completely invisible.",
+      "local_insight": "Hostel agents, tech retailers, and hospitality brands in Agbale capture massive volume through targeted university local SEO.",
+      "neighborhood_uniqueness": "Agbale has fundamentally transformed into an academic and student-driven hub due to the presence of Adeleke University."
+    },
+    "oke-egada": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Oke Egada is a primary commercial intersection. The demand is for fast, accessible local retail and wholesale business profiles.",
+      "competitive_landscape": "Visibility relies on speed and direct contact. Websites must be aggressively mobile-optimized for traders on the move.",
+      "local_insight": "Wholesale distributors and local logistics hubs in Oke Egada use simple landing pages to funnel leads directly to their WhatsApp.",
+      "neighborhood_uniqueness": "Oke Egada is the vital commercial junction of Ede, characterized by heavy motor traffic and essential goods trading."
+    },
+    "babanla": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 300000,
+      "price_context": "Babanla is a traditional, densely populated residential area. Budgets are highly conservative, requiring simple SME landing pages.",
+      "competitive_landscape": "Digital adoption is low. A simple, fast website provides immediate local authority over competitors using only word-of-mouth.",
+      "local_insight": "Local clinics, schools, and agro-allied businesses in Babanla see massive success with mobile-first websites.",
+      "neighborhood_uniqueness": "Babanla is the deep traditional core of the town, heavily focused on community-based, tight-knit residential living."
+    }
+  },
+
+  "makurdi": {
+    "high-level": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "High Level is the vibrant commercial center. Budgets are geared towards retail, hospitality, and fast-moving consumer services.",
+      "competitive_landscape": "Traffic is heavy both offline and online. A fast-loading, mobile-friendly website captures the dense commuter demographic.",
+      "local_insight": "Supermarkets, clubs, and corporate offices in High Level use digital upgrades to maintain market dominance and local authority.",
+      "neighborhood_uniqueness": "High Level is the lively, modern heartbeat of Makurdi, renowned for its nightlife, major banks, and concentrated retail."
+    },
+    "wurukum": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Wurukum is a massive market and transit hub. The demand is for corporate profiles, travel portals, and fast wholesale sites.",
+      "competitive_landscape": "Transport companies and agro-dealers compete for nationwide visibility. Fast load times and clear contact portals are critical.",
+      "local_insight": "Agro-allied distributors and interstate transport companies based in Wurukum heavily require online routing and contact platforms.",
+      "neighborhood_uniqueness": "Wurukum is defined by its massive roundabout and market, acting as the primary logistical and agricultural gateway of Benue."
+    },
+    "north-bank": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "North Bank hosts the military and university crowds. Budgets are tailored to community-focused SMEs and student services.",
+      "competitive_landscape": "The youth demographic is hyper-online. E-commerce, booking platforms, and mobile-optimized sites dominate the local market.",
+      "local_insight": "Hostel agents, tech hubs, and affordable dining in North Bank capture massive traffic by targeting university search queries.",
+      "neighborhood_uniqueness": "Separated by the river, North Bank is a distinct micro-economy driven heavily by military bases and university activity."
+    },
+    "wadata": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Wadata is a highly dense riverside trading area. Budgets reflect massive trade volumes requiring simple but robust B2B catalogs.",
+      "competitive_landscape": "Most businesses rely on physical storefronts. A dedicated website instantly positions a local brand as the premium choice.",
+      "local_insight": "Trading companies and wholesalers in Wadata use basic, fast-loading websites to build trust and capture nationwide agricultural orders.",
+      "neighborhood_uniqueness": "Wadata is a highly traditional, riverside trading enclave focused deeply on wholesale commerce and inter-state river transport."
+    },
+    "nyiman": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Nyiman is an expanding residential layout. Businesses are investing in digital infrastructure to serve new estate owners.",
+      "competitive_landscape": "The market is growing fast. Early adopters with SEO-optimized sites are dominating local search for home and family services.",
+      "local_insight": "Real estate developers, premium supermarkets, and private schools in Nyiman use lead-capture websites to convert new residents.",
+      "neighborhood_uniqueness": "Nyiman represents the new, structured suburban sprawl of Makurdi, attracting civil servants and mid-level professionals."
+    }
+  },
+
+  "minna": {
+    "tunga": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Tunga is the premium commercial and residential hub of Minna. Clients expect professional, highly secure corporate websites.",
+      "competitive_landscape": "Brands use websites as digital brochures for government and high-stakes corporate networking. Design must be impeccable.",
+      "local_insight": "Service providers located in Tunga get high-value government contractor clients who verify representation online before engaging.",
+      "neighborhood_uniqueness": "Tunga is the administrative and affluent center of Minna, housing the government elite, top hotels, and serene layouts."
+    },
+    "bosso": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Bosso is anchored by FUTMinna. Budgets are student-focused, requiring fast, e-commerce, and mobile-friendly setups.",
+      "competitive_landscape": "The student population is highly digital. Brands must have socially integrated, mobile-first websites to capture the youth market.",
+      "local_insight": "Hostel agents, tech hubs, and affordable dining in Bosso capture massive traffic by targeting FUTMinna-specific search queries.",
+      "neighborhood_uniqueness": "Bosso is a hyper-active university town, whose entire retail and housing economy revolves around the massive FUTMinna population."
+    },
+    "chanchaga": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Chanchaga is a major transit and trading entry point. Budgets are cost-conscious, focused on capturing commuter and wholesale traffic.",
+      "competitive_landscape": "Visibility is primarily offline. A local business that launches a fully optimized website gains a massive advantage over rivals.",
+      "local_insight": "Agro-dealers, transport companies, and wholesalers in Chanchaga use fast-loading websites to build trust and capture inter-state leads.",
+      "neighborhood_uniqueness": "Chanchaga serves as the strategic entry point to the city, dominated by heavy haulage, water works, and major transit routes."
+    },
+    "maitumbi": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Maitumbi is a growing, densely populated residential area. Businesses focus on affordable, community-driven web presence.",
+      "competitive_landscape": "Digital competition is low. Ranking on Google Maps for local services guarantees a steady stream of residential clients.",
+      "local_insight": "Hospitals, schools, and home service artisans in Maitumbi thrive by optimizing for 'near me' searches in the housing zones.",
+      "neighborhood_uniqueness": "Maitumbi is a highly dense, community-oriented residential layout, expanding rapidly up the hillside."
+    },
+    "dutsen-kura": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Dutsen Kura is a central, established neighborhood. Budgets are moderate, requiring functional portals and SME retail sites.",
+      "competitive_landscape": "Visibility relies on speed and modern design. A well-structured website easily outranks competitors relying strictly on word-of-mouth.",
+      "local_insight": "Private clinics, real estate agents, and modern retail in Dutsen Kura use local SEO to capture the city's middle class.",
+      "neighborhood_uniqueness": "Dutsen Kura acts as a sprawling, structured middle-class suburb with strong local markets and quiet residential streets."
+    }
+  },
+
+  "sokoto": {
+    "wamakko": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Wamakko is driven by the university ecosystem. Budgets are student and academic-focused, requiring modern, mobile-first setups.",
+      "competitive_landscape": "The student demographic searches online for everything. Businesses without a strong mobile web presence are completely invisible.",
+      "local_insight": "Hostel agents, tech retailers, and hospitality brands in Wamakko capture massive volume through targeted university local SEO.",
+      "neighborhood_uniqueness": "Wamakko is heavily defined by Usmanu Danfodiyo University, creating a fast-paced, youth-driven digital micro-economy."
+    },
+    "bodinga": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Bodinga is a major local government and transit hub. Budgets are cost-conscious, prioritizing lead generation and logistics visibility.",
+      "competitive_landscape": "Visibility is highly competitive offline. Local SEO and fast-loading mobile sites help businesses capture commuters and agro-traders.",
+      "local_insight": "Agro-allied distributors and transport companies based in Bodinga heavily require online routing and contact platforms.",
+      "neighborhood_uniqueness": "Bodinga is a critical agricultural and logistical crossroads, connecting the deep rural north to Sokoto's urban markets."
+    },
+    "runjin-sambo": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 700000,
+      "price_context": "Runjin Sambo houses top political figures and elites. Budgets are premium, demanding highly professional, clean web design.",
+      "competitive_landscape": "Trust and premium aesthetics are required. Service providers here must look highly professional to win local high-end contracts.",
+      "local_insight": "Premium hospitality, elite private schools, and specialized medical centers in Runjin Sambo use corporate websites to target top-tier residents.",
+      "neighborhood_uniqueness": "Runjin Sambo is the polished, high-security enclave for Sokoto's wealthy elites, academics, and top civil servants."
+    },
+    "mabera": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Mabera is a highly dense residential area. Businesses focus on affordable, community-driven web presence to capture local families.",
+      "competitive_landscape": "Digital competition is moderate. Ranking on Google Maps for local services guarantees a steady stream of residential clients.",
+      "local_insight": "Hospitals, schools, and home service artisans in Mabera thrive by optimizing for 'near me' searches in the housing zones.",
+      "neighborhood_uniqueness": "Mabera provides densely populated, deeply traditional residential living, supporting a massive local artisan and SME economy."
+    },
+    "diplomat": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Diplomat is a premium, serene residential layout for executives. Clients expect enterprise-grade digital platforms and exclusivity.",
+      "competitive_landscape": "Brands compete on prestige. Websites must project immense authority to secure retainers from major NGOs and corporate executives.",
+      "local_insight": "Luxury real estate, corporate legal firms, and NGO consultants in Diplomat highlight their premium portfolios online.",
+      "neighborhood_uniqueness": "The Diplomat area lives up to its name, offering supreme exclusivity, quiet streets, and high-end real estate for top executives."
+    }
+  },
+
+  "maiduguri": {
+    "gra": {
+      "avg_cost_low": 350000,
+      "avg_cost_high": 1200000,
+      "price_context": "Maiduguri GRA hosts heavy international NGO presence, UN agencies, and political elites requiring enterprise-grade, highly secure sites.",
+      "competitive_landscape": "Competition involves securing lucrative NGO supply and service contracts. Websites must reflect absolute compliance and global standards.",
+      "local_insight": "Logistics firms, high-end hospitality, and security contractors in GRA use websites to pass strict international NGO due diligence.",
+      "neighborhood_uniqueness": "Maiduguri GRA has transformed into a high-security zone heavily dominated by the UN, international NGOs, and political wealth."
+    },
+    "jere": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Jere is a massive, expanding suburb with heavy agro-allied trade. Budgets require functional portals and SME retail sites.",
+      "competitive_landscape": "Digital adoption is growing rapidly. Early movers using optimized landing pages easily stand out from offline-only traditional competitors.",
+      "local_insight": "Agro-processing plants and logistics businesses in Jere need websites that highlight industrial capacity and nationwide delivery.",
+      "neighborhood_uniqueness": "Jere is an expansive, agriculturally rich suburb that acts as the primary food basket and processing zone for the capital."
+    },
+    "gwange": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Gwange is extremely dense and traditionally commercial. Budgets are highly conservative, focusing strictly on functional SME websites.",
+      "competitive_landscape": "Most businesses rely on physical storefronts. A dedicated website instantly positions a local brand as the premium choice in the area.",
+      "local_insight": "Trading companies, local clinics, and wholesalers in Gwange use basic, fast-loading websites to build trust and capture city-wide referrals.",
+      "neighborhood_uniqueness": "Gwange is an incredibly dense, historic neighborhood characterized by deep community ties and intense micro-commerce."
+    },
+    "custom-area": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Custom Area is a major commercial and logistics intersection. Budgets are solid, aimed at modernizing trading and transport businesses.",
+      "competitive_landscape": "Traffic is heavy offline. Local SEO and fast-loading mobile sites help businesses capture massive interstate commerce traffic.",
+      "local_insight": "Transport companies, wholesalers, and legacy corporate offices in Custom Area use digital upgrades to maintain market dominance.",
+      "neighborhood_uniqueness": "Custom Area is a relentless transit and trading junction, dictating the flow of heavy logistics and wholesale goods across the region."
+    },
+    "polo": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Polo is a highly residential mid-tier hub. Businesses here require professional websites to serve middle-class families and workers.",
+      "competitive_landscape": "There is a high demand for home services, schools, and clinics. Local SEO targeting residential services is highly effective.",
+      "local_insight": "Service providers who optimize for 'near me' searches in Polo capture significant traffic from residents requiring reliable local services.",
+      "neighborhood_uniqueness": "Polo offers a structured, secure suburban layout that is highly favored by civil servants, military families, and growing professionals."
+    }
+  },
+
+  "yenagoa": {
+    "swali": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Swali houses the massive ultra-modern market. Budgets reflect high trade volumes requiring e-commerce and B2B portals.",
+      "competitive_landscape": "Traditional practices dominate, but wholesale traders are rapidly moving online. B2B e-commerce platforms are highly lucrative here.",
+      "local_insight": "Major distributors and market merchants in Swali require robust websites to handle statewide wholesale orders and logistics.",
+      "neighborhood_uniqueness": "Swali is defined almost entirely by its massive, sprawling market, acting as the undisputed retail and wholesale epicenter of Bayelsa."
+    },
+    "amarata": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "Amarata is a dense commercial and government-adjacent area. Budgets are solid, focused on B2B services, hospitality, and contractors.",
+      "competitive_landscape": "Government contractors need highly secure, professional websites to pass due diligence during state procurement processes.",
+      "local_insight": "Hospitality brands and corporate consultants in Amarata rely heavily on prestige-focused web design to capture politicians.",
+      "neighborhood_uniqueness": "Amarata blends dense urban residential living with critical proximity to the state's central political and administrative offices."
+    },
+    "ovom": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 850000,
+      "price_context": "Ovom is premium, hosting the Government House and elite estates. Clients expect enterprise-grade digital platforms and exclusivity.",
+      "competitive_landscape": "Brands compete on prestige. Websites must project immense authority to secure retainers from state parastatals and oil executives.",
+      "local_insight": "Premium real estate, specialized medical centers, and government contractors in Ovom highlight their premium portfolios online.",
+      "neighborhood_uniqueness": "Ovom is the seat of ultimate political power in Yenagoa, strictly defined by the Government House and heavily secured luxury estates."
+    },
+    "kpansia": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Kpansia is a rapidly expanding commercial corridor. Businesses are investing in digital infrastructure to capture new growth.",
+      "competitive_landscape": "The market is growing fast. Early adopters with SEO-optimized sites are dominating local search for retail and commercial services.",
+      "local_insight": "Supermarkets, private schools, and lounges along Kpansia use lead-capture websites to convert the growing middle-class.",
+      "neighborhood_uniqueness": "Kpansia serves as the modern retail backbone of Yenagoa, bridging traditional markets with the expanding middle-class residential zones."
+    },
+    "yenezue-gene": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Yenezue-Gene is a vibrant, youth-centric commercial hub. Budgets are geared towards retail, hospitality, and fast-moving consumer services.",
+      "competitive_landscape": "The crowd is young and digital-first. Mobile-optimized, visually appealing websites with booking engines dominate here.",
+      "local_insight": "Lounges, boutiques, and tech startups in Yenezue-Gene use vibrant web design and local SEO to capture the city's youth.",
+      "neighborhood_uniqueness": "Yenezue-Gene acts as the energetic lifestyle and entertainment heartbeat of Yenagoa, packed with loud lounges and trendy boutiques."
+    }
+  },
+
+  "bauchi": {
+    "fadaman-mada": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Fadaman Mada is highly influenced by the university ecosystem. Budgets are student-focused, requiring mobile-friendly setups.",
+      "competitive_landscape": "The student population is highly digital. Brands must have socially integrated, mobile-first websites to capture the youth market.",
+      "local_insight": "Hostel agents, tech hubs, and affordable dining in Fadaman Mada capture massive traffic by targeting university-specific search queries.",
+      "neighborhood_uniqueness": "Fadaman Mada is completely energized by the ATBU student population, fostering a fast-paced, youth-oriented micro-economy."
+    },
+    "gra": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Bauchi GRA houses top political figures, academics, and elites. Budgets are premium, demanding highly professional, clean web design.",
+      "competitive_landscape": "Trust and premium aesthetics are required. Service providers here must look highly professional to win lucrative local contracts.",
+      "local_insight": "Premium hospitality, elite private schools, and specialized medical centers in Bauchi GRA use corporate websites to target top-tier residents.",
+      "neighborhood_uniqueness": "Bauchi GRA maintains an atmosphere of old-money exclusivity, characterized by large plots, quiet avenues, and political wealth."
+    },
+    "yelwa": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Yelwa is a busy residential and commercial mix. Budgets are moderate, requiring functional portals and SME retail sites.",
+      "competitive_landscape": "Visibility relies on speed and modern design. A well-structured website easily outranks competitors relying strictly on word-of-mouth.",
+      "local_insight": "Private clinics, real estate agents, and modern retail in Yelwa use local SEO to capture the city's growing middle class.",
+      "neighborhood_uniqueness": "Yelwa represents the lively, bustling core of everyday Bauchi, blending dense family residential areas with robust street commerce."
+    },
+    "wunti": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Wunti is the major market and commercial nerve center. Budgets reflect massive trade volumes requiring robust B2B catalogs.",
+      "competitive_landscape": "Traffic is heavy offline. Local SEO and fast-loading mobile sites help businesses capture commuters and massive market crowds.",
+      "local_insight": "Trading companies and wholesalers in Wunti use basic, fast-loading websites to build trust and capture nationwide agricultural orders.",
+      "neighborhood_uniqueness": "Wunti is the undisputed commercial anchor of the city, dominated by its massive central market and endless wholesale traffic."
+    },
+    "fed-lowcost": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Federal Lowcost is a massive, densely populated residential estate. Businesses focus on affordable, community-driven web presence.",
+      "competitive_landscape": "Digital competition is moderate. Ranking on Google Maps for local services guarantees a steady stream of residential clients.",
+      "local_insight": "Hospitals, schools, and home service artisans in Federal Lowcost thrive by optimizing for 'near me' searches in the dense housing zones.",
+      "neighborhood_uniqueness": "Federal Lowcost is an expansive, structured housing grid that supports the vast majority of Bauchi's civil servants and working families."
+    }
+  },
+
+  "umuahia": {
+    "umudike": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Umudike is anchored by the MOUAU university ecosystem. Budgets are student and academic-focused, requiring modern setups.",
+      "competitive_landscape": "The student and staff population searches online for everything. Businesses without a mobile web presence are completely invisible.",
+      "local_insight": "Hostel agents, agro-tech startups, and hospitality brands in Umudike capture massive volume through targeted university local SEO.",
+      "neighborhood_uniqueness": "Umudike is entirely shaped by the federal agricultural university, merging academia, student culture, and agro-research facilities."
+    },
+    "amozukwu": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Amozukwu is a traditional residential layout. Budgets are highly conservative, focusing strictly on functional SME websites.",
+      "competitive_landscape": "Most businesses rely on physical storefronts. A dedicated website instantly positions a local brand as the premium choice in the area.",
+      "local_insight": "Local clinics, schools, and agro-allied businesses in Amozukwu use basic, fast-loading websites to build trust and capture referrals.",
+      "neighborhood_uniqueness": "Amozukwu is a deeply rooted, traditional layout characterized by generational family compounds and quiet neighborhood commerce."
+    },
+    "isi-court": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Isi Court is a major commercial and transit intersection. Budgets prioritize lead generation, transport logistics, and SME visibility.",
+      "competitive_landscape": "Traffic is heavy offline. Local SEO and fast-loading mobile sites help businesses capture commuters and inter-state travelers.",
+      "local_insight": "Agro-dealers, transport companies, and retail outlets in Isi Court use websites to drive foot traffic and handle remote inquiries.",
+      "neighborhood_uniqueness": "Isi Court acts as a critical, high-traffic junction that connects local Umuahia commerce with heavy interstate transport routes."
+    },
+    "bank-road": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 750000,
+      "price_context": "Bank Road is the central business district. Budgets are solid, aimed at modernizing banks' allied services and professional agencies.",
+      "competitive_landscape": "The street is packed with corporate offices. SMEs here need websites to project the same level of corporate trust as the banks.",
+      "local_insight": "Law firms, accounting practices, and corporate consultants on Bank Road use digital upgrades to appeal to high-end clients.",
+      "neighborhood_uniqueness": "Bank Road is the polished corporate spine of the city, lined strictly with financial institutions, government offices, and corporate suites."
+    },
+    "ndume": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Ndume is an expanding residential layout. Businesses are investing in digital infrastructure to serve new estate owners.",
+      "competitive_landscape": "The market is growing fast. Early adopters with SEO-optimized sites are dominating local search for home and family services.",
+      "local_insight": "Real estate developers, supermarkets, and private schools in Ndume use lead-capture websites to convert new residents.",
+      "neighborhood_uniqueness": "Ndume is rapidly transitioning from outskirts to a modern suburban frontier, attracting new homeowners and modern retail."
+    }
+  },
+
+  "lokoja": {
+    "adankolo": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Adankolo blends university (FULokoja) dynamics with riverside trade. Budgets are student-focused, requiring fast, mobile-friendly setups.",
+      "competitive_landscape": "The youth demographic is hyper-online. E-commerce, booking platforms, and mobile-optimized sites dominate the local market.",
+      "local_insight": "Hostel agents, tech hubs, and affordable dining in Adankolo capture massive traffic by targeting university search queries.",
+      "neighborhood_uniqueness": "Adankolo uniquely mixes the energetic presence of the federal university with deeply traditional, bustling riverside commerce."
+    },
+    "lokongoma": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Lokongoma is a massive, densely populated residential estate. Businesses focus on affordable, community-driven web presence.",
+      "competitive_landscape": "Digital competition is moderate. Ranking on Google Maps for local services guarantees a steady stream of residential clients.",
+      "local_insight": "Hospitals, schools, and home service artisans in Lokongoma thrive by optimizing for 'near me' searches in the housing zones.",
+      "neighborhood_uniqueness": "Lokongoma is a massive, structured housing estate that serves as the residential backbone for Lokoja's civil servants and families."
+    },
+    "felele": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Felele is a major transit hub on the highway and also hosts students. Budgets prioritize lead generation and logistics visibility.",
+      "competitive_landscape": "Traffic is heavy offline. Local SEO and fast-loading mobile sites help businesses capture commuters and massive inter-state traffic.",
+      "local_insight": "Transport companies, wholesalers, and student housing in Felele use fast-loading websites to build trust and capture inter-state leads.",
+      "neighborhood_uniqueness": "Felele is heavily defined by its position on the major national highway, dominated by student campuses and relentless interstate haulage."
+    },
+    "ganaja": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "Ganaja is a fast-growing residential and commercial corridor. Businesses here require professional websites to serve middle-class families.",
+      "competitive_landscape": "Visibility relies on speed and modern design. A well-structured website easily outranks competitors relying strictly on word-of-mouth.",
+      "local_insight": "Private clinics, real estate agents, and modern retail in Ganaja use local SEO to capture the city's expanding middle class.",
+      "neighborhood_uniqueness": "Ganaja Junction is Lokoja's most critical expansion corridor, rapidly filling with modern retail, new estates, and affluent families."
+    },
+    "cantonment": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 700000,
+      "price_context": "Cantonment houses government workers, security personnel, and elites. Budgets are premium, demanding highly professional web design.",
+      "competitive_landscape": "Trust and premium aesthetics are required. Service providers here must look highly professional to win local high-end contracts.",
+      "local_insight": "Premium hospitality, elite private schools, and specialized medical centers in Cantonment use corporate websites to target top-tier residents.",
+      "neighborhood_uniqueness": "Cantonment offers highly secured, orderly living, historically tied to military and government administrative elite presence."
+    }
+  },
+
+  "lafia": {
+    "shendam-road": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Shendam Road is the premium government and commercial hub. Clients expect professional, highly secure corporate websites.",
+      "competitive_landscape": "Brands use websites as digital brochures for government and high-stakes corporate networking. Design must be impeccable.",
+      "local_insight": "Service providers located on Shendam Road get high-value government contractor clients who verify representation online before engaging.",
+      "neighborhood_uniqueness": "Shendam Road is the undisputed administrative spine of Lafia, hosting the Government House, ministries, and top-tier hospitality."
+    },
+    "bukar-sidi": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Bukar Sidi is a highly dense residential area. Businesses focus on affordable, community-driven web presence to capture local families.",
+      "competitive_landscape": "Digital competition is low. Ranking on Google Maps for local services guarantees a steady stream of residential clients.",
+      "local_insight": "Hospitals, schools, and local artisans in Bukar Sidi thrive by optimizing for 'near me' searches in the housing zones.",
+      "neighborhood_uniqueness": "Bukar Sidi is a deeply traditional, dense residential neighborhood built on close community ties and vibrant, everyday street markets."
+    },
+    "makurdi-road": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Makurdi Road is a major transit and trading entry point. Budgets are cost-conscious, focused on capturing commuter and wholesale traffic.",
+      "competitive_landscape": "Visibility is primarily offline. A local business that launches a fully optimized website gains a massive advantage over rivals.",
+      "local_insight": "Agro-dealers, transport companies, and wholesalers on Makurdi Road use fast-loading websites to build trust and capture inter-state leads.",
+      "neighborhood_uniqueness": "Makurdi Road acts as the primary logistical artery, dominated by heavy transport, mechanical yards, and wholesale agricultural trade."
+    },
+    "tudun-gwai": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Tudun Gwai is an established, traditional neighborhood. Budgets are highly conservative, requiring functional portals and SME retail sites.",
+      "competitive_landscape": "Most businesses rely on physical storefronts. A dedicated website instantly positions a local brand as the premium choice in the area.",
+      "local_insight": "Trading companies and local clinics in Tudun Gwai use basic, fast-loading websites to build trust and capture city-wide referrals.",
+      "neighborhood_uniqueness": "Tudun Gwai is a historic, culturally rich settlement that maintains a strong, localized economy separate from the modern city center."
+    },
+    "shabu": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Shabu is a rapidly expanding suburban layout. Businesses are investing in digital infrastructure to serve new estate owners.",
+      "competitive_landscape": "The market is growing fast. Early adopters with SEO-optimized sites are dominating local search for home and family services.",
+      "local_insight": "Real estate developers, building materials suppliers, and private schools in Shabu use lead-capture websites to convert new residents.",
+      "neighborhood_uniqueness": "Shabu is rapidly modernizing from a quiet suburb into Lafia's primary expansion zone, drawing new residential and retail development."
+    }
+  },
+
+  "katsina": {
+    "gra": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Katsina GRA houses top political figures, wealthy merchants, and elites. Budgets are premium, demanding highly professional web design.",
+      "competitive_landscape": "Corporate prestige is paramount. Websites must project immense authority to match the high-level contracts negotiated by residents.",
+      "local_insight": "Government contractors, elite private schools, and corporate consultants in Katsina GRA highlight their premium portfolios online.",
+      "neighborhood_uniqueness": "Katsina GRA is the heavily guarded, opulent sanctuary for the state's highest-ranking political elite and generational merchant families."
+    },
+    "kofar-sauri": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Kofar Sauri is a traditional yet commercially active area. Budgets are moderate, aimed at modernizing legacy trading businesses.",
+      "competitive_landscape": "Traditional practices dominate, but top merchants are adopting e-commerce to sell nationwide without buyers visiting the market.",
+      "local_insight": "Legacy trading companies and distributors in Kofar Sauri are aggressively using digital portals to expand sales beyond Katsina.",
+      "neighborhood_uniqueness": "Kofar Sauri blends rich historical city-gate heritage with highly active, large-scale traditional mercantile trade."
+    },
+    "kofar-kaura": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Kofar Kaura handles heavy logistics and transit trade. Pricing reflects the need for corporate profiles and inventory portals.",
+      "competitive_landscape": "B2B credibility is key. Haulage companies and wholesale merchants compete for contracts with major manufacturers.",
+      "local_insight": "Logistics firms operating out of Kofar Kaura require websites that clearly display fleet capacity and security certifications.",
+      "neighborhood_uniqueness": "Kofar Kaura is a critical transport gateway, heavily dominated by interstate haulage, bus parks, and heavy-duty logistics yards."
+    },
+    "batagarawa": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 400000,
+      "price_context": "Batagarawa is anchored by the university ecosystem. Budgets are student and academic-focused, requiring mobile-first setups.",
+      "competitive_landscape": "The student demographic searches online for everything. Businesses without a strong mobile web presence are invisible.",
+      "local_insight": "Hostel agents, tech retailers, and affordable hospitality brands in Batagarawa capture massive volume through targeted local SEO.",
+      "neighborhood_uniqueness": "Batagarawa is entirely energized by the Umaru Musa Yar'adua University, fostering a fast-paced, youth-driven digital micro-economy."
+    },
+    "dutsma-road": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 500000,
+      "price_context": "Dutsma Road is a bustling commercial corridor. Budgets are geared towards retail, electronics, and fast-moving consumer services.",
+      "competitive_landscape": "Traffic is heavy offline. Local SEO and fast-loading mobile sites help businesses capture commuters and active shoppers.",
+      "local_insight": "Electronics dealers, boutiques, and corporate offices along Dutsma Road use digital catalogs to maintain market dominance.",
+      "neighborhood_uniqueness": "Dutsma Road is a high-traffic, modernizing commercial strip lined with retail plazas, banks, and bustling everyday commerce."
+    }
+  },
+
+  "ijebu-ode": {
+    "molipa": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Molipa is an expanding residential estate area. Businesses focus on affordable, community-driven web presence to capture local families.",
+      "competitive_landscape": "Digital competition is moderate. Ranking on Google Maps for local services guarantees a steady stream of residential clients.",
+      "local_insight": "Hospitals, schools, and home service artisans in Molipa thrive by optimizing for 'near me' searches in the housing zones.",
+      "neighborhood_uniqueness": "Molipa represents the modern residential expansion of Ijebu-Ode, favored by new homeowners and returning diaspora retirees."
+    },
+    "igbeba": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 600000,
+      "price_context": "Igbeba houses key institutions and secure residential zones. Budgets require highly professional, trust-building web designs.",
+      "competitive_landscape": "Brands compete on reliability. A well-structured website builds the necessary trust required by the educated, professional demographic.",
+      "local_insight": "Specialized clinics, elite schools, and corporate consultants in Igbeba use digital branding to justify premium pricing.",
+      "neighborhood_uniqueness": "Igbeba is the structured, institutional core of the city, hosting major educational campuses, police headquarters, and quiet residential streets."
+    },
+    "okuku": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Okuku is highly traditional with deep roots in local commerce. Budgets are highly conservative, requiring functional SME landing pages.",
+      "competitive_landscape": "Digital adoption is low. A simple, fast website provides immediate local authority over competitors using only word-of-mouth.",
+      "local_insight": "Local clinics, agro-allied businesses, and traditional traders in Okuku see massive success with mobile-first websites.",
+      "neighborhood_uniqueness": "Okuku is deeply entrenched in Ijebu heritage, defined by tight-knit community structures and generations of local artisans."
+    },
+    "sabo": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Sabo is a highly dense trading area. Budgets reflect massive wholesale volumes requiring lightweight B2B catalogs and e-commerce.",
+      "competitive_landscape": "Traditional offline trading still dominates, but leading merchants are adopting e-commerce to sell nationwide.",
+      "local_insight": "Wholesale distributors in Sabo rely heavily on fast, WhatsApp-integrated websites to handle bulk orders from other states.",
+      "neighborhood_uniqueness": "Sabo serves as the vibrant, densely packed commercial market hub, heavily populated by non-indigenous and wholesale traders."
+    },
+    "awujale-street": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Awujale Street is the prime commercial and banking corridor. Clients expect enterprise-grade digital platforms and corporate compliance.",
+      "competitive_landscape": "The street is packed with corporate offices. SMEs here need websites to project the same level of corporate trust as the banks.",
+      "local_insight": "Law firms, accounting practices, and legacy trading companies on Awujale Street use digital upgrades to appeal to high-end clients.",
+      "neighborhood_uniqueness": "Awujale Street is the premier high-street of Ijebu-Ode, distinguished by bank headquarters, grand event centers, and regal architecture."
+    }
+  },
+
+  "sango-ota": {
+    "toll-gate": {
+      "avg_cost_low": 200000,
+      "avg_cost_high": 650000,
+      "price_context": "Toll Gate handles heavy industrial logistics and border trade. Pricing reflects the need for corporate profiles and inventory portals.",
+      "competitive_landscape": "B2B credibility is key. Haulage companies and warehouse managers compete for contracts with major manufacturers.",
+      "local_insight": "Logistics firms operating out of Toll Gate require websites that clearly display fleet capacity, warehouse sizes, and border expertise.",
+      "neighborhood_uniqueness": "Toll Gate is the chaotic, high-stakes border point between Lagos and Ogun, absolutely dominated by heavy haulage and industrial logistics."
+    },
+    "ijoko": {
+      "avg_cost_low": 100000,
+      "avg_cost_high": 350000,
+      "price_context": "Ijoko is a massive, densely populated residential and SME area. Budgets are highly conservative, focusing strictly on functional SME websites.",
+      "competitive_landscape": "Digital adoption is low. A simple, fast website provides immediate local authority over competitors using only offline marketing.",
+      "local_insight": "Local schools, agro-allied businesses, and retail stores in Ijoko see success with mobile-first websites integrated with WhatsApp.",
+      "neighborhood_uniqueness": "Ijoko is an incredibly dense, sprawling residential hub that acts as a massive dormitory town for workers commuting into Lagos."
+    },
+    "oju-ore": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 800000,
+      "price_context": "Oju Ore is a major industrial and commercial hub. Pricing reflects the need for corporate manufacturing profiles and B2B catalogs.",
+      "competitive_landscape": "Factories here compete nationally. Websites must feature production capacity, ISO certifications, and export logistics.",
+      "local_insight": "Manufacturing companies in Oju Ore use their digital platforms to secure federal supply contracts and attract massive distributors.",
+      "neighborhood_uniqueness": "Oju Ore is the industrial powerhouse of Sango-Ota, heavily characterized by massive manufacturing plants and bustling adjacent markets."
+    },
+    "babcock-area": {
+      "avg_cost_low": 250000,
+      "avg_cost_high": 750000,
+      "price_context": "Babcock Area (Ilishan) caters to a highly elite university crowd, affluent parents, and expats. Budgets demand luxury aesthetics.",
+      "competitive_landscape": "Trust signals are critical. Businesses without a polished website struggle to convert high-income diaspora parents and top academics.",
+      "local_insight": "Premium real estate developers, specialized clinics, and elite lounges in the Babcock area require immaculate digital branding.",
+      "neighborhood_uniqueness": "The Babcock Area in Ilishan is a highly polished, affluent college town catering almost exclusively to elite students and wealthy parents."
+    },
+    "bells-drive": {
+      "avg_cost_low": 150000,
+      "avg_cost_high": 450000,
+      "price_context": "Bells Drive is anchored by the university ecosystem. Budgets are student and academic-focused, requiring modern setups.",
+      "competitive_landscape": "The student and staff population searches online for everything. Businesses without a mobile web presence are completely invisible.",
+      "local_insight": "Hostel agents, tech retailers, and hospitality brands on Bells Drive capture massive volume through targeted university local SEO.",
+      "neighborhood_uniqueness": "Bells Drive is defined by Bells University and Covenant University fringes, creating a hyper-modern, student-focused retail corridor."
+    }
+  }
+}

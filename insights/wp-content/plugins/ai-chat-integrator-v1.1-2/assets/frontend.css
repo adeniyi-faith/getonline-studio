@@ -1,0 +1,49 @@
+/* AI Chat Integrator v1.1 - Frontend styles */
+
+/* Allow theme to override via CSS variables. Defaults below. */
+:root {
+  --ai-primary: var(--ai-chat-primary, #0a84ff);
+  --ai-text: var(--color, #222);
+  --ai-bg: var(--background-color, #ffffff);
+  --ai-radius: 12px;
+  --ai-font: inherit;
+}
+
+#ai-chat-root { font-family: var(--ai-font); z-index:999999; }
+/* Floating root */
+.ai-floating-root { position: fixed; bottom: 24px; right: 24px; width: 360px; max-width: calc(100% - 32px); }
+@media (max-width: 600px) {
+  .ai-floating-root { right: 12px; left: 12px; bottom: 12px; width: auto; max-width: calc(100% - 24px); }
+}
+
+.ai-widget { box-shadow: 0 10px 30px rgba(0,0,0,0.12); border-radius: var(--ai-radius); overflow: hidden; background: var(--ai-bg); color: var(--ai-text); display:flex; flex-direction:column; height:480px; max-height:80vh; }
+/* header */
+.ai-header { padding:12px 14px; background: linear-gradient(90deg, var(--ai-primary), color-mix(in srgb, var(--ai-primary) 70%, black 10%)); color:#fff; display:flex; align-items:center; gap:10px; }
+.ai-header .ai-title { font-weight:600; font-size:16px; }
+.ai-header .ai-sub { font-size:12px; opacity:0.9; }
+
+.ai-body { padding:12px; overflow:auto; flex:1; background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent); }
+.ai-messages { display:flex; flex-direction:column; gap:8px; }
+.ai-message { padding:8px 12px; border-radius:10px; max-width:80%; word-wrap:break-word; box-shadow: 0 1px 0 rgba(0,0,0,0.02); }
+.ai-message-bot { background: #f6f8fb; align-self:flex-start; }
+.ai-message-user { background: var(--ai-primary); color:#fff; align-self:flex-end; }
+
+.ai-footer { padding:10px; display:flex; gap:8px; align-items:center; background: #fff; }
+.ai-footer input[type='text'], .ai-footer textarea { flex:1; padding:10px; border-radius:8px; border:1px solid #e6e6e6; font:inherit; }
+.ai-footer button { background:var(--ai-primary); color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; }
+
+/* compact for mobile */
+@media (max-width: 600px) {
+  .ai-widget { height:64vh; border-radius:10px; }
+  .ai-header .ai-title { font-size:15px; }
+  .ai-footer input[type='text']{ padding:12px; }
+}
+
+/* Floating toggle button */
+.ai-toggle-btn { position:fixed; z-index:999999; width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(0,0,0,0.18); cursor:pointer; }
+.ai-toggle-bottom-right { right:24px; bottom:24px; }
+.ai-toggle-bottom-left { left:24px; bottom:24px; }
+
+/* small tasteful animations */
+.ai-widget { transition: transform .28s cubic-bezier(.2,.9,.3,1), opacity .2s; }
+.ai-hidden { transform: translateY(8px) scale(.98); opacity:0; pointer-events:none; }

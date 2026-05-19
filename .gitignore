@@ -1,0 +1,65 @@
+# Ignore system logs, server configurations, and tokens
+error_log
+.DS_Store
+Thumbs.db
+*.log
+php.ini
+google-service-account.json
+
+# Ignore standard dependency setups
+vendor/
+test/
+testing/
+
+# --- WORDPRESS HOUSING: ABSOLUTE LOCKDOWN ---
+# Block all core files and native administrative folders
+wp/wp-*.php
+wp/xmlrpc.php
+wp/index.php
+wp/license.txt
+wp/readme.html
+wp/wp-admin/
+wp/wp-includes/
+
+# Block everything inside wp-content completely by default
+wp/wp-content/*
+
+# Open a narrow path to step into mu-plugins and track your core file
+!wp/wp-content/mu-plugins/
+wp/wp-content/mu-plugins/*
+!wp/wp-content/mu-plugins/getonline-pseo-core.php
+EOFgit add --dry-run wp/
+git add --dry-run wp/
+git rm -r --cached . && git reset
+cat << 'EOF' > .gitignore
+# Ignore system logs, server configurations, and tokens
+error_log
+.DS_Store
+Thumbs.db
+*.log
+php.ini
+google-service-account.json
+
+# Ignore standard dependency setups
+vendor/
+test/
+testing/
+
+# --- WORDPRESS HOUSING: ABSOLUTE LOCKDOWN ---
+# Block all core files and native administrative folders
+wp/wp-*.php
+wp/xmlrpc.php
+wp/index.php
+wp/license.txt
+wp/readme.html
+wp/wp-admin/
+wp/wp-includes/
+
+# Allow Git to peer inside wp-content, but block its child folders by default
+!wp/wp-content/
+wp/wp-content/*
+
+# Open a narrow path to step into mu-plugins and track your core file exclusively
+!wp/wp-content/mu-plugins/
+wp/wp-content/mu-plugins/*
+!wp/wp-content/mu-plugins/getonline-pseo-core.php

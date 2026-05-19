@@ -1,0 +1,289 @@
+{
+  "lagos": {
+    "lekki": "Lekki",
+    "ikeja": "Ikeja",
+    "victoria-island": "Victoria Island",
+    "ikoyi": "Ikoyi",
+    "yaba": "Yaba",
+    "surulere": "Surulere",
+    "ajah": "Ajah",
+    "festac": "Festac Town",
+    "gbagada": "Gbagada",
+    "maryland": "Maryland",
+    "magodo": "Magodo",
+    "ogba": "Ogba",
+    "ilupeju": "Ilupeju",
+    "vgc": "VGC",
+    "sangotedo": "Sangotedo",
+    "ikorodu": "Ikorodu",
+    "apapa": "Apapa",
+    "oshodi": "Oshodi"
+  },
+  "abuja": {
+    "wuse": "Wuse",
+    "maitama": "Maitama",
+    "garki": "Garki",
+    "asokoro": "Asokoro",
+    "gwarinpa": "Gwarinpa",
+    "kubwa": "Kubwa",
+    "jabi": "Jabi",
+    "utako": "Utako",
+    "wuye": "Wuye",
+    "apo": "Apo",
+    "lugbe": "Lugbe",
+    "lokogoma": "Lokogoma",
+    "life-camp": "Life Camp",
+    "guzape": "Guzape",
+    "dawaki": "Dawaki"
+  },
+  "port-harcourt": {
+    "gra": "GRA",
+    "obio-akpor": "Obio-Akpor",
+    "eleme": "Eleme",
+    "rumuola": "Rumuola",
+    "rumuigbo": "Rumuigbo",
+    "d-line": "D-Line",
+    "trans-amadi": "Trans Amadi",
+    "peter-odili": "Peter Odili Road",
+    "woji": "Woji",
+    "ada-george": "Ada George",
+    "agip": "Agip Estate",
+    "choba": "Choba"
+  },
+  "kano": {
+    "nasarawa": "Nasarawa",
+    "tarauni": "Tarauni",
+    "fagge": "Fagge",
+    "bompai": "Bompai",
+    "sabon-gari": "Sabon Gari",
+    "hotoro": "Hotoro",
+    "sharada": "Sharada"
+  },
+  "ibadan": {
+    "bodija": "Bodija",
+    "oluyole": "Oluyole",
+    "agodi": "Agodi",
+    "samonda": "Samonda",
+    "challenge": "Challenge",
+    "ring-road": "Ring Road",
+    "akobo": "Akobo",
+    "mokola": "Mokola"
+  },
+  "enugu": {
+    "independence-layout": "Independence Layout",
+    "gra": "GRA",
+    "new-haven": "New Haven",
+    "trans-ekulu": "Trans Ekulu",
+    "achara-layout": "Achara Layout",
+    "ogui": "Ogui"
+  },
+  "benin-city": {
+    "gra": "GRA",
+    "ugbowo": "Ugbowo",
+    "ekenwan": "Ekenwan",
+    "sapele-road": "Sapele Road",
+    "airport-road": "Airport Road",
+    "akpakpava": "Akpakpava"
+  },
+  "uyo": {
+    "ewet-housing": "Ewet Housing Estate",
+    "osongama": "Osongama",
+    "shelter-afrique": "Shelter Afrique",
+    "aka-road": "Aka Road",
+    "oron-road": "Oron Road"
+  },
+  "kaduna": {
+    "barnawa": "Barnawa",
+    "malali": "Malali",
+    "narayi": "Narayi",
+    "gra": "GRA",
+    "sabon-tasha": "Sabon Tasha",
+    "kawo": "Kawo",
+    "unguwan-rimi": "Unguwan Rimi"
+  },
+  "jos": {
+    "rayfield": "Rayfield",
+    "bukuru": "Bukuru",
+    "anglo-jos": "Anglo Jos",
+    "lamingo": "Lamingo",
+    "tudun-wada": "Tudun Wada"
+  },
+  "calabar": {
+    "state-housing": "State Housing Estate",
+    "ekorinim": "Ekorinim",
+    "marian-road": "Marian Road",
+    "satellite-town": "Satellite Town",
+    "epz": "EPZ",
+    "8-miles": "8 Miles"
+  },
+  "asaba": {
+    "core-area": "Core Area",
+    "okpanam-road": "Okpanam Road",
+    "nnebisi-road": "Nnebisi Road",
+    "infant-jesus": "Infant Jesus",
+    "summit-road": "Summit Road"
+  },
+  "warri": {
+    "effurun": "Effurun",
+    "enerhen": "Enerhen",
+    "ptdf": "PTDF",
+    "edjeba": "Edjeba",
+    "udu": "Udu",
+    "ogun": "Ogunu"
+  },
+  "owerri": {
+    "ikenegbu": "Ikenegbu",
+    "aladinma": "Aladinma",
+    "new-owerri": "New Owerri",
+    "world-bank": "World Bank Estate",
+    "amakohia": "Amakohia",
+    "orji": "Orji"
+  },
+  "aba": {
+    "gra": "GRA",
+    "umungasi": "Umungasi",
+    "osisioma": "Osisioma",
+    "ogbor-hill": "Ogbor Hill",
+    "ariaria": "Ariaria"
+  },
+  "onitsha": {
+    "gra": "GRA",
+    "fegge": "Fegge",
+    "awada": "Awada",
+    "woliwo": "Woliwo",
+    "omagba": "Omagba"
+  },
+  "awka": {
+    "ngozika-estate": "Ngozika Estate",
+    "udoka-estate": "Udoka Estate",
+    "agu-awka": "Agu Awka",
+    "unizik-junction": "Unizik Junction",
+    "okpuno": "Okpuno"
+  },
+  "ilorin": {
+    "gra": "GRA",
+    "tanke": "Tanke",
+    "taiwo-road": "Taiwo Road",
+    "fate": "Fate",
+    "adewole": "Adewole",
+    "gaa-akanbi": "Gaa Akanbi"
+  },
+  "akure": {
+    "alagbaka": "Alagbaka",
+    "ijapo": "Ijapo Estate",
+    "oba-ile": "Oba Ile",
+    "oda-road": "Oda Road",
+    "futa": "FUTA",
+    "ado-road": "Ado Road"
+  },
+  "abeokuta": {
+    "ibara": "Ibara",
+    "kuto": "Kuto",
+    "idi-aba": "Idi Aba",
+    "camp": "Camp",
+    "oke-ilewo": "Oke Ilewo",
+    "onikolobo": "Onikolobo"
+  },
+  "ile-ife": {
+    "modakeke": "Modakeke",
+    "lagere": "Lagere",
+    "mayfair": "Mayfair",
+    "oau-campus": "OAU Campus",
+    "eparun": "Eparun"
+  },
+  "ilesa": {
+    "imo": "Imo",
+    "isokun": "Isokun",
+    "ilaje": "Ilaje",
+    "oke-oye": "Oke Oye"
+  },
+  "ede": {
+    "agbale": "Agbale",
+    "oke-egada": "Oke Egada",
+    "babanla": "Babanla"
+  },
+  "makurdi": {
+    "high-level": "High Level",
+    "wurukum": "Wurukum",
+    "north-bank": "North Bank",
+    "wadata": "Wadata",
+    "nyiman": "Nyiman"
+  },
+  "minna": {
+    "tunga": "Tunga",
+    "bosso": "Bosso",
+    "chanchaga": "Chanchaga",
+    "maitumbi": "Maitumbi",
+    "dutsen-kura": "Dutsen Kura"
+  },
+  "sokoto": {
+    "wamakko": "Wamakko",
+    "bodinga": "Bodinga",
+    "runjin-sambo": "Runjin Sambo",
+    "mabera": "Mabera",
+    "diplomat": "Diplomat"
+  },
+  "maiduguri": {
+    "gra": "GRA",
+    "jere": "Jere",
+    "gwange": "Gwange",
+    "custom-area": "Custom Area",
+    "polo": "Polo"
+  },
+  "yenagoa": {
+    "swali": "Swali",
+    "amarata": "Amarata",
+    "ovom": "Ovom",
+    "kpansia": "Kpansia",
+    "yenezue-gene": "Yenezue-Gene"
+  },
+  "bauchi": {
+    "fadaman-mada": "Fadaman Mada",
+    "gra": "GRA",
+    "yelwa": "Yelwa",
+    "wunti": "Wunti",
+    "fed-lowcost": "Federal Lowcost"
+  },
+  "umuahia": {
+    "umudike": "Umudike",
+    "amozukwu": "Amozukwu",
+    "isi-court": "Isi Court",
+    "bank-road": "Bank Road",
+    "ndume": "Ndume"
+  },
+  "lokoja": {
+    "adankolo": "Adankolo",
+    "lokongoma": "Lokongoma",
+    "felele": "Felele",
+    "ganaja": "Ganaja",
+    "cantonment": "Cantonment"
+  },
+  "lafia": {
+    "shendam-road": "Shendam Road",
+    "bukar-sidi": "Bukar Sidi",
+    "makurdi-road": "Makurdi Road",
+    "tudun-gwai": "Tudun Gwai",
+    "shabu": "Shabu"
+  },
+  "katsina": {
+    "gra": "GRA",
+    "kofar-sauri": "Kofar Sauri",
+    "kofar-kaura": "Kofar Kaura",
+    "batagarawa": "Batagarawa",
+    "dutsma-road": "Dutsma Road"
+  },
+  "ijebu-ode": {
+    "molipa": "Molipa",
+    "igbeba": "Igbeba",
+    "okuku": "Okuku",
+    "sabo": "Sabo",
+    "awujale-street": "Awujale Street"
+  },
+  "sango-ota": {
+    "toll-gate": "Toll Gate",
+    "ijoko": "Ijoko",
+    "oju-ore": "Oju Ore",
+    "babcock-area": "Babcock Area",
+    "bells-drive": "Bells Drive"
+  }
+}

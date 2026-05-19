@@ -1,0 +1,48 @@
+# Ignore system logs, server configuration files, and private tokens
+error_log
+.DS_Store
+Thumbs.db
+*.log
+php.ini
+google-service-account.json
+
+# Ignore standard composer dependency packages
+vendor/
+
+# Ignore local testing sandboxes
+test/
+testing/
+
+# --- WORDPRESS HOUSING: TARGETED TRACKING ---
+# Ignore native, standard WordPress core files at the root of /wp
+wp/wp-activate.php
+wp/wp-blog-header.php
+wp/wp-comments-post.php
+wp/wp-config-sample.php
+wp/wp-cron.php
+wp/wp-links-opml.php
+wp/wp-load.php
+wp/wp-login.php
+wp/wp-mail.php
+wp/wp-settings.php
+wp/wp-signup.php
+wp/wp-trackback.php
+wp/xmlrpc.php
+wp/index.php
+wp/license.txt
+wp/readme.html
+
+# Ignore standard admin and include core engines completely
+wp/wp-admin/
+wp/wp-includes/
+
+# Ignore standard default assets inside wp-content
+wp/wp-content/themes/twentytwentythree/
+wp/wp-content/themes/twentytwentyfour/
+wp/wp-content/themes/twentytwentyfive/
+wp/wp-content/plugins/akismet/
+wp/wp-content/plugins/hello.php
+
+# --- WHITELIST CUSTOM ARTIFACTS ---
+# Allow all files in wp-content/mu-plugins
+!wp/wp-content/mu-plugins/

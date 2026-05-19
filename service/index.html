@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Services | GetOnline Studio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Syne:wght@400;700;800&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'matte-black': '#101010',
+                        'card-dark': '#0a0a0a',
+                        'lavender': '#e9d5ff',
+                        'sharp-purple': '#7e22ce',
+                        'off-white': '#f5f5f5'
+                    },
+                    fontFamily: {
+                        'syne': ['Syne', 'sans-serif'],
+                        'manrope': ['Manrope', 'sans-serif'],
+                        'space': ['Space Grotesk', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
+                    },
+                    animation: {
+                        'spin-slow': 'spin 15s linear infinite',
+                        'spin-reverse-slow': 'spinReverse 20s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'marquee': 'scroll 30s linear infinite', /* Changed to scroll, referencing custom keyframe below */
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        spinReverse: {
+                            from: { transform: 'rotate(360deg)' },
+                            to: { transform: 'rotate(0deg)' }
+                        },
+                        scroll: { /* FIX: Custom keyframe for seamless marquee loop */
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styles */
+        body {
+            background-color: #101010;
+            color: #e9d5ff;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
+        .cursor-outline {
+            width: 40px; height: 40px;
+            border: 1px solid #7e22ce;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        @media (pointer: coarse) {
+            .cursor-dot, .cursor-outline { display: none; }
+            body { cursor: auto; }
+        }
+        body.hovering .cursor-outline {
+            width: 60px; height: 60px;
+            background-color: rgba(126, 34, 206, 0.2);
+            border-color: transparent;
+        }
+
+        /* Text Stroke */
+        .text-stroke {
+            -webkit-text-stroke: 1px #e9d5ff;
+            color: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        /* Reveal Animations */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* Interactive Service List */
+        .service-row {
+            transition: border-color 0.3s;
+        }
+        .service-row:hover {
+            border-color: #7e22ce;
+        }
+        .service-row:hover h2 {
+            color: #7e22ce;
+            padding-left: 20px;
+        }
+        .service-row h2 {
+            transition: all 0.4s ease;
+        }
+
+        /* Floating Preview Card */
+        .mouse-preview {
+            position: fixed;
+            top: 0; left: 0;
+            width: 300px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            z-index: 50;
+            transition: transform 0.1s, opacity 0.3s ease;
+            border: 1px solid rgba(126, 34, 206, 0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .mouse-preview.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        @media (max-width: 768px) {
+            .mouse-preview { display: none !important; }
+        }
+
+        /* 3D Tilt Effect */
+        .tilt-card {
+            transition: transform 0.1s;
+            transform-style: preserve-3d;
+        }
+
+        /* Orbit Animation for Hero */
+        .orbit {
+            border: 1px solid rgba(233, 213, 255, 0.1);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            transform-style: preserve-3d;
+        }
+        .orbit-1 { width: 300px; height: 300px; animation: rotate3d 10s linear infinite; border-color: rgba(126, 34, 206, 0.4); }
+        .orbit-2 { width: 500px; height: 500px; animation: rotate3d 15s linear infinite reverse; }
+        .orbit-3 { width: 700px; height: 700px; animation: rotate3d 20s linear infinite; border-style: dashed; }
+
+        @keyframes rotate3d {
+            0% { transform: translate(-50%, -50%) rotateX(60deg) rotateZ(0deg); }
+            100% { transform: translate(-50%, -50%) rotateX(60deg) rotateZ(360deg); }
+        }
+
+        /* Marquee */
+        .marquee-container { 
+            overflow: hidden; 
+            white-space: nowrap; 
+            display: flex; 
+            position: relative;
+        }
+        .marquee-content { 
+            display: flex; 
+            flex-shrink: 0; 
+            min-width: 100%; /* Ensures seamless loop */
+            animation: scroll 30s linear infinite;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body class="bg-matte-black bg-noise font-manrope selection:bg-sharp-purple selection:text-white relative">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Floating Preview Element -->
+    <div id="cursor-preview" class="mouse-preview"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 px-4 md:px-6 py-4 md:py-6 flex justify-between items-center mix-blend-difference text-lavender">
+        <a href="https://getonlinestudio.com" class="font-syne font-bold text-xl md:text-2xl hover:text-sharp-purple transition-colors hover-target">GO.</a>
+        <a href="https://getonlinestudio.com" class="text-xs md:text-sm font-bold tracking-widest uppercase border border-lavender px-4 md:px-6 py-2 rounded-full hover:bg-lavender hover:text-matte-black transition-all duration-300 bg-matte-black/20 backdrop-blur-sm hover-target">
+            Back Home
+        </a>
+    </nav>
+
+    <!-- Hero Section: The Trinity -->
+    <header class="relative pt-32 pb-20 px-4 md:px-6 text-center border-b border-lavender/10 overflow-hidden min-h-[80vh] flex flex-col justify-center">
+        
+        <!-- 3D Orbit Background -->
+        <div class="absolute inset-0 pointer-events-none opacity-30">
+            <div class="orbit orbit-1"></div>
+            <div class="orbit orbit-2"></div>
+            <div class="orbit orbit-3"></div>
+        </div>
+
+        <div class="relative z-10">
+            <h1 class="font-syne text-[10vw] leading-[0.85] font-bold text-lavender mix-blend-screen reveal-up">
+                THE <span class="text-transparent text-stroke">TRINITY</span>
+            </h1>
+            <div class="mt-12 max-w-3xl mx-auto">
+                 <p class="font-manrope text-xl md:text-2xl text-lavender/70 leading-relaxed reveal-up" style="animation-delay: 0.2s;">
+                    Design. Identity. Automation. <br>
+                    Three pillars that form one unbreakable digital engine for your business.
+                 </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Interactive Service Directory (Floating Reveal) -->
+    <section class="relative py-20 overflow-hidden z-20 bg-matte-black">
+        <div class="max-w-7xl mx-auto w-full px-4 md:px-6">
+            <div class="mb-12 text-sm font-mono text-lavender/40 uppercase tracking-widest">Select a Core Module</div>
+            
+            <!-- Service 1: Web Design (Updated Image) -->
+            <a href="https://getonlinestudio.com/services/web" class="service-row block border-t border-lavender/20 py-16 group hover-target relative" 
+               data-image="https://api.pikwy.com/web/6928c91052ea6d498c132a37.jpg">
+                <div class="flex flex-col md:flex-row justify-between md:items-center relative z-10">
+                    <div class="flex items-baseline gap-6">
+                        <span class="font-mono text-sm text-sharp-purple mb-2 block">01</span>
+                        <h2 class="font-syne text-4xl sm:text-5xl md:text-8xl font-bold text-lavender">Web Design</h2>
+                    </div>
+                    <div class="mt-6 md:mt-0 text-right opacity-80 md:opacity-50 group-hover:opacity-100 transition-opacity">
+                        <p class="font-manrope text-base md:text-lg text-lavender max-w-sm ml-auto mb-3">
+                            A powerful e-commerce website that converts traffic into revenue and scales with your business needs.
+                        </p>
+                        <div class="flex gap-3 justify-end text-xs uppercase tracking-widest text-sharp-purple">
+                            <span>High Conversion</span> • <span>Fast Performance</span> • <span>Scalable</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Service 2: Identity -->
+            <a href="https://getonlinestudio.com/services/branding" class="service-row block border-t border-lavender/20 py-16 group hover-target relative"
+               data-image="https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=2670&auto=format&fit=crop">
+                <div class="flex flex-col md:flex-row justify-between md:items-center relative z-10">
+                    <div class="flex items-baseline gap-6">
+                        <span class="font-mono text-sm text-sharp-purple mb-2 block">02</span>
+                        <h2 class="font-syne text-4xl sm:text-5xl md:text-8xl font-bold text-lavender">Identity</h2>
+                    </div>
+                    <div class="mt-6 md:mt-0 text-right opacity-80 md:opacity-50 group-hover:opacity-100 transition-opacity">
+                        <p class="font-manrope text-base md:text-lg text-lavender max-w-sm ml-auto mb-3">
+                            Visual systems that build authority.
+                        </p>
+                        <div class="flex gap-3 justify-end text-xs uppercase tracking-widest text-sharp-purple">
+                            <span>Market Authority</span> • <span>Visual Trust</span> • <span>Loyalty</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Service 3: Automation -->
+            <a href="https://getonlinestudio.com/services/tools" class="service-row block border-y border-lavender/20 py-16 group hover-target relative"
+               data-image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop">
+                <div class="flex flex-col md:flex-row justify-between md:items-center relative z-10">
+                    <div class="flex items-baseline gap-6">
+                        <span class="font-mono text-sm text-sharp-purple mb-2 block">03</span>
+                        <h2 class="font-syne text-4xl sm:text-5xl md:text-8xl font-bold text-lavender">Automation</h2>
+                    </div>
+                    <div class="mt-6 md:mt-0 text-right opacity-80 md:opacity-50 group-hover:opacity-100 transition-opacity">
+                        <p class="font-manrope text-base md:text-lg text-lavender max-w-sm ml-auto mb-3">
+                            AI systems as your 24/7 workforce.
+                        </p>
+                        <div class="flex gap-3 justify-end text-xs uppercase tracking-widest text-sharp-purple">
+                            <span>24/7 Operations</span> • <span>Lead Nurturing</span> • <span>Process Scaling</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Capability Marquee -->
+    <section class="py-10 bg-sharp-purple overflow-hidden">
+        <div class="marquee-container">
+            <div class="marquee-content font-space font-bold text-black text-lg uppercase tracking-widest">
+                <span class="mx-6">STRATEGY</span>✦<span class="mx-6">DESIGN</span>✦<span class="mx-6">DEVELOPMENT</span>✦<span class="mx-6">AUTOMATION</span>✦<span class="mx-6">SCALABILITY</span>✦<span class="mx-6">PERFORMANCE</span>✦<span class="mx-6">REVENUE</span>✦<span class="mx-6">GROWTH</span>✦
+            </div>
+            <div class="marquee-content font-space font-bold text-black text-lg uppercase tracking-widest">
+                 <span class="mx-6">STRATEGY</span>✦<span class="mx-6">DESIGN</span>✦<span class="mx-6">DEVELOPMENT</span>✦<span class="mx-6">AUTOMATION</span>✦<span class="mx-6">SCALABILITY</span>✦<span class="mx-6">PERFORMANCE</span>✦<span class="mx-6">REVENUE</span>✦<span class="mx-6">GROWTH</span>✦
+            </div>
+        </div>
+    </section>
+
+    <!-- The Outcome Section (3D Tilt) -->
+    <section class="py-20 md:py-32 px-4 md:px-6 bg-card-dark border-t border-lavender/10">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="font-syne text-3xl md:text-5xl mb-16">The Result?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-10 border border-lavender/10 rounded-2xl bg-matte-black hover:border-sharp-purple/50 transition-colors hover-target tilt-card" onmousemove="tiltCard(event, this)" onmouseleave="resetTilt(this)">
+                    <div class="text-5xl mb-6">👁️</div>
+                    <h3 class="font-syne text-2xl mb-4 text-white">Clarity</h3>
+                    <p class="text-base text-lavender/60 leading-relaxed">Your message becomes impossible to misunderstand. We strip away the noise.</p>
+                </div>
+                <div class="p-10 border border-lavender/10 rounded-2xl bg-matte-black hover:border-sharp-purple/50 transition-colors hover-target tilt-card" onmousemove="tiltCard(event, this)" onmouseleave="resetTilt(this)">
+                    <div class="text-5xl mb-6">⚡️</div>
+                    <h3 class="font-syne text-2xl mb-4 text-white">Efficiency</h3>
+                    <p class="text-base text-lavender/60 leading-relaxed">You stop doing busy work. Our automations handle the repetitive tasks.</p>
+                </div>
+                <div class="p-10 border border-lavender/10 rounded-2xl bg-matte-black hover:border-sharp-purple/50 transition-colors hover-target tilt-card" onmousemove="tiltCard(event, this)" onmouseleave="resetTilt(this)">
+                    <div class="text-5xl mb-6">💎</div>
+                    <h3 class="font-syne text-2xl mb-4 text-white">Value</h3>
+                    <p class="text-base text-lavender/60 leading-relaxed">You can charge what you are actually worth because you look like a leader.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 md:py-32 px-4 md:px-6 text-center bg-matte-black relative z-20 border-t border-lavender/10">
+        <h2 class="font-syne text-4xl md:text-7xl mb-8">Pick your path.</h2>
+        <p class="font-manrope text-2xl mb-12 max-w-2xl mx-auto font-bold text-lavender/80">Start with one, or build them all. Let's transform your business.</p>
+        <a href="contact.html" class="inline-block border-2 border-lavender px-10 py-4 rounded-full text-lg font-bold uppercase hover:bg-lavender hover:text-matte-black transition-all hover-target">Contact Us</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 md:py-20 px-4 md:px-6 bg-matte-black flex flex-col md:flex-row justify-between items-start md:items-end border-t border-lavender/20 relative z-20">
+        <div class="w-full md:w-auto">
+            <h2 class="font-syne text-5xl md:text-8xl mb-4 md:mb-6 text-lavender">LET'S TALK</h2>
+            <a href="mailto:hello@getonlinestudio.com" class="text-lg md:text-2xl text-sharp-purple hover:text-white transition-colors font-manrope underline decoration-1 underline-offset-8 break-all hover-target">hello@getonlinestudio.com</a>
+        </div>
+        <div class="mt-10 md:mt-0 flex flex-wrap gap-6 font-manrope text-xs md:text-sm uppercase tracking-widest w-full md:w-auto">
+            <a href="#" class="hover:text-sharp-purple hover-target">Instagram</a>
+            <a href="#" class="hover:text-sharp-purple hover-target">Twitter</a>
+            <a href="#" class="hover:text-sharp-purple hover-target">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script>
+        // Floating Image Reveal Logic
+        const previewEl = document.getElementById('cursor-preview');
+        const serviceRows = document.querySelectorAll('.service-row');
+
+        serviceRows.forEach(row => {
+            row.addEventListener('mouseenter', (e) => {
+                const img = row.getAttribute('data-image');
+                previewEl.style.backgroundImage = `url(${img})`;
+                previewEl.classList.add('active');
+            });
+            
+            row.addEventListener('mouseleave', () => {
+                previewEl.classList.remove('active');
+            });
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            // Only move preview if active to save resources
+            if (previewEl.classList.contains('active')) {
+                const x = e.clientX;
+                const y = e.clientY;
+                
+                // Keep the preview slightly offset from the cursor
+                const offsetX = 50; 
+                const offsetY = 50; 
+
+                previewEl.style.left = `${x + offsetX}px`;
+                previewEl.style.top = `${y + offsetY}px`;
+            }
+        });
+
+        // 3D Tilt Logic
+        function tiltCard(event, card) {
+            const cardRect = card.getBoundingClientRect();
+            const x = event.clientX - cardRect.left;
+            const y = event.clientY - cardRect.top;
+            const centerX = cardRect.width / 2;
+            const centerY = cardRect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -10; 
+            const rotateY = ((x - centerX) / centerX) * 10;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+        }
+
+        function resetTilt(card) {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+        }
+
+        // High Performance Custom Cursor
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        if (!isTouchDevice) {
+            let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+            });
+            const animateCursor = () => {
+                outlineX += (mouseX - outlineX) * 0.15;
+                outlineY += (mouseY - outlineY) * 0.15;
+                cursorOutline.style.transform = `translate(${outlineX}px, ${outlineY}px) translate(-50%, -50%)`;
+                requestAnimationFrame(animateCursor);
+            };
+            animateCursor();
+            const hoverTargets = document.querySelectorAll('.hover-target');
+            hoverTargets.forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+            });
+        }
+    </script>
+</body>
+</html>

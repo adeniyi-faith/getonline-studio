@@ -1,0 +1,23 @@
+[pl_row pagelayer-id="iGNqsGQ2JMbXufEf"  stretch="auto" col_gap="0" width_content="auto" row_height="default" overlay_hover_delay="400" row_shape_top_color="#fff" row_shape_top_width="100" row_shape_top_height="100" row_shape_bottom_color="#fff" row_shape_bottom_width="100" row_shape_bottom_height="100" ele_padding="10px,0px,50px,0px" ele_bg_type="color" ele_bg_color="#110f10ff"]
+[pl_col pagelayer-id="25fpZZpzUtKIbPrW"  widget_space="0" overlay_hover_delay="400" ele_padding="0px,15px,0px,15px" col_width="100" ele_padding_tablet="15px,15px,15px,15px" col_width_mobile="100" ele_padding_mobile="10px,10px,10px,10px"]
+[pl_heading pagelayer-id="C4rCS9SRCcR9pEo0"  heading_state="normal" color="#ffffffff" align="center" heading_typo="Cabin,35,Normal,900,Normal,None,Solid,1.65,Uppercase,10,0" ele_zindex="1" ele_padding="33px,0px,30px,0px" ele_margin="0px,0px,0px,0px" ele_custom_pos="true" ele_align="50%" ele_height="auto" ele_custom_width="50%" ele_custom_width_tablet="80%" align_tablet="center" heading_typo_tablet=",30,,,,,Solid,,,," ele_margin_tablet="0px,0px,0px,0px" ele_padding_tablet="10px,10px,10px,10px" ele_custom_width_mobile="100%" ele_margin_mobile="0px,0px,0px,0px" ele_padding_mobile="20px,0px,20px,0px" align_mobile="center" heading_typo_mobile=",24,,,,,Solid,,,,"]
+
+Alen Rojnic[/pl_heading]
+[pl_social_grp pagelayer-id="D3DXafhvN41h2ZOk"  align="center" group_layout="pagelayer-btn-grp-horizontal" icon_spacing="40" icon_size="18" color_scheme="" icon_color="#ffffffff" social_hover_delay="400" icon_color_hover="#ffffffa7" social_hover="hover" anim_hover="float" ele_css="{{element}} .pagelayer-social{padding-top: 0px;
+padding-bottom: 0px;}" ele_padding="10px,0px,10px,0px" icon_spacing_mobile="20" ele_padding_mobile="20px,0px,20px,0px" icon_spacing_tablet="25"]
+[pl_social pagelayer-id="tZEd7Lusjj2Dpc7z"  icon="fab fa-facebook-f" social_url="https://facebook.com/sitepad"]
+[/pl_social]
+[pl_social pagelayer-id="gbXln8WgCU2OrUIY"  icon="fab fa-twitter" social_url="https://twitter.com/sitepad_editor"]
+[/pl_social]
+[pl_social pagelayer-id="3meJVR74AfHzynVP"  icon="fab fa-instagram" social_url="https://instagram.com/sitepad"]
+[/pl_social]
+[pl_social pagelayer-id="gJx3BDRHsndruBBu"  icon="fab fa-pinterest-p" social_url="https://www.facebook.com/sitepad"]
+[/pl_social]
+[/pl_social_grp]
+[pl_heading pagelayer-id="PLiRRr4x6SZQ5qFN"  heading_state="normal" color="#e3e0e0ff" align="center" heading_typo="Cabin,16,Normal,100,Normal,None,Solid,1.65,,0,0" ele_padding="2%,18%,4%,18%" animation="" animation_delay="600" ele_padding_tablet="2%,7%,3%,7%" ele_padding_mobile="3%,2%,4%,2%"]
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>[/pl_heading]
+[pl_copyright pagelayer-id="Bh5lOx0aJAYNigEc"  color="#ffffffff" typography="Cabin,15,Normal,100,Normal,None,Double,1.65,Uppercase,0,0"]
+[/pl_copyright]
+[/pl_col]
+[/pl_row]

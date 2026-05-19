@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Selected Work | GetOnline Studio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'matte-black': '#101010',
+                        'card-dark': '#0a0a0a',
+                        'lavender': '#e9d5ff',
+                        'sharp-purple': '#7e22ce',
+                        'off-white': '#f5f5f5'
+                    },
+                    fontFamily: {
+                        'syne': ['Syne', 'sans-serif'],
+                        'manrope': ['Manrope', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
+                    },
+                    animation: {
+                        'spin-slow': 'spin 15s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styles */
+        body {
+            background-color: #101010;
+            color: #e9d5ff;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
+        .cursor-outline {
+            width: 40px; height: 40px;
+            border: 1px solid #7e22ce;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        @media (pointer: coarse) {
+            .cursor-dot, .cursor-outline { display: none; }
+            body { cursor: auto; }
+        }
+        body.hovering .cursor-outline {
+            width: 60px; height: 60px;
+            background-color: rgba(126, 34, 206, 0.2);
+            border-color: transparent;
+        }
+
+        /* Text Stroke Utility */
+        .text-stroke {
+            -webkit-text-stroke: 1px #e9d5ff;
+            color: transparent;
+            transition: all 0.3s ease;
+        }
+        .group:hover .text-stroke {
+            color: #e9d5ff;
+            -webkit-text-stroke: 0px;
+        }
+
+        /* Reveal Animations */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* Image Zoom Effect for Grid */
+        .project-img {
+            transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
+        }
+        .group:hover .project-img {
+            transform: scale(1.05);
+            filter: grayscale(0%) !important;
+        }
+    </style>
+<script src="/tracking.js"></script></head>
+<body class="bg-matte-black bg-noise font-manrope selection:bg-sharp-purple selection:text-white relative">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 px-4 md:px-6 py-4 md:py-6 flex justify-between items-center mix-blend-difference text-lavender">
+        <a href="https://getonlinestudio.com" class="font-syne font-bold text-xl md:text-2xl hover:text-sharp-purple transition-colors hover-target">GO.</a>
+        <a href="https://getonlinestudio.com" class="text-xs md:text-sm font-bold tracking-widest uppercase border border-lavender px-4 md:px-6 py-2 rounded-full hover:bg-lavender hover:text-matte-black transition-all duration-300 bg-matte-black/20 backdrop-blur-sm hover-target">
+            Back Home
+        </a>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-32 pb-10 md:pb-20 px-4 md:px-6 text-center">
+        <h1 class="font-syne text-[12vw] leading-[0.85] font-bold text-lavender mix-blend-screen reveal-up">
+            SELECTED <br> <span class="text-transparent text-stroke">WORK</span>
+        </h1>
+        <div class="mt-12 flex justify-center flex-wrap gap-4 reveal-up" style="animation-delay: 0.2s;">
+            <span class="px-4 py-1 border border-lavender/30 rounded-full text-[10px] md:text-xs uppercase tracking-widest">Web Design</span>
+            <span class="px-4 py-1 border border-lavender/30 rounded-full text-[10px] md:text-xs uppercase tracking-widest">App Development</span>
+            <span class="px-4 py-1 border border-lavender/30 rounded-full text-[10px] md:text-xs uppercase tracking-widest">Brand Identity</span>
+        </div>
+    </header>
+
+    <!-- FEATURED PROJECTS (The 6 core case studies) -->
+    <section class="pb-20">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+                
+                <!-- Project 1: RaffleKings -->
+                <a href="/work/rafflekings" class="group block hover-target reveal-up" style="animation-delay: 0.1s;">
+                    <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 bg-card-dark border border-lavender/10">
+                        <img src="https://getonlinestudio.com/insights/wp-content/uploads/2026/03/69c056ef61d91271e5147a38.jpg" alt="RaffleKings" class="w-full h-full object-cover object-top project-img filter grayscale opacity-80">
+                        <div class="absolute top-4 left-4">
+                            <span class="font-mono text-[10px] md:text-xs text-white bg-black/60 px-3 py-1 rounded-full backdrop-blur-md border border-white/20">01</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+                        <div class="flex-1">
+                            <h3 class="font-syne text-3xl md:text-4xl font-bold mb-3 group-hover:text-sharp-purple transition-colors">RAFFLEKINGS</h3>
+                            <p class="font-manrope text-lavender/60 text-sm md:text-base leading-relaxed max-w-md">A high-performance "Fintech-Gaming" ecosystem bridging the gap between financial security and gaming excitement with a custom PHP backend.</p>
+                        </div>
+                        <div class="flex flex-col items-start md:items-end gap-3 flex-shrink-0">
+                            <span class="font-mono text-[10px] text-sharp-purple tracking-widest uppercase border border-sharp-purple/30 px-3 py-1 rounded-full">Fintech / Web App</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 2: VisionAfric -->
+                <a href="/work/visionafric" class="group block hover-target reveal-up md:mt-24" style="animation-delay: 0.2s;">
+                    <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 bg-card-dark border border-lavender/10">
+                        <img src="https://getonlinestudio.com/insights/wp-content/uploads/2026/03/69bfd90c35c39c6a8b6658d9.jpg" alt="VisionAfric" class="w-full h-full object-cover object-top project-img filter grayscale opacity-80">
+                        <div class="absolute top-4 left-4">
+                            <span class="font-mono text-[10px] md:text-xs text-white bg-black/60 px-3 py-1 rounded-full backdrop-blur-md border border-white/20">02</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+                        <div class="flex-1">
+                            <h3 class="font-syne text-3xl md:text-4xl font-bold mb-3 group-hover:text-sharp-purple transition-colors">VISIONAFRIC</h3>
+                            <p class="font-manrope text-lavender/60 text-sm md:text-base leading-relaxed max-w-md">An immersive "Trust Architecture" designed to legitimize their pan-African mission, showcase projects, and drive high-ticket donations.</p>
+                        </div>
+                        <div class="flex flex-col items-start md:items-end gap-3 flex-shrink-0">
+                            <span class="font-mono text-[10px] text-sharp-purple tracking-widest uppercase border border-sharp-purple/30 px-3 py-1 rounded-full">NGO / Global</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 3: World Institute for Peace -->
+                <a href="/work/wip" class="group block hover-target reveal-up" style="animation-delay: 0.1s;">
+                    <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 bg-card-dark border border-lavender/10">
+                        <img src="https://getonlinestudio.com/insights/wp-content/uploads/2026/03/69bfd3409c44e64ed26ba1d9.jpg" alt="W.I.P" class="w-full h-full object-cover object-top project-img filter grayscale opacity-80">
+                        <div class="absolute top-4 left-4">
+                            <span class="font-mono text-[10px] md:text-xs text-white bg-black/60 px-3 py-1 rounded-full backdrop-blur-md border border-white/20">03</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+                        <div class="flex-1">
+                            <h3 class="font-syne text-3xl md:text-4xl font-bold mb-3 group-hover:text-sharp-purple transition-colors">W.I.P</h3>
+                            <p class="font-manrope text-lavender/60 text-sm md:text-base leading-relaxed max-w-md">A bespoke, authoritative digital architecture combining classic serif typography and dynamic API integrations to command respect globally.</p>
+                        </div>
+                        <div class="flex flex-col items-start md:items-end gap-3 flex-shrink-0">
+                            <span class="font-mono text-[10px] text-sharp-purple tracking-widest uppercase border border-sharp-purple/30 px-3 py-1 rounded-full">Digital Presence</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 4: Rain of Blessings -->
+                <a href="/work/rain-of-blessings" class="group block hover-target reveal-up md:mt-24" style="animation-delay: 0.2s;">
+                    <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 bg-card-dark border border-lavender/10">
+                        <img src="https://getonlinestudio.com/insights/wp-content/uploads/2026/03/69bfd9731b0c455eca4aff51.jpg" alt="Rain of Blessings" class="w-full h-full object-cover object-top project-img filter grayscale opacity-80">
+                        <div class="absolute top-4 left-4">
+                            <span class="font-mono text-[10px] md:text-xs text-white bg-black/60 px-3 py-1 rounded-full backdrop-blur-md border border-white/20">04</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+                        <div class="flex-1">
+                            <h3 class="font-syne text-3xl md:text-4xl font-bold mb-3 group-hover:text-sharp-purple transition-colors">R.O.B</h3>
+                            <p class="font-manrope text-lavender/60 text-sm md:text-base leading-relaxed max-w-md">A 360° software architecture featuring a high-converting website, a custom mobile application, and a highly secure PHP/MySQL backend.</p>
+                        </div>
+                        <div class="flex flex-col items-start md:items-end gap-3 flex-shrink-0">
+                            <span class="font-mono text-[10px] text-sharp-purple tracking-widest uppercase border border-sharp-purple/30 px-3 py-1 rounded-full">Software System</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 5: OA Global -->
+                <a href="/work/oa-global" class="group block hover-target reveal-up" style="animation-delay: 0.1s;">
+                    <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 bg-card-dark border border-lavender/10">
+                        <img src="https://getonlinestudio.com/insights/wp-content/uploads/2026/03/69bfd9cf5715882b8b47aab1.jpg" alt="OA Global" class="w-full h-full object-cover object-top project-img filter grayscale opacity-80">
+                        <div class="absolute top-4 left-4">
+                            <span class="font-mono text-[10px] md:text-xs text-white bg-black/60 px-3 py-1 rounded-full backdrop-blur-md border border-white/20">05</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+                        <div class="flex-1">
+                            <h3 class="font-syne text-3xl md:text-4xl font-bold mb-3 group-hover:text-sharp-purple transition-colors">OA GLOBAL</h3>
+                            <p class="font-manrope text-lavender/60 text-sm md:text-base leading-relaxed max-w-md">An enterprise-grade digital ecosystem automating complex lending workflows while projecting institutional authority for corporate clients.</p>
+                        </div>
+                        <div class="flex flex-col items-start md:items-end gap-3 flex-shrink-0">
+                            <span class="font-mono text-[10px] text-sharp-purple tracking-widest uppercase border border-sharp-purple/30 px-3 py-1 rounded-full">Enterprise App</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 6: DeKompany -->
+                <a href="/work/dekompany" class="group block hover-target reveal-up md:mt-24" style="animation-delay: 0.2s;">
+                    <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 bg-card-dark border border-lavender/10">
+                        <img src="https://getonlinestudio.com/insights/wp-content/uploads/2026/03/69bfda6324e30f2c3662f4cc.jpg" alt="DeKompany" class="w-full h-full object-cover object-top project-img filter grayscale opacity-80">
+                        <div class="absolute top-4 left-4">
+                            <span class="font-mono text-[10px] md:text-xs text-white bg-black/60 px-3 py-1 rounded-full backdrop-blur-md border border-white/20">06</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+                        <div class="flex-1">
+                            <h3 class="font-syne text-3xl md:text-4xl font-bold mb-3 group-hover:text-sharp-purple transition-colors">DEKOMPANY</h3>
+                            <p class="font-manrope text-lavender/60 text-sm md:text-base leading-relaxed max-w-md">A sleek, data-driven "Knowledge Architecture" positioning them as premium, trusted strategists through corporate typography and performance metrics.</p>
+                        </div>
+                        <div class="flex flex-col items-start md:items-end gap-3 flex-shrink-0">
+                            <span class="font-mono text-[10px] text-sharp-purple tracking-widest uppercase border border-sharp-purple/30 px-3 py-1 rounded-full">Strategy / Brand</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- THE ARCHIVE (List format for secondary projects) -->
+        <div class="max-w-4xl mx-auto px-4 md:px-6 mt-32 md:mt-40 reveal-up">
+            <div class="mb-10 border-b border-lavender/20 pb-6">
+                <h2 class="font-syne text-2xl md:text-4xl text-lavender">Selected Archive</h2>
+                <p class="font-manrope text-lavender/50 text-sm mt-2">Concepts, landings, and specialized deployments.</p>
+            </div>
+            
+            <ul class="flex flex-col">
+                <!-- Void Walker -->
+                <li class="border-b border-lavender/10 group">
+                    <a href="https://getonlinestudio.com/work/void-walker/" class="flex flex-col md:flex-row md:items-center justify-between py-6 hover-target">
+                        <div class="flex items-center gap-4 md:gap-6 mb-2 md:mb-0">
+                            <span class="font-mono text-xs text-lavender/30 w-6">07</span>
+                            <h3 class="font-syne text-2xl md:text-3xl text-lavender group-hover:text-sharp-purple group-hover:translate-x-2 transition-all duration-300">VOID WALKER</h3>
+                        </div>
+                        <div class="flex items-center justify-between md:justify-end w-full md:w-auto gap-8">
+                            <span class="font-mono text-[10px] md:text-xs text-lavender/50 uppercase tracking-widest">Stealth Startup</span>
+                            <svg class="w-5 h-5 text-lavender/30 group-hover:text-sharp-purple transform group-hover:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Kinetic Soul -->
+                <li class="border-b border-lavender/10 group">
+                    <a href="https://getonlinestudio.com/work/kinetic-soul/" class="flex flex-col md:flex-row md:items-center justify-between py-6 hover-target">
+                        <div class="flex items-center gap-4 md:gap-6 mb-2 md:mb-0">
+                            <span class="font-mono text-xs text-lavender/30 w-6">08</span>
+                            <h3 class="font-syne text-2xl md:text-3xl text-lavender group-hover:text-sharp-purple group-hover:translate-x-2 transition-all duration-300">KINETIC SOUL</h3>
+                        </div>
+                        <div class="flex items-center justify-between md:justify-end w-full md:w-auto gap-8">
+                            <span class="font-mono text-[10px] md:text-xs text-lavender/50 uppercase tracking-widest">Musician Portfolio</span>
+                            <svg class="w-5 h-5 text-lavender/30 group-hover:text-sharp-purple transform group-hover:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Type Fndry -->
+                <li class="border-b border-lavender/10 group">
+                    <a href="https://getonlinestudio.com/work/type-fndry/" class="flex flex-col md:flex-row md:items-center justify-between py-6 hover-target">
+                        <div class="flex items-center gap-4 md:gap-6 mb-2 md:mb-0">
+                            <span class="font-mono text-xs text-lavender/30 w-6">09</span>
+                            <h3 class="font-syne text-2xl md:text-3xl text-lavender group-hover:text-sharp-purple group-hover:translate-x-2 transition-all duration-300">TYPE FNDRY</h3>
+                        </div>
+                        <div class="flex items-center justify-between md:justify-end w-full md:w-auto gap-8">
+                            <span class="font-mono text-[10px] md:text-xs text-lavender/50 uppercase tracking-widest">E-Commerce Concept</span>
+                            <svg class="w-5 h-5 text-lavender/30 group-hover:text-sharp-purple transform group-hover:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Victor Cross -->
+                <li class="border-b border-lavender/10 group">
+                    <a href="https://design.getonlinestudio.com/victor-cross/" target="_blank" class="flex flex-col md:flex-row md:items-center justify-between py-6 hover-target">
+                        <div class="flex items-center gap-4 md:gap-6 mb-2 md:mb-0">
+                            <span class="font-mono text-xs text-lavender/30 w-6">10</span>
+                            <h3 class="font-syne text-2xl md:text-3xl text-lavender group-hover:text-sharp-purple group-hover:translate-x-2 transition-all duration-300">VICTOR CROSS</h3>
+                        </div>
+                        <div class="flex items-center justify-between md:justify-end w-full md:w-auto gap-8">
+                            <span class="font-mono text-[10px] md:text-xs text-lavender/50 uppercase tracking-widest">Live Deploy ↗</span>
+                            <svg class="w-5 h-5 text-lavender/30 group-hover:text-sharp-purple transform group-hover:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- NEO -->
+                <li class="border-b border-lavender/10 group">
+                    <a href="https://design.getonlinestudio.com/neo/" target="_blank" class="flex flex-col md:flex-row md:items-center justify-between py-6 hover-target">
+                        <div class="flex items-center gap-4 md:gap-6 mb-2 md:mb-0">
+                            <span class="font-mono text-xs text-lavender/30 w-6">11</span>
+                            <h3 class="font-syne text-2xl md:text-3xl text-lavender group-hover:text-sharp-purple group-hover:translate-x-2 transition-all duration-300">NEO</h3>
+                        </div>
+                        <div class="flex items-center justify-between md:justify-end w-full md:w-auto gap-8">
+                            <span class="font-mono text-[10px] md:text-xs text-lavender/50 uppercase tracking-widest">Live Deploy ↗</span>
+                            <svg class="w-5 h-5 text-lavender/30 group-hover:text-sharp-purple transform group-hover:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Brim of Glory -->
+                <li class="border-b border-lavender/10 group">
+                    <a href="https://www.brimofglory.ca/" target="_blank" class="flex flex-col md:flex-row md:items-center justify-between py-6 hover-target">
+                        <div class="flex items-center gap-4 md:gap-6 mb-2 md:mb-0">
+                            <span class="font-mono text-xs text-lavender/30 w-6">12</span>
+                            <h3 class="font-syne text-2xl md:text-3xl text-lavender group-hover:text-sharp-purple group-hover:translate-x-2 transition-all duration-300">BRIM OF GLORY</h3>
+                        </div>
+                        <div class="flex items-center justify-between md:justify-end w-full md:w-auto gap-8">
+                            <span class="font-mono text-[10px] md:text-xs text-lavender/50 uppercase tracking-widest">Live Deploy ↗</span>
+                            <svg class="w-5 h-5 text-lavender/30 group-hover:text-sharp-purple transform group-hover:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Dr Favour Ayodele -->
+                <li class="border-b border-lavender/10 group">
+                    <a href="https://www.drfavourayodele.com/" target="_blank" class="flex flex-col md:flex-row md:items-center justify-between py-6 hover-target">
+                        <div class="flex items-center gap-4 md:gap-6 mb-2 md:mb-0">
+                            <span class="font-mono text-xs text-lavender/30 w-6">13</span>
+                            <h3 class="font-syne text-2xl md:text-3xl text-lavender group-hover:text-sharp-purple group-hover:translate-x-2 transition-all duration-300">DR. AYODELE</h3>
+                        </div>
+                        <div class="flex items-center justify-between md:justify-end w-full md:w-auto gap-8">
+                            <span class="font-mono text-[10px] md:text-xs text-lavender/50 uppercase tracking-widest">Live Deploy ↗</span>
+                            <svg class="w-5 h-5 text-lavender/30 group-hover:text-sharp-purple transform group-hover:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Free UK Sim Card -->
+                <li class="border-b border-lavender/10 group">
+                    <a href="https://freeuksimcard.com/" target="_blank" class="flex flex-col md:flex-row md:items-center justify-between py-6 hover-target">
+                        <div class="flex items-center gap-4 md:gap-6 mb-2 md:mb-0">
+                            <span class="font-mono text-xs text-lavender/30 w-6">14</span>
+                            <h3 class="font-syne text-2xl md:text-3xl text-lavender group-hover:text-sharp-purple group-hover:translate-x-2 transition-all duration-300">FREE UK SIM</h3>
+                        </div>
+                        <div class="flex items-center justify-between md:justify-end w-full md:w-auto gap-8">
+                            <span class="font-mono text-[10px] md:text-xs text-lavender/50 uppercase tracking-widest">Live Deploy ↗</span>
+                            <svg class="w-5 h-5 text-lavender/30 group-hover:text-sharp-purple transform group-hover:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Negotium Pros -->
+                <li class="border-b border-lavender/10 group">
+                    <a href="https://negotiumpros.com/" target="_blank" class="flex flex-col md:flex-row md:items-center justify-between py-6 hover-target">
+                        <div class="flex items-center gap-4 md:gap-6 mb-2 md:mb-0">
+                            <span class="font-mono text-xs text-lavender/30 w-6">15</span>
+                            <h3 class="font-syne text-2xl md:text-3xl text-lavender group-hover:text-sharp-purple group-hover:translate-x-2 transition-all duration-300">NEGOTIUM PROS</h3>
+                        </div>
+                        <div class="flex items-center justify-between md:justify-end w-full md:w-auto gap-8">
+                            <span class="font-mono text-[10px] md:text-xs text-lavender/50 uppercase tracking-widest">Live Deploy ↗</span>
+                            <svg class="w-5 h-5 text-lavender/30 group-hover:text-sharp-purple transform group-hover:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 md:py-20 px-4 md:px-6 bg-matte-black flex flex-col md:flex-row justify-between items-start md:items-end border-t border-lavender/20 relative z-20 mt-10">
+        <div class="w-full md:w-auto">
+            <h2 class="font-syne text-5xl md:text-8xl mb-4 md:mb-6 text-lavender">LET'S TALK</h2>
+            <a href="mailto:hello@getonlinestudio.com" class="text-lg md:text-2xl text-sharp-purple hover:text-white transition-colors font-manrope underline decoration-1 underline-offset-8 break-all hover-target">hello@getonlinestudio.com</a>
+        </div>
+        <div class="mt-10 md:mt-0 flex flex-wrap gap-6 font-manrope text-xs md:text-sm uppercase tracking-widest w-full md:w-auto">
+            <a href="#" class="hover:text-sharp-purple hover-target">Instagram</a>
+            <a href="#" class="hover:text-sharp-purple hover-target">Twitter</a>
+            <a href="#" class="hover:text-sharp-purple hover-target">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script>
+        // High Performance Cursor
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        if (!isTouchDevice) {
+            let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+            });
+            const animateCursor = () => {
+                outlineX += (mouseX - outlineX) * 0.15;
+                outlineY += (mouseY - outlineY) * 0.15;
+                cursorOutline.style.transform = `translate(${outlineX}px, ${outlineY}px) translate(-50%, -50%)`;
+                requestAnimationFrame(animateCursor);
+            };
+            animateCursor();
+            const hoverTargets = document.querySelectorAll('.hover-target');
+            hoverTargets.forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+            });
+        }
+    </script>
+</body>
+</html>

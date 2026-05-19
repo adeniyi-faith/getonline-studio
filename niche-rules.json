@@ -1,0 +1,232 @@
+{
+    "accounting": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "agriculture-company": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "architecture-firm": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "bakery": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "beauty-spa": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "catering": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "church": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "cleaning": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "construction": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "crypto": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "dental": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "driving-school": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "drone-photography": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "ecommerce": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "event-planning": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "fashion-boutique": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "fintech": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "fitness-gym": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "hospital": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "hotel": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "insurance": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "interior-design": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "law-firm": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "loan-company": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "logistics": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "makeup-artist": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "microfinance": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "music-school": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "ngo": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "oil-gas": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "pet-store": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "pharmacy": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "photography": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "polytechnic": {
+        "low": 500000,
+        "typical": 750000,
+        "high": 1500000
+    },
+    "real-estate": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "recruitment": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "restaurant": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "school": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "software": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "solar": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "supermarket": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "tech-startup": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "travel-agency": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "university": {
+        "low": 700000,
+        "typical": 1500000,
+        "high": 500000
+    },
+    "waste-management": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    },
+    "wedding-planner": {
+        "low": 120000,
+        "typical": 250000,
+        "high": 450000
+    }
+}

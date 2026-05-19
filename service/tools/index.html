@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Business Tools & AI | GetOnline Studio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Syne:wght@400;700;800&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'matte-black': '#0a0a0a',
+                        'card-dark': '#121212',
+                        'lavender': '#e9d5ff',
+                        'ai-blue': '#3b82f6',
+                        'ai-purple': '#8b5cf6',
+                        'ai-green': '#10b981',
+                        'ai-orange': '#f59e0b',
+                        'ai-red': '#ef4444',
+                        'ai-pink': '#ec4899',
+                        'sheet-grid': '#262626',
+                    },
+                    fontFamily: {
+                        'syne': ['Syne', 'sans-serif'],
+                        'manrope': ['Manrope', 'sans-serif'],
+                        'space': ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                        'scan-vertical': 'scanVertical 4s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'wave': 'wave 1s ease-in-out infinite',
+                        'expand-card': 'expandCard 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 0.6, filter: 'blur(20px)' },
+                            '50%': { opacity: 1, filter: 'blur(30px)' },
+                        },
+                        scanVertical: {
+                            '0%': { top: '0%' },
+                            '50%': { top: '100%' },
+                            '100%': { top: '0%' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        wave: {
+                            '0%, 100%': { height: '20%' },
+                            '50%': { height: '100%' }
+                        },
+                        expandCard: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e9d5ff;
+            overflow-x: hidden;
+        }
+
+        /* Custom Cursor (Hidden on Touch) */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0; left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
+        .cursor-outline { width: 40px; height: 40px; border: 1px solid #8b5cf6; transition: all 0.2s; }
+        body.hovering .cursor-outline { width: 60px; height: 60px; background-color: rgba(139, 92, 246, 0.2); border-color: transparent; }
+
+        @media (pointer: coarse) {
+            .cursor-dot, .cursor-outline { display: none; }
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Chat Animations */
+        .chat-bubble { opacity: 0; transform: translateY(10px); display: none; }
+        .chat-bubble.show { display: block; animation: popIn 0.5s forwards; }
+        
+        @keyframes popIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Spreadsheet Animations */
+        .sheet-cell { transition: background-color 0.3s; }
+        .sheet-cell.highlight { background-color: rgba(59, 130, 246, 0.2); color: white; }
+        
+        .scanner-line {
+            position: absolute;
+            left: 0; width: 100%; height: 2px;
+            background: #3b82f6;
+            box-shadow: 0 0 10px #3b82f6;
+            opacity: 0;
+        }
+        .animating .scanner-line {
+            opacity: 1;
+            animation: scanSheet 3s ease-in-out forwards;
+        }
+
+        @keyframes scanSheet {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        /* Email Modal Animation */
+        .email-modal {
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .email-modal.visible {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .type-text::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* Audio Waveform Bars */
+        .wave-bar {
+            width: 4px;
+            background-color: #8b5cf6;
+            border-radius: 99px;
+            animation: wave 1s ease-in-out infinite;
+        }
+        
+        /* Co-Pilot Card Animation */
+        .copilot-card {
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.5s ease;
+        }
+        .copilot-card.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Document Node Animation */
+        .doc-node {
+            transition: all 0.3s ease;
+        }
+        .doc-node.scanning {
+            border-color: #3b82f6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+        .doc-node.found {
+            border-color: #10b981;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+            background-color: rgba(16, 185, 129, 0.1);
+        }
+
+        /* Gen AI Card Animation */
+        .gen-card {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .gen-card.generated {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Grid Pattern for Sheet */
+        .grid-bg {
+            background-image: linear-gradient(#262626 1px, transparent 1px), linear-gradient(90deg, #262626 1px, transparent 1px);
+            background-size: 100% 40px, 20% 100%;
+        }
+
+        /* Hide Scrollbar for Chat */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        @media (max-width: 768px) {
+            .mobile-stack { flex-direction: column; }
+        }
+    </style>
+</head>
+<body class="bg-matte-black text-white font-manrope">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-outline hidden md:block"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-4 md:px-6 py-4 md:py-6 flex justify-between items-center mix-blend-difference text-lavender bg-matte-black/80 backdrop-blur-md">
+        <a href="https://getonlinestudio.com" class="font-syne font-bold text-xl hover:text-ai-purple transition-colors hover-target">GO.</a>
+        <a href="https://getonlinestudio.com" class="text-xs font-bold uppercase tracking-widest border border-lavender/30 px-4 md:px-6 py-2 rounded-full hover:bg-white hover:text-black transition-all hover-target">Back Home</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 md:pt-40 pb-16 md:pb-20 px-4 md:px-6 text-center relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-ai-purple/20 rounded-full blur-[80px] md:blur-[120px] pointer-events-none"></div>
+        <h1 class="font-syne text-4xl md:text-7xl font-bold mb-6 relative z-10 leading-tight">AI is your new<br><span class="text-ai-purple">Operations Manager</span></h1>
+        <p class="text-lavender/60 max-w-2xl mx-auto text-base md:text-lg">
+            It doesn't just write text. It manages schedules, analyzes finances, and communicates with your team. See it in action.
+        </p>
+    </section>
+
+    <!-- DEMO 1: Smart Scheduling -->
+    <section id="demo-scheduling" class="py-16 md:py-20 px-4 md:px-6 border-t border-white/10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-24">
+            
+            <!-- Context -->
+            <div class="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left">
+                <div class="inline-block px-3 py-1 rounded-full border border-ai-green/30 text-ai-green text-xs font-bold mb-4 uppercase tracking-widest">Demo 01: Logistics</div>
+                <h2 class="font-syne text-3xl md:text-5xl mb-6">The 24/7 Receptionist.</h2>
+                <p class="text-lavender/70 text-base md:text-lg leading-relaxed mb-8">
+                    Imagine a client wants to view a property or book a service at 11 PM. Your AI assistant handles the inquiry, checks your real-time availability, and secures the booking without you lifting a finger.
+                </p>
+                <button onclick="restartChat()" class="flex items-center gap-2 text-sm text-white border-b border-white/30 pb-1 hover:text-ai-green hover:border-ai-green transition-colors hover-target mx-auto md:mx-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    Replay Interaction
+                </button>
+            </div>
+
+            <!-- Phone Visual -->
+            <div class="w-full md:w-1/2 flex justify-center order-1 md:order-2">
+                <div class="relative w-full max-w-[320px] h-[600px] bg-black border-4 border-gray-800 rounded-[3rem] shadow-2xl overflow-hidden">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-7 bg-black rounded-b-xl z-20"></div>
+                    
+                    <div class="absolute inset-0 pt-16 px-4 bg-card-dark flex flex-col gap-3 overflow-hidden" id="chat-container">
+                        <div class="text-center mb-4">
+                            <div class="w-12 h-12 bg-gray-700 rounded-full mx-auto mb-2 overflow-hidden">
+                                <img src="https://cdn1.site-media.eu/images/0/21615346/images-I41lv9CJNU1tuKnnsuL2jg.jpeg" class="w-full h-full object-cover opacity-80">
+                            </div>
+                            <p class="text-xs text-gray-400">Luxury Estates AI</p>
+                        </div>
+                        <div id="chat-messages" class="flex flex-col gap-3 overflow-y-auto no-scrollbar h-full pb-20"></div>
+                    </div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full h-20 bg-gray-900 px-6 py-4 flex items-center gap-3 border-t border-gray-800 z-10">
+                        <div class="h-8 w-8 rounded-full bg-gray-700 flex items-center justify-center text-gray-400 text-xs">+</div>
+                        <div class="h-8 flex-grow rounded-full bg-gray-800 border border-gray-700"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DEMO 2: Data Analysis -->
+    <section id="demo-analytics" class="py-16 md:py-20 px-4 md:px-6 border-t border-white/10 bg-[#050505]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                 <div class="inline-block px-3 py-1 rounded-full border border-ai-blue/30 text-ai-blue text-xs font-bold mb-4 uppercase tracking-widest">Demo 02: Analytics</div>
+                 <h2 class="font-syne text-3xl md:text-5xl mb-6">From Data to Decision.</h2>
+                 <p class="text-lavender/70 max-w-2xl mx-auto text-sm md:text-base">
+                     Watch the AI scan a raw sales spreadsheet, identify high-performing items, and automatically draft a report email to your stakeholders.
+                 </p>
+                 <button onclick="runSpreadsheetDemo()" class="mt-6 px-6 py-2 bg-white/10 hover:bg-white/20 rounded text-sm transition-colors hover-target">
+                    Run Analysis
+                 </button>
+            </div>
+
+            <div class="relative w-full glass-panel rounded-xl overflow-hidden flex flex-col md:flex-row min-h-[600px] md:min-h-0 md:aspect-[16/9]">
+                
+                <!-- Left: The Spreadsheet -->
+                <div class="w-full md:w-2/3 border-b md:border-b-0 md:border-r border-white/10 relative bg-[#1a1a1a] p-4 md:p-8">
+                    <div class="flex justify-between mb-4 opacity-50 text-xs font-mono">
+                        <span>sales_q3_data.csv</span>
+                        <span>Read-Only</span>
+                    </div>
+                    
+                    <!-- The Grid Wrapper for Horizontal Scroll -->
+                    <div class="overflow-x-auto">
+                        <div class="min-w-[500px] h-full border border-white/10 rounded grid-bg relative overflow-hidden" id="sheet-grid">
+                            <div class="flex border-b border-white/10 text-xs font-bold text-gray-400 bg-black/20">
+                                <div class="w-1/4 p-3 border-r border-white/10">Product</div>
+                                <div class="w-1/4 p-3 border-r border-white/10">Units</div>
+                                <div class="w-1/4 p-3 border-r border-white/10">Revenue</div>
+                                <div class="w-1/4 p-3">Status</div>
+                            </div>
+                            
+                            <div id="sheet-rows" class="text-xs font-mono text-gray-300"></div>
+
+                            <div class="scanner-line z-10" id="scanner"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: The Email Composer -->
+                <div class="w-full md:w-1/3 bg-[#111] p-6 relative flex flex-col justify-center min-h-[300px]">
+                    <div id="processing-state" class="absolute inset-0 flex items-center justify-center bg-black/80 z-20 transition-opacity duration-500 opacity-0 pointer-events-none">
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-8 h-8 border-2 border-ai-blue border-t-transparent rounded-full animate-spin"></div>
+                            <span class="text-xs font-mono text-ai-blue animate-pulse">PROCESSING DATA...</span>
+                        </div>
+                    </div>
+
+                    <div class="email-modal bg-white/5 border border-white/10 rounded-lg p-4 w-full" id="email-modal">
+                        <div class="border-b border-white/10 pb-2 mb-2">
+                            <div class="text-[10px] text-gray-500 uppercase tracking-wider">To</div>
+                            <div class="text-sm text-white">ceo@company.com</div>
+                        </div>
+                        <div class="border-b border-white/10 pb-2 mb-4">
+                            <div class="text-[10px] text-gray-500 uppercase tracking-wider">Subject</div>
+                            <div class="text-sm text-white font-bold">Q3 Sales Summary: <span class="text-ai-green">Profitable</span></div>
+                        </div>
+                        <div class="text-xs text-gray-300 leading-relaxed font-mono h-32" id="email-body"></div>
+                        <div class="mt-4 flex justify-end">
+                            <div class="px-4 py-1 bg-ai-blue text-white text-xs rounded flex items-center gap-2 opacity-0 transition-opacity" id="send-btn">
+                                <span>Sent</span>
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DEMO 3: Sales Co-Pilot -->
+    <section id="demo-voice" class="py-16 md:py-20 px-4 md:px-6 border-t border-white/10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12 md:gap-24">
+            
+            <div class="w-full md:w-1/2 text-center md:text-left">
+                <div class="inline-block px-3 py-1 rounded-full border border-ai-purple/30 text-ai-purple text-xs font-bold mb-4 uppercase tracking-widest">Demo 03: Intelligence</div>
+                <h2 class="font-syne text-3xl md:text-5xl mb-6">The Sales Co-Pilot.</h2>
+                <p class="text-lavender/70 text-base md:text-lg leading-relaxed mb-8">
+                    During a call, the AI listens to your client, detects hesitation (sentiment analysis), and instantly suggests the perfect answer on your screen to help you close the deal.
+                </p>
+                <button onclick="runVoiceDemo()" class="flex items-center gap-2 text-sm text-white border-b border-white/30 pb-1 hover:text-ai-purple hover:border-ai-purple transition-colors hover-target mx-auto md:mx-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    Start Simulation
+                </button>
+            </div>
+
+            <div class="w-full md:w-1/2">
+                <div class="relative bg-card-dark border border-white/10 rounded-2xl p-6 shadow-2xl overflow-hidden min-h-[350px]">
+                    <div class="flex justify-between items-center mb-8 border-b border-white/5 pb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500"></div>
+                            <div>
+                                <div class="text-sm font-bold">John Doe (Client)</div>
+                                <div class="text-[10px] text-gray-400">00:42 / Connected</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1 h-4" id="audio-viz"></div>
+                    </div>
+
+                    <div class="h-32 mb-6 relative">
+                        <div class="absolute top-0 left-0 pl-4 border-l-2 border-ai-purple/50 h-full w-full overflow-hidden">
+                            <p class="text-xs text-gray-400 mb-1 uppercase tracking-widest">Live Transcript</p>
+                            <p class="text-sm text-white leading-relaxed font-mono" id="transcript-text"></p>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#1a1a1a] rounded-xl p-4 border border-white/5 relative min-h-[120px]">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-ai-purple rounded-full animate-pulse"></div>
+                                <span class="text-[10px] font-bold text-ai-purple uppercase">Co-Pilot Active</span>
+                            </div>
+                        </div>
+
+                        <div class="copilot-card absolute top-10 left-4 right-4 bg-red-500/10 border border-red-500/30 p-3 rounded flex items-start gap-3" id="card-objection">
+                            <div class="text-xl">⚠️</div>
+                            <div>
+                                <div class="text-xs font-bold text-red-400 uppercase mb-1">Objection Detected: Price</div>
+                                <div class="text-xs text-white">Suggest: "Let's break down the monthly ROI..."</div>
+                            </div>
+                        </div>
+                        
+                         <div class="copilot-card absolute top-10 left-4 right-4 bg-green-500/10 border border-green-500/30 p-3 rounded flex items-start gap-3" id="card-closing">
+                            <div class="text-xl">✅</div>
+                            <div>
+                                <div class="text-xs font-bold text-green-400 uppercase mb-1">Buying Signal</div>
+                                <div class="text-xs text-white">Action: Send Proposal Link Now</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DEMO 4: Knowledge Retrieval (RAG) -->
+    <section id="demo-knowledge" class="py-16 md:py-20 px-4 md:px-6 border-t border-white/10 bg-[#050505]">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-24">
+            
+            <div class="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left">
+                <div class="inline-block px-3 py-1 rounded-full border border-ai-blue/30 text-ai-blue text-xs font-bold mb-4 uppercase tracking-widest">Demo 04: Knowledge</div>
+                <h2 class="font-syne text-3xl md:text-5xl mb-6">The Corporate Brain.</h2>
+                <p class="text-lavender/70 text-base md:text-lg leading-relaxed mb-8">
+                    Connect your AI to your internal documents (PDFs, Slack, Notion). Employees get instant answers to complex policy questions without disturbing HR or IT.
+                </p>
+                <button onclick="runKnowledgeDemo()" class="flex items-center gap-2 text-sm text-white border-b border-white/30 pb-1 hover:text-ai-blue hover:border-ai-blue transition-colors hover-target mx-auto md:mx-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    Search Archive
+                </button>
+            </div>
+
+            <div class="w-full md:w-1/2 order-1 md:order-2">
+                <div class="bg-card-dark border border-white/10 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
+                    <div class="bg-[#1a1a1a] rounded-lg p-3 flex items-center gap-3 border border-white/5 mb-6">
+                        <div class="w-4 h-4 rounded-full border-2 border-gray-500"></div>
+                        <!-- Updated Placeholder / Input Style -->
+                        <div id="knowledge-input" class="text-sm text-gray-300 font-mono w-full tracking-wide leading-relaxed truncate">...</div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 md:gap-4 mb-6" id="doc-grid"></div>
+
+                    <div class="bg-[#1a1a1a]/80 backdrop-blur-md rounded-lg p-4 border border-ai-blue/30 min-h-[100px] relative">
+                        <div class="text-[10px] text-ai-blue mb-2 uppercase tracking-widest font-bold">AI Synthesized Answer</div>
+                        <div id="knowledge-output" class="text-sm text-white leading-relaxed tracking-wide"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DEMO 5: The Creative Engine (Generative) -->
+    <section id="demo-creative" class="py-16 md:py-20 px-4 md:px-6 border-t border-white/10">
+        <div class="max-w-4xl mx-auto text-center mb-12">
+             <div class="inline-block px-3 py-1 rounded-full border border-ai-pink/30 text-ai-pink text-xs font-bold mb-4 uppercase tracking-widest">Demo 05: Content</div>
+             <h2 class="font-syne text-3xl md:text-5xl mb-6">The Creative Engine.</h2>
+             <p class="text-lavender/70 text-base md:text-lg max-w-xl mx-auto">
+                 One input, infinite outputs. Turn a single idea into a multi-channel marketing campaign instantly.
+             </p>
+        </div>
+
+        <div class="max-w-5xl mx-auto bg-card-dark border border-white/10 rounded-3xl p-6 md:p-12 relative overflow-hidden">
+            <!-- Input Area -->
+            <div class="flex justify-center mb-12 relative z-10">
+                <div class="bg-[#1a1a1a] border border-white/20 rounded-full px-4 py-3 md:px-6 md:py-4 flex flex-col md:flex-row items-center gap-4 w-full max-w-lg shadow-2xl">
+                    <div class="hidden md:block text-ai-pink">✨</div>
+                    <input type="text" id="gen-input" readonly value="Launch Eco-Sneaker Campaign" class="bg-transparent border-none outline-none text-white w-full font-manrope text-base md:text-lg text-center md:text-left mb-2 md:mb-0">
+                    <button onclick="runGenDemo()" class="bg-white text-black px-6 py-2 rounded-full text-xs font-bold hover:scale-105 transition-transform w-full md:w-auto">GENERATE</button>
+                </div>
+            </div>
+
+            <!-- Output Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                
+                <!-- Card 1: Instagram -->
+                <div class="gen-card bg-[#1a1a1a] border border-white/10 rounded-xl p-4 flex flex-col gap-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="w-6 h-6 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500"></div>
+                        <span class="text-xs font-bold text-gray-400">Instagram</span>
+                    </div>
+                    <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden relative group">
+                        <!-- Placeholder for generated image -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="absolute bottom-2 left-2 text-[10px] font-bold text-white uppercase tracking-widest">Image Gen</div>
+                    </div>
+                    <div class="h-2 w-3/4 bg-gray-800 rounded"></div>
+                    <div class="h-2 w-1/2 bg-gray-800 rounded"></div>
+                </div>
+
+                <!-- Card 2: Twitter -->
+                <div class="gen-card bg-[#1a1a1a] border border-white/10 rounded-xl p-4 flex flex-col gap-4" style="transition-delay: 0.2s">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="w-6 h-6 rounded bg-blue-400 flex items-center justify-center text-black font-bold text-xs">X</div>
+                        <span class="text-xs font-bold text-gray-400">Twitter Thread</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-black/30 rounded border border-white/5">
+                            <div class="h-2 w-full bg-gray-800 rounded mb-2"></div>
+                            <div class="h-2 w-3/4 bg-gray-800 rounded"></div>
+                        </div>
+                        <div class="p-3 bg-black/30 rounded border border-white/5">
+                            <div class="h-2 w-full bg-gray-800 rounded mb-2"></div>
+                            <div class="h-2 w-2/3 bg-gray-800 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: LinkedIn -->
+                <div class="gen-card bg-[#1a1a1a] border border-white/10 rounded-xl p-4 flex flex-col gap-4" style="transition-delay: 0.4s">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="w-6 h-6 rounded bg-blue-700 text-white flex items-center justify-center font-bold text-xs">in</div>
+                        <span class="text-xs font-bold text-gray-400">LinkedIn Post</span>
+                    </div>
+                    <div class="space-y-2">
+                         <div class="h-3 w-1/2 bg-gray-700 rounded mb-4"></div>
+                         <div class="h-2 w-full bg-gray-800 rounded"></div>
+                         <div class="h-2 w-full bg-gray-800 rounded"></div>
+                         <div class="h-2 w-full bg-gray-800 rounded"></div>
+                         <div class="h-2 w-3/4 bg-gray-800 rounded"></div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Connection Lines (Background) -->
+            <div class="absolute top-24 left-1/2 -translate-x-1/2 w-[80%] h-full pointer-events-none">
+                 <div class="absolute top-0 left-1/2 w-px h-20 bg-gradient-to-b from-transparent via-ai-pink to-transparent -translate-x-1/2"></div>
+                 <div class="absolute top-20 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ai-pink/50 to-transparent"></div>
+                 <div class="absolute top-20 left-[16%] w-px h-10 bg-gradient-to-b from-ai-pink/50 to-transparent"></div>
+                 <div class="absolute top-20 right-[16%] w-px h-10 bg-gradient-to-b from-ai-pink/50 to-transparent"></div>
+                 <div class="absolute top-20 left-1/2 w-px h-10 bg-gradient-to-b from-ai-pink/50 to-transparent"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="py-20 px-6 text-center">
+        <h2 class="font-syne text-3xl md:text-5xl mb-8">Ready to modernize?</h2>
+        <a href="contact.html" class="inline-block border border-white px-8 py-3 rounded-full hover:bg-white hover:text-black transition-all hover-target">Start a Project</a>
+    </section>
+
+    <script>
+        /* --- DEMO 1: CHAT LOGIC --- */
+        const chatMessagesDiv = document.getElementById('chat-messages');
+        const conversation = [
+            { type: 'user', text: "Hi, is the penthouse suite available this weekend?", delay: 500 },
+            { type: 'ai', text: "Checking availability for Oct 14-16...", delay: 1000 },
+            { type: 'ai', text: "Yes, the Executive Suite is open. It's $450/night. Should I hold it?", delay: 2500 },
+            { type: 'user', text: "Yes please. Book it.", delay: 4000 },
+            { type: 'ai', text: "Confirmed! 🎉 I've sent the invoice to your email.", delay: 5000 }
+        ];
+
+        let chatTimeouts = [];
+
+        function restartChat() {
+            chatTimeouts.forEach(t => clearTimeout(t));
+            chatTimeouts = [];
+            chatMessagesDiv.innerHTML = ''; 
+            
+            conversation.forEach((msg) => {
+                const t = setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.className = `chat-bubble show max-w-[80%] p-3 rounded-xl text-xs ${
+                        msg.type === 'user' 
+                        ? 'self-end bg-ai-green text-black rounded-br-none' 
+                        : 'self-start bg-white/10 text-white border border-white/10 rounded-bl-none'
+                    }`;
+                    div.innerText = msg.text;
+                    chatMessagesDiv.appendChild(div);
+                    
+                    chatMessagesDiv.scrollTo({
+                        top: chatMessagesDiv.scrollHeight,
+                        behavior: 'smooth'
+                    });
+
+                }, msg.delay);
+                chatTimeouts.push(t);
+            });
+        }
+
+        /* --- DEMO 2: SPREADSHEET LOGIC --- */
+        const sheetRows = [
+            { item: 'Consulting A', unit: '120h', rev: '$12,000', status: 'Paid' },
+            { item: 'Web Dev', unit: '100h', rev: '$15,000', status: 'Paid' },
+            { item: 'SEO Audit', unit: '40h', rev: '$5,000', status: 'Pending' },
+            { item: 'Maintenance', unit: '10h', rev: '$1,500', status: 'Paid' },
+            { item: 'Ads Mgmt', unit: '50h', rev: '$8,000', status: 'Overdue' },
+        ];
+
+        const sheetContainer = document.getElementById('sheet-rows');
+        sheetRows.forEach(row => {
+            const rowDiv = document.createElement('div');
+            rowDiv.className = "flex border-b border-white/5 sheet-row min-w-[500px]"; // Min-width for scroll
+            rowDiv.innerHTML = `
+                <div class="w-1/4 p-3 border-r border-white/5 truncate">${row.item}</div>
+                <div class="w-1/4 p-3 border-r border-white/5">${row.unit}</div>
+                <div class="w-1/4 p-3 border-r border-white/5 text-right">${row.rev}</div>
+                <div class="w-1/4 p-3 ${row.status === 'Paid' ? 'text-ai-green' : 'text-red-400'}">${row.status}</div>
+            `;
+            sheetContainer.appendChild(rowDiv);
+        });
+        
+        let sheetTimeouts = [];
+
+        function runSpreadsheetDemo() {
+            sheetTimeouts.forEach(t => clearTimeout(t));
+            sheetTimeouts = [];
+            
+            const scanner = document.getElementById('scanner');
+            const sheet = document.getElementById('sheet-grid');
+            const rows = document.querySelectorAll('.sheet-row');
+            const loader = document.getElementById('processing-state');
+            const modal = document.getElementById('email-modal');
+            const bodyText = document.getElementById('email-body');
+            const sendBtn = document.getElementById('send-btn');
+
+            sheet.classList.remove('animating');
+            void sheet.offsetWidth; // trigger reflow
+            rows.forEach(r => r.classList.remove('highlight'));
+            modal.classList.remove('visible');
+            bodyText.innerHTML = '';
+            sendBtn.style.opacity = '0';
+
+            sheet.classList.add('animating');
+
+            sheetTimeouts.push(setTimeout(() => rows[0].classList.add('highlight'), 500));
+            sheetTimeouts.push(setTimeout(() => rows[1].classList.add('highlight'), 1000));
+            sheetTimeouts.push(setTimeout(() => rows[3].classList.add('highlight'), 2000));
+
+            sheetTimeouts.push(setTimeout(() => { loader.style.opacity = '1'; }, 3000));
+
+            sheetTimeouts.push(setTimeout(() => {
+                loader.style.opacity = '0';
+                modal.classList.add('visible');
+                typeWriter("Analysis Complete.\n\nTop Performer: Web Dev ($15k)\nTotal Paid: $28,500\n\nAction: Automated invoice reminder sent for 'Ads Mgmt'.", bodyText);
+            }, 4500));
+
+            sheetTimeouts.push(setTimeout(() => { sendBtn.style.opacity = '1'; }, 8500));
+        }
+
+        /* --- DEMO 3: VOICE LOGIC --- */
+        let voiceTimeouts = [];
+        const vizContainer = document.getElementById('audio-viz');
+        for(let i=0; i<15; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'wave-bar h-full bg-ai-purple';
+            bar.style.height = Math.random() * 100 + '%';
+            bar.style.animationDelay = Math.random() + 's';
+            vizContainer.appendChild(bar);
+        }
+
+        function runVoiceDemo() {
+            voiceTimeouts.forEach(t => clearTimeout(t));
+            voiceTimeouts = [];
+
+            const transcript = document.getElementById('transcript-text');
+            const cardObjection = document.getElementById('card-objection');
+            const cardClosing = document.getElementById('card-closing');
+            
+            transcript.innerHTML = '';
+            cardObjection.classList.remove('active');
+            cardClosing.classList.remove('active');
+            cardObjection.style.display = 'none';
+            cardClosing.style.display = 'none';
+
+            const script = [
+                { text: "Client: It sounds great, but...", delay: 500 },
+                { text: "Client: ...I'm worried about the implementation cost.", delay: 1500 },
+                { action: 'objection', delay: 2000 },
+                { text: "You: I understand. Actually, Client X saw...", delay: 4000 },
+                { text: "You: ...ROI within 2 months.", delay: 5500 },
+                { action: 'clear_objection', delay: 6500 },
+                { text: "Client: Oh really? That changes things.", delay: 7500 },
+                { text: "Client: I think we can move forward.", delay: 9000 },
+                { action: 'closing', delay: 9500 }
+            ];
+
+            script.forEach(step => {
+                const t = setTimeout(() => {
+                    if (step.text) {
+                        transcript.innerText = step.text;
+                    } else if (step.action === 'objection') {
+                        cardObjection.style.display = 'flex';
+                        setTimeout(() => cardObjection.classList.add('active'), 50);
+                    } else if (step.action === 'clear_objection') {
+                        cardObjection.classList.remove('active');
+                        setTimeout(() => cardObjection.style.display = 'none', 500);
+                    } else if (step.action === 'closing') {
+                        cardClosing.style.display = 'flex';
+                        setTimeout(() => cardClosing.classList.add('active'), 50);
+                    }
+                }, step.delay);
+                voiceTimeouts.push(t);
+            });
+        }
+
+        /* --- DEMO 4: KNOWLEDGE LOGIC --- */
+        const docGrid = document.getElementById('doc-grid');
+        const docs = [
+            { name: 'Travel Policy.pdf', type: 'PDF' },
+            { name: 'Budget_2025.xlsx', type: 'XLS' },
+            { name: 'Handbook.docx', type: 'DOC' },
+            { name: 'Slack_logs.txt', type: 'TXT' },
+            { name: 'Meeting_Notes.md', type: 'MD' },
+            { name: 'Expense_Reports.pdf', type: 'PDF' },
+        ];
+
+        // Init Grid
+        docs.forEach(doc => {
+            const d = document.createElement('div');
+            d.className = 'doc-node bg-white/5 border border-white/5 rounded p-3 flex flex-col items-center justify-center gap-2';
+            d.innerHTML = `
+                <span class="text-xs font-bold text-gray-500">${doc.type}</span>
+                <span class="text-[8px] text-gray-400 text-center leading-tight break-all">${doc.name}</span>
+            `;
+            docGrid.appendChild(d);
+        });
+
+        let knowTimeouts = [];
+        let knowInterval = null;
+
+        function runKnowledgeDemo() {
+            knowTimeouts.forEach(t => clearTimeout(t));
+            knowTimeouts = [];
+            if(knowInterval) clearInterval(knowInterval);
+            
+            const input = document.getElementById('knowledge-input');
+            const output = document.getElementById('knowledge-output');
+            const nodes = document.querySelectorAll('.doc-node');
+
+            // Reset
+            input.innerText = '';
+            output.innerText = '';
+            nodes.forEach(n => n.className = 'doc-node bg-white/5 border border-white/5 rounded p-3 flex flex-col items-center justify-center gap-2');
+
+            // 1. Type Question
+            const question = "Daily meal budget?";
+            let i = 0;
+            knowInterval = setInterval(() => {
+                if(i < question.length) {
+                    input.innerText += question.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(knowInterval);
+                    // 2. Scan Docs
+                    nodes.forEach((n, idx) => {
+                        knowTimeouts.push(setTimeout(() => n.classList.add('scanning'), idx * 200));
+                        knowTimeouts.push(setTimeout(() => n.classList.remove('scanning'), idx * 200 + 400));
+                    });
+                    
+                    // 3. Find Answer (Highlight specific doc)
+                    knowTimeouts.push(setTimeout(() => {
+                        nodes[0].classList.add('found'); // Travel Policy
+                        typeWriter("According to the 'Travel Policy.pdf' (Section 4.2), employees are allocated $75 per day for meals during domestic business trips.", output);
+                    }, 2000));
+                }
+            }, 50);
+        }
+
+        /* --- DEMO 5: GEN AI LOGIC --- */
+        function runGenDemo() {
+            const cards = document.querySelectorAll('.gen-card');
+            // Reset
+            cards.forEach(c => c.classList.remove('generated'));
+            
+            // Staggered Reveal
+            setTimeout(() => cards[0].classList.add('generated'), 500);
+            setTimeout(() => cards[1].classList.add('generated'), 1000);
+            setTimeout(() => cards[2].classList.add('generated'), 1500);
+        }
+
+
+        function typeWriter(text, element) {
+            element.innerHTML = '<span class="type-text"></span>';
+            const span = element.querySelector('.type-text');
+            let i = 0;
+            const speed = 30; 
+            function type() {
+                if (i < text.length) {
+                    span.innerHTML += text.charAt(i) === '\n' ? '<br>' : text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+        
+        // Standard Cursor
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        window.addEventListener('mousemove', (e) => {
+            cursorDot.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+            cursorOutline.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 500, fill: "forwards" });
+        });
+        const hoverTargets = document.querySelectorAll('.hover-target');
+        hoverTargets.forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+        });
+
+        // Observers
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    if(entry.target.id === 'demo-scheduling') restartChat();
+                    if(entry.target.id === 'demo-analytics') runSpreadsheetDemo();
+                    if(entry.target.id === 'demo-voice') runVoiceDemo();
+                    if(entry.target.id === 'demo-knowledge') runKnowledgeDemo();
+                    if(entry.target.id === 'demo-creative') runGenDemo();
+                }
+            });
+        }, { threshold: 0.4 });
+
+        const demo1 = document.getElementById('demo-scheduling');
+        const demo2 = document.getElementById('demo-analytics');
+        const demo3 = document.getElementById('demo-voice');
+        const demo4 = document.getElementById('demo-knowledge');
+        const demo5 = document.getElementById('demo-creative');
+        
+        if(demo1) observer.observe(demo1);
+        if(demo2) observer.observe(demo2);
+        if(demo3) observer.observe(demo3);
+        if(demo4) observer.observe(demo4);
+        if(demo5) observer.observe(demo5);
+
+    </script>
+</body>
+</html>

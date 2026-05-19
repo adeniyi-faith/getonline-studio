@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GetOnline Studio — City Backlink Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --card: #1c2330;
+    --border: #2d3748;
+    --gold: #f5c842;
+    --gold-dim: #c9a030;
+    --green: #3dd68c;
+    --red: #f87171;
+    --blue: #60a5fa;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #0d1117 0%, #1a2035 100%);
+    padding: 32px 20px 28px;
+    border-bottom: 2px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 180px; height: 180px;
+    border: 1px solid rgba(245,200,66,0.1);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: #0d1117;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-bottom: 14px;
+  }
+  .header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .header h1 span { color: var(--gold); }
+  .header-sub {
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 340px;
+    line-height: 1.5;
+  }
+  .header-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .pill {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .pill b { color: var(--gold); }
+
+  /* ── TABS ── */
+  .tabs {
+    display: flex;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 14px 18px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .tab-btn.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ── CONTENT ── */
+  .content { padding: 20px 16px; max-width: 680px; margin: 0 auto; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── SECTION INTRO ── */
+  .section-intro {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .section-intro strong { color: var(--text); }
+
+  /* ── CITY CARD ── */
+  .city-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .city-card:hover { border-color: var(--gold-dim); }
+
+  .city-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .city-rank {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--border);
+    min-width: 32px;
+  }
+  .city-info { flex: 1; }
+  .city-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .city-state {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+  .city-badges {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+  .badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .badge-comp { background: rgba(61,214,140,0.12); color: var(--green); }
+  .badge-intent { background: rgba(245,200,66,0.12); color: var(--gold); }
+  .chevron {
+    font-size: 14px;
+    color: var(--muted);
+    transition: transform 0.25s;
+    margin-left: 8px;
+  }
+  .city-card.open .chevron { transform: rotate(180deg); }
+
+  .city-body {
+    display: none;
+    padding: 0 16px 16px;
+    border-top: 1px solid var(--border);
+  }
+  .city-card.open .city-body { display: block; }
+
+  .why-target {
+    background: rgba(96,165,250,0.07);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--blue);
+    margin: 12px 0;
+  }
+  .why-target strong { color: var(--text); display: block; margin-bottom: 3px; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  .kw-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .kw-list { display: flex; flex-direction: column; gap: 7px; }
+  .kw-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 9px 12px;
+  }
+  .kw-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot-1 { background: var(--green); }
+  .dot-2 { background: var(--gold); }
+  .dot-3 { background: var(--blue); }
+  .kw-text { font-size: 13px; font-weight: 600; color: var(--text); flex: 1; }
+  .kw-use { font-size: 10px; color: var(--muted); white-space: nowrap; }
+
+  /* ── BACKLINK CARDS ── */
+  .bl-section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin: 24px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .bl-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .bl-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 10px;
+  }
+  .bl-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+  .bl-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--white);
+  }
+  .bl-type-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .bl-who {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .who-diy { background: rgba(61,214,140,0.15); color: var(--green); }
+  .who-out { background: rgba(245,200,66,0.15); color: var(--gold); }
+
+  .bl-keywords { display: flex; flex-direction: column; gap: 5px; }
+  .bl-kw {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .bl-kw-num {
+    font-size: 9px;
+    color: var(--muted);
+    min-width: 14px;
+  }
+  .bl-kw-text {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 4px 9px;
+    color: var(--text);
+    font-size: 12px;
+    flex: 1;
+  }
+
+  .bl-footer {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .bl-footer a { color: var(--blue); text-decoration: none; font-size: 11px; }
+
+  /* ── ANCHOR GUIDE ── */
+  .anchor-guide {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+  .anchor-guide h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .anchor-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .anchor-row:last-child { border-bottom: none; }
+  .anchor-pct {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    min-width: 50px;
+  }
+  .anchor-info h4 { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .anchor-info p { font-size: 12px; color: var(--muted); }
+
+  /* ── PLAN TABLE (mobile-friendly) ── */
+  .plan-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 10px;
+  }
+  .plan-month {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .plan-source { font-weight: 700; font-size: 14px; color: var(--white); margin-bottom: 4px; }
+  .plan-action { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .plan-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .plan-tag {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .tag-high { background: rgba(248,113,113,0.15); color: var(--red); }
+  .tag-med { background: rgba(245,200,66,0.15); color: var(--gold); }
+  .tag-diy { background: rgba(61,214,140,0.15); color: var(--green); }
+  .tag-out { background: rgba(96,165,250,0.15); color: var(--blue); }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 20px 16px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  footer strong { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-tag">GetOnline Studio · pSEO</div>
+  <h1>City Backlink<br><span>Strategy 2025</span></h1>
+  <p class="header-sub">18 Nigerian cities ranked from easiest to win first, to hardest. 3 plain keywords each. 25 backlink sources ready to use.</p>
+  <div class="header-pills">
+    <div class="pill"><b>18</b> cities</div>
+    <div class="pill"><b>25</b> backlink sources</div>
+    <div class="pill"><b>54</b> keywords total</div>
+    <div class="pill">getonlinestudio.com</div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('cities')">🏙️ Cities</button>
+  <button class="tab-btn" onclick="switchTab('sources')">🔗 Backlink Sources</button>
+  <button class="tab-btn" onclick="switchTab('anchors')">⚓ Anchor Guide</button>
+  <button class="tab-btn" onclick="switchTab('plan')">📅 90-Day Plan</button>
+</div>
+
+<div class="content">
+
+  <!-- ═══ TAB: CITIES ═══ -->
+  <div class="tab-panel active" id="tab-cities">
+
+    <div class="section-intro">
+      Cities are ordered from <strong>easiest to rank first</strong> (less competition, but real people searching and ready to buy) down to the <strong>big, harder cities</strong> like Lagos. Start pushing links with city names at the top of this list — you'll see results faster.
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Low competition</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div> Medium competition</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> High competition</div>
+    </div>
+
+    <!-- 1 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">01</div>
+        <div class="city-info">
+          <div class="city-name">Ido-Osun / Osogbo</div>
+          <div class="city-state">Osun State · Your Home Turf</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(61,214,140,0.12);color:var(--green)">Low Competition</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this first</strong>Almost nobody is competing for web design searches here, but local businesses are actively looking. You already have a physical presence — Google loves that.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web designer in Osogbo</div><div class="kw-use">Easiest to rank</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">website design company Osun State</div><div class="kw-use">State-wide</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">affordable website for businesses in Osogbo</div><div class="kw-use">Buyer intent</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">02</div>
+        <div class="city-info">
+          <div class="city-name">Ilesha</div>
+          <div class="city-state">Osun State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(61,214,140,0.12);color:var(--green)">Low Competition</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Growing commercial city in Osun. Very few web agencies targeting it — you can own this search term quickly.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web design in Ilesha</div><div class="kw-use">Quick win</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">website for my business in Ilesha</div><div class="kw-use">Buyer language</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">digital agency Ilesha Osun</div><div class="kw-use">Brand signal</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">03</div>
+        <div class="city-info">
+          <div class="city-name">Akure</div>
+          <div class="city-state">Ondo State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(61,214,140,0.12);color:var(--green)">Low Competition</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>State capital with active SME economy. Very underserved digitally — businesses here are searching but almost no web agencies are specifically targeting Akure.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web design company in Akure</div><div class="kw-use">Local search</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">website developer Akure Ondo State</div><div class="kw-use">Specific</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">business website in Akure</div><div class="kw-use">Intent phrase</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">04</div>
+        <div class="city-info">
+          <div class="city-name">Abeokuta</div>
+          <div class="city-state">Ogun State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(61,214,140,0.12);color:var(--green)">Low–Med</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Ogun State capital with lots of businesses, close to Lagos corridor. People here search for web design but don't get many local results.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web designer in Abeokuta</div><div class="kw-use">Local</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">affordable website design Abeokuta</div><div class="kw-use">Price intent</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">digital agency Ogun State</div><div class="kw-use">Regional</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">05</div>
+        <div class="city-info">
+          <div class="city-name">Ilorin</div>
+          <div class="city-state">Kwara State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(61,214,140,0.12);color:var(--green)">Low–Med</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Fast-growing city with an emerging business scene. Underserved by web agencies. If you rank here, you can capture the whole Kwara market.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">website design in Ilorin</div><div class="kw-use">Local</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">web agency Ilorin Kwara State</div><div class="kw-use">Specific</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">build a website in Ilorin</div><div class="kw-use">Buyer language</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">06</div>
+        <div class="city-info">
+          <div class="city-name">Owerri</div>
+          <div class="city-state">Imo State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(245,200,66,0.12);color:var(--gold)">Medium</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Imo State capital with high commercial activity and business growth. Some competition but still very winnable — especially with consistent backlinks pointing here.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web design company Owerri</div><div class="kw-use">Direct</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">professional website Owerri Imo</div><div class="kw-use">Qualifier</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">website for my business Owerri</div><div class="kw-use">Buyer language</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">07</div>
+        <div class="city-info">
+          <div class="city-name">Uyo</div>
+          <div class="city-state">Akwa Ibom State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(245,200,66,0.12);color:var(--gold)">Medium</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Oil-economy city with a strong business community. High purchasing power means businesses are willing to pay for good websites. Moderate competition.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web design in Uyo</div><div class="kw-use">Local</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">website developer Akwa Ibom</div><div class="kw-use">State-wide</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">digital agency Uyo Nigeria</div><div class="kw-use">Brand signal</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">08</div>
+        <div class="city-info">
+          <div class="city-name">Benin City</div>
+          <div class="city-state">Edo State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(245,200,66,0.12);color:var(--gold)">Medium</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Major southern city with a growing SME scene. Enough search volume to make it worth it, but not yet saturated with web agencies claiming this keyword.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web designer in Benin City</div><div class="kw-use">Local</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">website design Edo State</div><div class="kw-use">Regional</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">online store website Benin City</div><div class="kw-use">E-commerce</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">09</div>
+        <div class="city-info">
+          <div class="city-name">Asaba</div>
+          <div class="city-state">Delta State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(245,200,66,0.12);color:var(--gold)">Medium</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Delta State capital. Fast growing with lots of SMEs and government contractors — both groups that need professional websites urgently.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web design company in Asaba</div><div class="kw-use">Direct</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">website development Delta State</div><div class="kw-use">Regional</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">affordable web design Asaba</div><div class="kw-use">Price intent</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">10</div>
+        <div class="city-info">
+          <div class="city-name">Calabar</div>
+          <div class="city-state">Cross River State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(245,200,66,0.12);color:var(--gold)">Medium</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Tourism-heavy city with hotels, restaurants, and event businesses all needing websites. Good commercial intent and manageable competition.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web design in Calabar</div><div class="kw-use">Local</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">website designer Cross River State</div><div class="kw-use">Regional</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">hotel and business website Calabar</div><div class="kw-use">Niche</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">11</div>
+        <div class="city-info">
+          <div class="city-name">Warri</div>
+          <div class="city-state">Delta State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(245,200,66,0.12);color:var(--gold)">Medium</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Oil industry hub. Companies and vendors here need professional websites to win contracts. High willingness to pay.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">website design company in Warri</div><div class="kw-use">Local</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">professional web design Warri Delta</div><div class="kw-use">Qualifier</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">oil and gas company website Warri</div><div class="kw-use">Niche</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">12</div>
+        <div class="city-info">
+          <div class="city-name">Ibadan</div>
+          <div class="city-state">Oyo State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(245,200,66,0.12);color:var(--gold)">Medium–High</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Nigeria's second-largest city by area. Massive business community. Getting harder to rank but your pSEO pages plus backlinks from this list should crack it.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web design agency in Ibadan</div><div class="kw-use">Direct</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">professional website design Ibadan</div><div class="kw-use">Qualifier</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">best web designers in Ibadan Nigeria</div><div class="kw-use">Competitive</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">13</div>
+        <div class="city-info">
+          <div class="city-name">Kano</div>
+          <div class="city-state">Kano State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(245,200,66,0.12);color:var(--gold)">Medium–High</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Biggest commercial city in northern Nigeria. Huge trade-based economy means thousands of businesses needing websites. Northern-focused agencies are fewer than in the south.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web design in Kano</div><div class="kw-use">Local</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">business website Kano Nigeria</div><div class="kw-use">Intent</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">digital agency northern Nigeria</div><div class="kw-use">Regional</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">14</div>
+        <div class="city-info">
+          <div class="city-name">Port Harcourt</div>
+          <div class="city-state">Rivers State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(245,200,66,0.12);color:var(--gold)">Medium–High</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Oil capital of Nigeria. Businesses here spend money. Competition is building but still beatable with solid backlinks pointing at your PH pages.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web design company Port Harcourt</div><div class="kw-use">Local</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">website developer Rivers State</div><div class="kw-use">Regional</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">professional website Port Harcourt Nigeria</div><div class="kw-use">Trust signal</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">15</div>
+        <div class="city-info">
+          <div class="city-name">Enugu</div>
+          <div class="city-state">Enugu State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(245,200,66,0.12);color:var(--gold)">Medium–High</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Your first verified lead came from Enugu — that proves real demand. Keep pushing backlinks here to convert more of that traffic.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web design agency Enugu</div><div class="kw-use">Proven demand</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">website company Enugu Nigeria</div><div class="kw-use">Trust phrase</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">business website design Enugu State</div><div class="kw-use">Intent</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">16</div>
+        <div class="city-info">
+          <div class="city-name">Kaduna</div>
+          <div class="city-state">Kaduna State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(248,113,113,0.12);color:var(--red)">High Comp.</span>
+          <span class="badge badge-intent">High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Major northern commercial hub. Growing fast, competition catching up. Build your footprint now before it gets harder.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web design in Kaduna</div><div class="kw-use">Local</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">website design Kaduna State</div><div class="kw-use">Regional</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">affordable website developer Kaduna</div><div class="kw-use">Price intent</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">17</div>
+        <div class="city-info">
+          <div class="city-name">Abuja</div>
+          <div class="city-state">FCT</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(248,113,113,0.12);color:var(--red)">High Comp.</span>
+          <span class="badge badge-intent">Very High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>Nigeria's capital — government contractors, NGOs, and corporate offices all need websites. High competition but also the highest average spend per client. Worth the fight.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web design company in Abuja</div><div class="kw-use">Competitive</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">professional website design Abuja FCT</div><div class="kw-use">Trust phrase</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">digital agency Abuja Nigeria</div><div class="kw-use">Brand authority</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 18 -->
+    <div class="city-card" onclick="toggleCity(this)">
+      <div class="city-header">
+        <div class="city-rank">18</div>
+        <div class="city-info">
+          <div class="city-name">Lagos</div>
+          <div class="city-state">Lagos State</div>
+        </div>
+        <div class="city-badges">
+          <span class="badge badge-comp" style="background:rgba(248,113,113,0.12);color:var(--red)">Very High</span>
+          <span class="badge badge-intent">Very High Intent</span>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="city-body">
+        <div class="why-target"><strong>Why target this</strong>The big one. Most searches, most money, most competition. Don't ignore it — but don't make it your first battle either. Build your DA with the smaller cities first, then Lagos becomes more winnable.</div>
+        <div class="kw-label">3 Keywords to use in your backlinks</div>
+        <div class="kw-list">
+          <div class="kw-row"><div class="kw-dot dot-1"></div><div class="kw-text">web design agency in Lagos</div><div class="kw-use">Core phrase</div></div>
+          <div class="kw-row"><div class="kw-dot dot-2"></div><div class="kw-text">best website design company Lagos</div><div class="kw-use">Competitive</div></div>
+          <div class="kw-row"><div class="kw-dot dot-3"></div><div class="kw-text">affordable web design Lagos Nigeria</div><div class="kw-use">Price intent</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tab-cities -->
+
+
+  <!-- ═══ TAB: BACKLINK SOURCES ═══ -->
+  <div class="tab-panel" id="tab-sources">
+
+    <div class="section-intro">
+      These are the 25 places where you or your VA will place backlinks. <strong>Green = you can set it up yourself easily.</strong> <strong>Gold = outsource to a VA or freelancer.</strong>
+    </div>
+
+    <div class="bl-section-title">✍️ Guest Posts (Write Articles)</div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">Medium.com</div><div class="bl-type-tag">Free blog platform · Very high authority</div></div>
+        <div class="bl-who who-diy">You do it</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">web design tips for Nigerian businesses</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">how to get a website in Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">getonlinestudio.com</span></div>
+      </div>
+      <div class="bl-footer"><span>Write 2 articles, link naturally</span><a href="https://medium.com" target="_blank">medium.com ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">Dev.to</div><div class="bl-type-tag">Developer community · Very high authority</div></div>
+        <div class="bl-who who-diy">You do it</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">programmatic SEO for Nigerian businesses</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">web development agency Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">GetOnline Studio</span></div>
+      </div>
+      <div class="bl-footer"><span>Write 1 technical article</span><a href="https://dev.to" target="_blank">dev.to ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">TechCabal</div><div class="bl-type-tag">Top Nigerian tech publication</div></div>
+        <div class="bl-who who-diy">You pitch it</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">web design company in Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">digital agency Lagos for startups</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">GetOnline Studio Nigeria</span></div>
+      </div>
+      <div class="bl-footer"><span>Pitch a story — "building digital Nigeria from Osun"</span><a href="https://techcabal.com" target="_blank">techcabal.com ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">SME100 Africa</div><div class="bl-type-tag">SME & entrepreneurship blog</div></div>
+        <div class="bl-who who-out">Outsource</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">affordable web design for small businesses Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">professional website design Osun State</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">online presence for Nigerian SMEs</span></div>
+      </div>
+      <div class="bl-footer"><span>Send guest post pitch + article draft</span><a href="https://sme100africa.com" target="_blank">sme100africa.com ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">Naijapreneur</div><div class="bl-type-tag">Nigerian entrepreneur blog</div></div>
+        <div class="bl-who who-out">Outsource</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">build a business website in Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">e-commerce website design Kano</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">best web designers Nigeria</span></div>
+      </div>
+      <div class="bl-footer"><span>Guest article on "getting your business online"</span><a href="https://naijapreneur.com" target="_blank">naijapreneur.com ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">Marketing Edge Nigeria</div><div class="bl-type-tag">Nigerian marketing publication</div></div>
+        <div class="bl-who who-out">Outsource</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">SEO services in Abuja</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">digital marketing agency Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">website development services Enugu</span></div>
+      </div>
+      <div class="bl-footer"><span>Guest article pitch</span><a href="https://marketingedge.com.ng" target="_blank">marketingedge.com.ng ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">Disrupt Africa</div><div class="bl-type-tag">Pan-African tech publication</div></div>
+        <div class="bl-who who-out">Outsource</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">website design Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">digital agency Ibadan</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">African web design studio</span></div>
+      </div>
+      <div class="bl-footer"><span>PR pitch or sponsored story</span><a href="https://disrupt-africa.com" target="_blank">disrupt-africa.com ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">BusinessDay Nigeria</div><div class="bl-type-tag">Top Nigerian business newspaper</div></div>
+        <div class="bl-who who-diy">You pitch it</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">web design agency southwest Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">digital solutions for Nigerian businesses</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">GetOnline Studio digital agency</span></div>
+      </div>
+      <div class="bl-footer"><span>Hardest pitch — biggest payoff</span><a href="https://businessday.ng" target="_blank">businessday.ng ↗</a></div>
+    </div>
+
+    <div class="bl-section-title">👤 Social Profiles (Set Up Once)</div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">LinkedIn Company Page</div><div class="bl-type-tag">Professional network · Extremely high authority</div></div>
+        <div class="bl-who who-diy">You do it</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">web design agency Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">digital marketing and website development</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">affordable websites for Nigerian businesses</span></div>
+      </div>
+      <div class="bl-footer"><span>Put keywords in your headline and About section</span><a href="https://linkedin.com" target="_blank">linkedin.com ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">GitHub Profile</div><div class="bl-type-tag">Developer platform · Very high authority</div></div>
+        <div class="bl-who who-diy">You do it</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">web development agency Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">PHP web studio Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">GetOnline Studio</span></div>
+      </div>
+      <div class="bl-footer"><span>Add to your bio + website field</span><a href="https://github.com" target="_blank">github.com ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">Behance</div><div class="bl-type-tag">Creative portfolio platform</div></div>
+        <div class="bl-who who-diy">You do it</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">web design Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">UI design Lagos</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">brand identity Osun State</span></div>
+      </div>
+      <div class="bl-footer"><span>Upload client projects with keyword tags</span><a href="https://behance.net" target="_blank">behance.net ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">Crunchbase</div><div class="bl-type-tag">Business database · Very high authority</div></div>
+        <div class="bl-who who-diy">You do it</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">web design agency Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">digital studio Osun Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">website and SEO services Nigeria</span></div>
+      </div>
+      <div class="bl-footer"><span>Create your organization profile</span><a href="https://crunchbase.com" target="_blank">crunchbase.com ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">Quora</div><div class="bl-type-tag">Q&A platform · High authority</div></div>
+        <div class="bl-who who-out">Outsource</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">best web design company in Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">how much does a website cost in Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">web designers in Ibadan</span></div>
+      </div>
+      <div class="bl-footer"><span>Answer Nigeria web design questions + link</span><a href="https://quora.com" target="_blank">quora.com ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">Pinterest Business</div><div class="bl-type-tag">Visual platform · Very high authority</div></div>
+        <div class="bl-who who-out">Outsource</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">Nigerian business website designs</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">web design inspiration Africa</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">affordable web design Nigeria</span></div>
+      </div>
+      <div class="bl-footer"><span>Create boards + pin your work with descriptions</span><a href="https://pinterest.com" target="_blank">pinterest.com ↗</a></div>
+    </div>
+
+    <div class="bl-section-title">📋 Directories (List Your Business)</div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">Google Business Profile</div><div class="bl-type-tag">Google's own listing — Priority #1</div></div>
+        <div class="bl-who who-diy">You do it</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">web design company Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">website design Ido-Osun</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">SEO and digital agency Osogbo</span></div>
+      </div>
+      <div class="bl-footer"><span>Do this first — direct Google trust signal</span><a href="https://business.google.com" target="_blank">business.google.com ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">Clutch.co</div><div class="bl-type-tag">Agency review & directory</div></div>
+        <div class="bl-who who-diy">You do it</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">top web design agencies Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">web developers Nigeria reviews</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">affordable web design services Africa</span></div>
+      </div>
+      <div class="bl-footer"><span>Create profile + collect client reviews</span><a href="https://clutch.co" target="_blank">clutch.co ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">DesignRush</div><div class="bl-type-tag">Agency directory</div></div>
+        <div class="bl-who who-out">Outsource</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">web design agency Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">digital marketing agency Africa</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">top website developers Nigeria</span></div>
+      </div>
+      <div class="bl-footer"><span>Submit agency listing</span><a href="https://designrush.com" target="_blank">designrush.com ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">ConnectNigeria</div><div class="bl-type-tag">Nigerian business directory</div></div>
+        <div class="bl-who who-out">Outsource</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">web design company Osun State</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">digital agency Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">website builders Nigeria</span></div>
+      </div>
+      <div class="bl-footer"><span>Submit free business listing</span><a href="https://connectnigeria.com" target="_blank">connectnigeria.com ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">VConnect Nigeria</div><div class="bl-type-tag">Nigerian yellow pages</div></div>
+        <div class="bl-who who-out">Outsource</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">web designer near Osogbo</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">IT company Osun Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">website design services Nigeria</span></div>
+      </div>
+      <div class="bl-footer"><span>Submit free listing</span><a href="https://vconnect.com" target="_blank">vconnect.com ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">Hotfrog Nigeria</div><div class="bl-type-tag">Global business directory with Nigeria section</div></div>
+        <div class="bl-who who-out">Outsource</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">web design services Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">website development Ido-Osun</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">digital marketing Osogbo</span></div>
+      </div>
+      <div class="bl-footer"><span>Free listing — batch with other directories</span><a href="https://hotfrog.com.ng" target="_blank">hotfrog.com.ng ↗</a></div>
+    </div>
+
+    <div class="bl-card">
+      <div class="bl-top">
+        <div><div class="bl-name">Afribiz</div><div class="bl-type-tag">African business directory</div></div>
+        <div class="bl-who who-out">Outsource</div>
+      </div>
+      <div class="bl-keywords">
+        <div class="bl-kw"><span class="bl-kw-num">1.</span><span class="bl-kw-text">web agency southwest Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">2.</span><span class="bl-kw-text">tech company Osun Nigeria</span></div>
+        <div class="bl-kw"><span class="bl-kw-num">3.</span><span class="bl-kw-text">getonlinestudio.com</span></div>
+      </div>
+      <div class="bl-footer"><span>Free listing — quick outsource task</span><a href="https://afribiz.com.ng" target="_blank">afribiz.com.ng ↗</a></div>
+    </div>
+
+  </div><!-- end tab-sources -->
+
+
+  <!-- ═══ TAB: ANCHOR GUIDE ═══ -->
+  <div class="tab-panel" id="tab-anchors">
+
+    <div class="section-intro">
+      "Anchor text" just means <strong>the words that are clickable in a link.</strong> If someone writes "check out this <u>web design company in Abuja</u>" — those underlined words are the anchor. Varying these is important so Google doesn't think you're gaming the system.
+    </div>
+
+    <div class="anchor-guide">
+      <h3>How to split your anchor text</h3>
+
+      <div class="anchor-row">
+        <div class="anchor-pct" style="color:var(--gold)">45%</div>
+        <div class="anchor-info">
+          <h4>City + Service phrases</h4>
+          <p>The most important for your pSEO. Things like "web design Lagos", "website designer Enugu", "digital agency Kano". These directly push your city pages up in search.</p>
+        </div>
+      </div>
+
+      <div class="anchor-row">
+        <div class="anchor-pct" style="color:var(--green)">25%</div>
+        <div class="anchor-info">
+          <h4>Your brand name</h4>
+          <p>Just "GetOnline Studio" or "getonlinestudio.com". This builds brand recognition and looks natural to Google.</p>
+        </div>
+      </div>
+
+      <div class="anchor-row">
+        <div class="anchor-pct" style="color:var(--blue)">30%</div>
+        <div class="anchor-info">
+          <h4>General / natural phrases</h4>
+          <p>Things like "affordable web design Nigeria", "best website company", "click here", "learn more". These make the whole link profile look human and normal.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-intro">
+      <strong>Simple rule:</strong> If you're getting 10 backlinks this month — 4 or 5 should say a city name, 2 or 3 should say "GetOnline Studio", and the rest should be natural-sounding phrases. Don't use the exact same words every time.
+    </div>
+
+  </div><!-- end tab-anchors -->
+
+
+  <!-- ═══ TAB: 90-DAY PLAN ═══ -->
+  <div class="tab-panel" id="tab-plan">
+
+    <div class="section-intro">
+      Start with the things <strong>you can do yourself for free</strong> in Month 1. Then hand the repetitive stuff to a VA in Month 2. By Month 3, you're pushing the big editorial pitches.
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-month">Month 1 — Week 1 & 2</div>
+      <div class="plan-source">Google Business Profile</div>
+      <div class="plan-action">Set up your profile fully. Add your keywords in the business description. This is the most important single thing you can do.</div>
+      <div class="plan-tags"><span class="plan-tag tag-high">Priority #1</span><span class="plan-tag tag-diy">Do it yourself</span></div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-month">Month 1 — Week 1 & 2</div>
+      <div class="plan-source">LinkedIn + GitHub + Crunchbase</div>
+      <div class="plan-action">Set up all three profiles in one sitting. Put your website link and keywords in each bio/about section. Takes 2–3 hours total.</div>
+      <div class="plan-tags"><span class="plan-tag tag-high">High Priority</span><span class="plan-tag tag-diy">Do it yourself</span></div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-month">Month 1 — Week 3 & 4</div>
+      <div class="plan-source">Medium.com + Dev.to Articles</div>
+      <div class="plan-action">Write 2 articles (one on each platform). Write about something you know — like "how Nigerian businesses can get clients online" — and naturally mention and link to your site.</div>
+      <div class="plan-tags"><span class="plan-tag tag-high">High Priority</span><span class="plan-tag tag-diy">Do it yourself</span></div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-month">Month 1 — Week 3 & 4</div>
+      <div class="plan-source">Behance Portfolio</div>
+      <div class="plan-action">Upload 3–5 past client projects with city-specific keyword tags. Link back to the matching city page on your site.</div>
+      <div class="plan-tags"><span class="plan-tag tag-med">Medium</span><span class="plan-tag tag-diy">Do it yourself</span></div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-month">Month 2 — Week 1 & 2</div>
+      <div class="plan-source">Directory Batch (5 at once)</div>
+      <div class="plan-action">Hand this to a VA: submit your business to ConnectNigeria, VConnect, Hotfrog, Afribiz, and Clutch. Give them your name, address, phone, website, and a short description with keywords. Use the same description everywhere.</div>
+      <div class="plan-tags"><span class="plan-tag tag-high">High Priority</span><span class="plan-tag tag-out">Outsource to VA</span></div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-month">Month 2 — Week 2 & 3</div>
+      <div class="plan-source">SME100 Africa + Naijapreneur Guest Posts</div>
+      <div class="plan-action">Have your VA write article drafts and send pitch emails. Topic idea: "Why every Nigerian SME needs a professional website in 2025." Include a natural link to your site.</div>
+      <div class="plan-tags"><span class="plan-tag tag-high">High Priority</span><span class="plan-tag tag-out">Outsource</span></div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-month">Month 2 — Week 3 & 4</div>
+      <div class="plan-source">Quora + Pinterest</div>
+      <div class="plan-action">VA creates profiles and answers 10 Quora questions about web design in Nigeria. Pinterest boards with your design work + city keyword descriptions.</div>
+      <div class="plan-tags"><span class="plan-tag tag-med">Medium</span><span class="plan-tag tag-out">Outsource</span></div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-month">Month 2 — Week 4</div>
+      <div class="plan-source">DesignRush Agency Listing</div>
+      <div class="plan-action">Submit your agency profile with keywords. Request client reviews to boost your ranking on the platform.</div>
+      <div class="plan-tags"><span class="plan-tag tag-med">Medium</span><span class="plan-tag tag-out">Outsource</span></div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-month">Month 3 — Week 1 & 2</div>
+      <div class="plan-source">Marketing Edge + Disrupt Africa</div>
+      <div class="plan-action">Guest post pitches with a city-angle story — "How digital agencies in southwest Nigeria are changing the game." Your VA drafts, you review and send.</div>
+      <div class="plan-tags"><span class="plan-tag tag-med">Medium</span><span class="plan-tag tag-out">Outsource draft</span></div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-month">Month 3 — Week 2 & 3</div>
+      <div class="plan-source">TechCabal + BusinessDay Nigeria</div>
+      <div class="plan-action">The big editorial pitches. You write these personally. Frame your story: "We're building a digital infrastructure for Nigerian businesses from a small city in Osun State — and it's working." Send to their editors.</div>
+      <div class="plan-tags"><span class="plan-tag tag-high">Biggest Wins</span><span class="plan-tag tag-diy">You pitch personally</span></div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-month">Month 3 — Ongoing</div>
+      <div class="plan-source">Cities: Start small, grow big</div>
+      <div class="plan-action">Use city keywords in order: start your link anchors on Osogbo, Ilesha, Akure first. As those pages rank, shift more links toward Ibadan, Abuja, and Lagos. Follow the city list order — #1 to #18.</div>
+      <div class="plan-tags"><span class="plan-tag tag-high">Core Strategy</span><span class="plan-tag tag-diy">You manage this</span></div>
+    </div>
+
+  </div><!-- end tab-plan -->
+
+</div><!-- end content -->
+
+<footer>
+  Built for <strong>getonlinestudio.com</strong><br>
+  18 cities · 25 backlink sources · 54 plain-English keywords<br>
+  Start small cities first → grow to Lagos
+</footer>
+
+<script>
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  function toggleCity(card) {
+    card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

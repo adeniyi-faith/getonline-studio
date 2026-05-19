@@ -1,0 +1,18 @@
+<wpml-config>
+<admin-texts>
+<key name="theme_mods_overflow">
+	<key name="header_follow_button_title" />
+	<key name="header_follow_button_description" />
+	<key name="header_follow_button_label" />
+	<key name="header_follow_instagram_title" />
+	<key name="header_follow_youtube_title" />
+	<key name="header_follow_facebook_title" />
+	<key name="trending_featured_posts_title" />
+	<key name="post_subscribe_title" />
+	<key name="footer_text" />
+	<key name="footer_subscribe_title" />
+	<key name="misc_search_placeholder" />
+	<key name="misc_label_readmore" />
+</key>
+</admin-texts>
+</wpml-config>

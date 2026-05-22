@@ -1,0 +1,3 @@
+body { background-color: #0a0a0a; color: #e9d5ff; font-family: 'Manrope', sans-serif; }
+        .nb-btn.active { background-color: #7e22ce; color: white; border-color: #7e22ce; box-shadow: 0 0 15px rgba(126, 34, 206, 0.3); }
+        .nb-btn { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }

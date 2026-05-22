@@ -64,7 +64,7 @@ $meta_desc = "GetOnline Studio provides premium, high-converting web design and 
 
     <!-- Brand Fonts: Manrope (Body) & Syne (Headings) -->
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -83,13 +83,7 @@ $meta_desc = "GetOnline Studio provides premium, high-converting web design and 
     </script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body { background-color: #0a0a0a; color: #e9d5ff; font-family: 'Manrope', sans-serif; }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0a0a; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #7e22ce; }
-    </style>
+    <link rel="stylesheet" href="/assets/css/services-index.css">
 <?php wp_head(); ?>
 </head>
 <body class="antialiased relative selection:bg-sharp-purple selection:text-white overflow-x-hidden w-full flex flex-col min-h-screen">
@@ -112,7 +106,7 @@ $meta_desc = "GetOnline Studio provides premium, high-converting web design and 
     <!-- Main Content Wrapper -->
     <main class="pt-32 pb-24 flex-grow">
         <div class="max-w-7xl mx-auto px-6">
-            
+
             <!-- Breadcrumbs -->
             <div class="flex items-center gap-2 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-lavender/40 mb-12 overflow-x-auto whitespace-nowrap pb-2">
                 <a href="/" class="hover:text-sharp-purple transition-colors">Home</a>
@@ -143,7 +137,7 @@ $meta_desc = "GetOnline Studio provides premium, high-converting web design and 
                         <p class="text-lavender/50 text-lg">No active services found. Add some niches in the GetOnline Studio dashboard.</p>
                     </div>
                 <?php else: ?>
-                    <?php foreach ($active_niches as $niche): 
+                    <?php foreach ($active_niches as $niche):
                         $niche_slug = $niche->post_name;
                         $niche_name = go_safe_text($niche->post_title);
                         // Build the default hub URL (e.g., /services/law-firm-website-designer/)

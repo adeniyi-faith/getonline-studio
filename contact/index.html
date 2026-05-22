@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Contact | GetOnline Studio</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -40,64 +40,7 @@
         }
     </script>
 
-    <style>
-        /* Base Styles */
-        body {
-            background-color: #101010;
-            color: #e9d5ff;
-            overflow-x: hidden;
-            cursor: none;
-        }
-
-        /* Custom Cursor */
-        .cursor-dot, .cursor-outline {
-            position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-        }
-        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
-        .cursor-outline {
-            width: 40px; height: 40px;
-            border: 1px solid #7e22ce;
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-        @media (pointer: coarse) {
-            .cursor-dot, .cursor-outline { display: none; }
-            body { cursor: auto; }
-        }
-        body.hovering .cursor-outline {
-            width: 60px; height: 60px;
-            background-color: rgba(126, 34, 206, 0.2);
-            border-color: transparent;
-        }
-
-        /* Text Stroke */
-        .text-stroke {
-            -webkit-text-stroke: 1px #e9d5ff;
-            color: transparent;
-        }
-
-        /* Reveal Animations */
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-
-        /* Hover Card Effect */
-        .contact-card {
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .contact-card:hover {
-            transform: translateY(-5px);
-            border-color: #7e22ce;
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/contact/index.css">
 </head>
 <body class="bg-matte-black bg-noise font-manrope selection:bg-sharp-purple selection:text-white relative">
 
@@ -115,7 +58,7 @@
 
     <!-- Hero Section -->
     <header class="relative min-h-[60vh] md:min-h-[70vh] flex flex-col justify-center items-center px-4 overflow-hidden border-b border-lavender/10">
-        
+
         <!-- Background Signal Animation -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
             <div class="w-[300px] h-[300px] border border-lavender rounded-full animate-ping-slow"></div>
@@ -137,7 +80,7 @@
     <!-- Direct Contact Section -->
     <section class="py-20 md:py-32 px-4 md:px-6 bg-matte-black relative z-20">
         <div class="max-w-5xl mx-auto">
-            
+
             <!-- Email (The Big One) -->
             <div class="text-center mb-24 reveal-up">
                 <p class="font-mono text-xs text-lavender/50 mb-4 uppercase tracking-widest">Drop us a line</p>
@@ -155,7 +98,7 @@
 
             <!-- Phone / WhatsApp Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
+
                 <!-- Primary Contact -->
                 <a href="https://wa.me/2348108275013" target="_blank" class="contact-card bg-card-dark border border-lavender/10 p-10 rounded-2xl flex flex-col items-center justify-center text-center group hover-target">
                     <div class="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-green-500/20 transition-colors">
@@ -225,14 +168,14 @@
         emailLink.addEventListener('click', (e) => {
             e.preventDefault(); // Prevent opening mail client immediately to show effect
             navigator.clipboard.writeText('hello@getonlinestudio.com');
-            
+
             const originalText = emailLink.querySelector('h2').innerText;
             const statusText = emailLink.querySelector('span');
-            
+
             statusText.innerText = "Copied to Clipboard!";
             statusText.style.opacity = "1";
             statusText.style.color = "#bbf7d0"; // Green tint
-            
+
             setTimeout(() => {
                 statusText.innerText = "Click to Copy";
                 statusText.style.opacity = ""; // Reset to CSS hover state

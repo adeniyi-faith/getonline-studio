@@ -77,7 +77,7 @@ $nb_data = []; // Initialize neighborhood data array
 if (!empty($neighborhood_slug)) {
     $neighborhoods_file = __DIR__ . '/neighborhoods.json';
     $nb_overrides_file = __DIR__ . '/neighborhoods-data.json'; // The hyper-local overrides file
-    
+
     if (file_exists($neighborhoods_file)) {
         $neighborhood_data = json_decode(file_get_contents($neighborhoods_file), true);
         if (isset($neighborhood_data[$city_slug][$neighborhood_slug])) {
@@ -85,7 +85,7 @@ if (!empty($neighborhood_slug)) {
             $active_nb = get_post_meta($city_post->ID, '_pseo_active_neighborhoods', true) ?: [];
             if (in_array($neighborhood_slug, $active_nb)) {
                 $neighborhood_name = $neighborhood_data[$city_slug][$neighborhood_slug];
-                
+
                 // LOAD THE HYPER-LOCAL OVERRIDES
                 if (file_exists($nb_overrides_file)) {
                     $overrides_db = json_decode(file_get_contents($nb_overrides_file), true);
@@ -114,7 +114,7 @@ $full_slug = sanitize_title($raw_slug) ?: 'business-website-designer';
 $active_niches_query = get_posts([
     'post_type'   => 'pseo_niche',
     'numberposts' => -1,
-    'post_status' => ['publish', 'draft'] 
+    'post_status' => ['publish', 'draft']
 ]);
 
 $niche_dict = [];
@@ -231,7 +231,7 @@ $feature_order = [1, 2, 3, 4, 5, 6];
 shuffle($feature_order);
 
 mt_srand($master_seed + 300);
-$faq_order = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]; 
+$faq_order = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 shuffle($faq_order);
 
 // ─── VOCABULARY ENGINE: ACTIONS & ADJECTIVES ─────────────────────────────────
@@ -393,16 +393,16 @@ if (!empty($matrix_data['estimated_businesses']) && !empty($matrix_data['without
 // 1. Define Niche Complexity Multipliers (Standard/Local niches default to 1.0x automatically)
 $niche_multipliers = [
     // Tier 1: Enterprise, High-Security, & Tech Heavy
-    'fintech' => 2.5, 'crypto' => 2.5, 'polytechnic' => 2.5, 'university' => 2.5, 
-    'microfinance' => 2.0, 'software' => 2.0, 'oil-gas' => 2.0, 'stock-brokerage' => 2.0, 
-    'tech-startup' => 1.8, 'ecommerce' => 1.8, 'hospital' => 1.8, 'commodity-trading' => 1.8, 
+    'fintech' => 2.5, 'crypto' => 2.5, 'polytechnic' => 2.5, 'university' => 2.5,
+    'microfinance' => 2.0, 'software' => 2.0, 'oil-gas' => 2.0, 'stock-brokerage' => 2.0,
+    'tech-startup' => 1.8, 'ecommerce' => 1.8, 'hospital' => 1.8, 'commodity-trading' => 1.8,
     'loan-company' => 1.8, 'mortgage-company' => 1.8, 'bureau-de-change' => 1.6, 'pos-business' => 1.5,
-    
+
     // Tier 2: Corporate, Premium B2B, & Advanced Bookings
-    'real-estate' => 1.5, 'insurance' => 1.5, 'construction' => 1.5, 'law-firm' => 1.4, 
-    'architecture-firm' => 1.4, 'logistics' => 1.4, 'haulage-company' => 1.4, 'cocoa-export' => 1.4, 
-    'night-club' => 1.4, 'hotel' => 1.4, 'accounting' => 1.3, 'travel-agency' => 1.3, 'ngo' => 1.3, 
-    'solar' => 1.3, 'security-company' => 1.3, 'detective-agency' => 1.3, 'cooperative-society' => 1.3, 
+    'real-estate' => 1.5, 'insurance' => 1.5, 'construction' => 1.5, 'law-firm' => 1.4,
+    'architecture-firm' => 1.4, 'logistics' => 1.4, 'haulage-company' => 1.4, 'cocoa-export' => 1.4,
+    'night-club' => 1.4, 'hotel' => 1.4, 'accounting' => 1.3, 'travel-agency' => 1.3, 'ngo' => 1.3,
+    'solar' => 1.3, 'security-company' => 1.3, 'detective-agency' => 1.3, 'cooperative-society' => 1.3,
     'bar-and-lounge' => 1.3, 'agriculture-company' => 1.2, 'courier-service' => 1.2, 'recruitment' => 1.2,
     'pharmacy-distributor' => 1.3, 'car-rental' => 1.3, 'printing-company' => 1.3, 'borehole-drilling' => 1.2,
     'waterproofing-company' => 1.2, 'roofing-company' => 1.2, 'steel-fabrication' => 1.2, 'aluminium-fabrication' => 1.2,
@@ -513,8 +513,8 @@ $service_vocab_map = [
     ],
 ];
 
-$sv = $service_vocab_map['website-designer']; 
-$exact_format_slug = 'website-designer'; 
+$sv = $service_vocab_map['website-designer'];
+$exact_format_slug = 'website-designer';
 
 if (strpos($service_slug, 'developer') !== false) {
     $sv = $service_vocab_map['website-developer'];
@@ -595,8 +595,8 @@ if ($is_non_profit) {
 
 if ($niche_post && $niche_post->post_status === 'publish') {
     $core_keys = [
-        'feat_headline', 'feat_subline', 
-        'f1_title', 'f1_desc', 'f2_title', 'f2_desc', 'f3_title', 'f3_desc', 'f4_title', 'f4_desc', 'f5_title', 'f5_desc', 'f6_title', 'f6_desc', 
+        'feat_headline', 'feat_subline',
+        'f1_title', 'f1_desc', 'f2_title', 'f2_desc', 'f3_title', 'f3_desc', 'f4_title', 'f4_desc', 'f5_title', 'f5_desc', 'f6_title', 'f6_desc',
         'faq1_q', 'faq1_a', 'faq2_q', 'faq2_a', 'faq3_q', 'faq3_a', 'faq4_q', 'faq4_a', 'faq5_q', 'faq5_a',
         // GSO Content Engine — extended prose & FAQs
         'reality_p5', 'reality_p6',
@@ -772,7 +772,7 @@ $city_intro = '';
 if (!empty($nb_data['neighborhood_uniqueness'])) {
     $city_intro = $nb_data['neighborhood_uniqueness'];
     $city_intro = str_replace(['{Niche}', '{niche}', '{Service}', '{service}'], [$niche_name, strtolower($niche_name), $service_name, strtolower($service_name)], $city_intro);
-    $city_intro = go_spin_text($city_intro); 
+    $city_intro = go_spin_text($city_intro);
 } elseif (isset($city_post)) {
     $city_intro = get_post_meta($city_post->ID, 'city_intro', true);
     if (empty($city_intro) && !empty($city_post->post_content)) {
@@ -780,7 +780,7 @@ if (!empty($nb_data['neighborhood_uniqueness'])) {
     }
     if (!empty($city_intro)) {
         $city_intro = str_replace(['{Niche}', '{niche}', '{Service}', '{service}'], [$niche_name, strtolower($niche_name), $service_name, strtolower($service_name)], $city_intro);
-        $city_intro = go_spin_text($city_intro); 
+        $city_intro = go_spin_text($city_intro);
     }
 }
 
@@ -795,12 +795,12 @@ $num_niches_to_pick = min(4, count($other_niches));
 $horizontal_links = [];
 
 if ($num_niches_to_pick > 0) {
-    mt_srand($master_seed + 99); 
+    mt_srand($master_seed + 99);
     $random_related_keys = array_rand($other_niches, $num_niches_to_pick);
     foreach ((array)$random_related_keys as $picked_niche) {
         $url_path = !empty($neighborhood_slug) ? "/locations/{$city_slug}/{$neighborhood_slug}/" : "/locations/{$city_slug}/";
         $horizontal_links[] = [
-            'label' => $niche_dict[$picked_niche] . ' ' . $service_name . ' in ' . $city_name, 
+            'label' => $niche_dict[$picked_niche] . ' ' . $service_name . ' in ' . $city_name,
             'url'   => "{$url_path}{$picked_niche}-{$service_slug}/"
         ];
     }
@@ -823,7 +823,7 @@ if (file_exists($neighborhoods_file)) {
     if (isset($neighborhood_data[$city_slug])) {
         $active_nb = get_post_meta($city_post->ID, '_pseo_active_neighborhoods', true);
         if (!is_array($active_nb)) $active_nb = [];
-        
+
         foreach ($neighborhood_data[$city_slug] as $n_slug => $n_name) {
             if ($neighborhood_slug === $n_slug) continue;
             if (in_array($n_slug, $active_nb)) {
@@ -833,7 +833,7 @@ if (file_exists($neighborhoods_file)) {
                 ];
             }
         }
-        
+
         if (count($neighborhood_links) > 12) {
             mt_srand($master_seed + 123);
             shuffle($neighborhood_links);
@@ -894,8 +894,8 @@ $local_schema = [
     "telephone"   => "+2349061150443",
     "email"       => "hello@getonlinestudio.com",
     "address"     => [
-        "@type"           => "PostalAddress", 
-        "addressLocality" => $base_city_name, 
+        "@type"           => "PostalAddress",
+        "addressLocality" => $base_city_name,
         "addressCountry"  => "NG"
     ],
 ];
@@ -912,8 +912,8 @@ if (!empty($neighborhood_name)) {
     ];
 } else {
     $local_schema["areaServed"] = [
-        "@type"          => "City", 
-        "name"           => $base_city_name, 
+        "@type"          => "City",
+        "name"           => $base_city_name,
         "addressCountry" => "NG"
     ];
 }
@@ -956,16 +956,16 @@ if (!empty($city_intro)): ?>
         </div>
     </div>
 </section>
-<?php endif; 
+<?php endif;
 $html_blocks['local_focus'] = ob_get_clean();
 
 // MODULE 1B: THE DIGITAL GAP (Quantitative Data Integration)
 ob_start();
-if (!empty($matrix_data['estimated_businesses'])): 
+if (!empty($matrix_data['estimated_businesses'])):
     $est = number_format($matrix_data['estimated_businesses']);
     $with_web = number_format($matrix_data['with_website']);
     $without_web = number_format($matrix_data['without_website']);
-    
+
     $landscape_text = !empty($matrix_data['competitive_landscape']) ? $matrix_data['competitive_landscape'] : "The top-ranking " . strtolower($niche_plural) . " in {$base_city_name} all share one thing: a professional web presence that captures customers before competitors even know they're searching.";
     $edge_text = !empty($matrix_data['top_ranked_edge']) ? $matrix_data['top_ranked_edge'] : "";
 ?>
@@ -973,13 +973,13 @@ if (!empty($matrix_data['estimated_businesses'])):
     <div class="max-w-5xl mx-auto">
         <div class="bg-gradient-to-r from-[#15121c] to-transparent border border-lavender/10 p-8 md:p-12 rounded-3xl relative overflow-hidden">
             <div class="absolute right-0 top-0 w-64 h-64 bg-sharp-purple/5 blur-[80px] rounded-full pointer-events-none"></div>
-            
+
             <h3 class="font-syne text-2xl md:text-4xl font-bold mb-6 text-white tracking-tight">The <?= go_safe_text($niche_name) ?> Digital Landscape in <?= go_safe_text($base_city_name) ?></h3>
-            
+
             <p class="font-manrope text-lavender/80 leading-relaxed text-lg mb-6">
                 There are an estimated <strong class="text-white"><?= $est ?></strong> <?= strtolower(go_safe_text($niche_plural)) ?> operating in <?= go_safe_text($base_city_name) ?>. Of these, fewer than <strong class="text-white"><?= $with_web ?></strong> have a functional website — leaving over <strong class="text-sharp-purple"><?= $without_web ?> <?= $vocab['org_label'] ?> invisible</strong> to <?= $vocab['audience'] ?> who search online before deciding where to go.
             </p>
-            
+
             <p class="font-manrope text-lavender/60 leading-relaxed text-base mb-4">
                 <?= go_safe_text($landscape_text) ?>
             </p>
@@ -992,7 +992,7 @@ if (!empty($matrix_data['estimated_businesses'])):
         </div>
     </div>
 </section>
-<?php endif; 
+<?php endif;
 $html_blocks['digital_gap'] = ob_get_clean();
 
 // MODULE 2: THE REALITY (Pain Points)
@@ -1312,9 +1312,9 @@ ob_start(); ?>
         <h2 class="font-syne text-3xl md:text-5xl font-bold mb-12 text-center"><?= go_spin_text("{Questions to ask a {$exact_keyword}.|Frequently Asked Questions|What {$city_name} {$niche_plural} Ask Us|Common Questions About {$niche_name} Websites}") ?></h2>
         <!-- VISIBLE FAQs (first 5) -->
         <div class="space-y-4" id="faq-visible">
-            <?php 
+            <?php
             $faq_display_count = 0;
-            foreach ($faq_order as $i): if (!empty($meta["faq{$i}_q"])): 
+            foreach ($faq_order as $i): if (!empty($meta["faq{$i}_q"])):
                 $faq_display_count++;
                 if ($faq_display_count > 5) continue;
             ?>
@@ -1349,7 +1349,7 @@ ob_start(); ?>
         <div id="faq-extra" class="space-y-4 transition-all duration-500 overflow-visible" style="max-height: 0; opacity: 0; pointer-events: none;">
             <?php
             $faq_display_count = 0;
-            foreach ($faq_order as $i): if (!empty($meta["faq{$i}_q"])): 
+            foreach ($faq_order as $i): if (!empty($meta["faq{$i}_q"])):
                 $faq_display_count++;
                 if ($faq_display_count <= 5) continue;
             ?>
@@ -1678,7 +1678,7 @@ $master_layout = $master_layout_no_testimonials;
     <title><?= go_safe_text($meta_title) ?></title>
     <meta name="description" content="<?= go_safe_text($meta_desc) ?>">
     <link rel="canonical" href="<?= esc_url($canonical_url) ?>">
-    
+
     <link rel="icon" href="https://getonlinestudio.com/insights/wp-content/uploads/2026/02/GetOnline_Studio_Logo.jpg" sizes="32x32" />
     <link rel="apple-touch-icon" href="https://getonlinestudio.com/insights/wp-content/uploads/2026/02/GetOnline_Studio_Logo.jpg" />
 
@@ -1687,7 +1687,7 @@ $master_layout = $master_layout_no_testimonials;
     <meta property="og:type" content="article" />
     <meta property="og:url" content="<?= esc_url($canonical_url) ?>" />
     <meta property="og:image" content="<?= $global_settings['og_image'] ? esc_url($global_settings['og_image']) : 'https://getonlinestudio.com/insights/wp-content/uploads/2026/02/GetOnline_Studio_Logo.jpg' ?>" />
-    
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= go_safe_text($meta_title) ?>">
     <meta name="twitter:description" content="<?= go_safe_text($meta_desc) ?>">
@@ -1773,35 +1773,7 @@ $master_layout = $master_layout_no_testimonials;
             }
         }
     </script>
-    <style>
-        body { background-color: #101010; color: #e9d5ff; overflow-x: hidden; cursor: auto; }
-        .cursor-dot, .cursor-outline { display: none; }
-        .perspective-grid { position: absolute; width: 200%; height: 200%; background-image: linear-gradient(rgba(126, 34, 206, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(126, 34, 206, 0.3) 1px, transparent 1px); background-size: 100px 100px; transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px); animation: gridMove 20s linear infinite; opacity: 0.2; pointer-events: none; }
-        @keyframes gridMove { 0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); } 100% { transform: perspective(500px) rotateX(60deg) translateY(100px) translateZ(-200px); } }
-        .reveal-up { opacity: 0; transform: translateY(50px); animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-        .text-stroke { -webkit-text-stroke: 1px #e9d5ff; color: transparent; transition: all 0.3s ease; }
-        .marquee-container { overflow: hidden; white-space: nowrap; display: flex; position: relative; }
-        .marquee-content { display: flex; flex-shrink: 0; min-width: 100%; animation: scroll 30s linear infinite; }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
-        .tilt-card { transition: transform 0.1s; transform-style: preserve-3d; }
-        .service-row { transition: border-color 0.3s; }
-        .service-row:hover { border-color: #7e22ce; }
-        .service-row:hover h2 { color: #7e22ce; padding-left: 20px; }
-        .service-row h2 { transition: all 0.4s ease; }
-        .mouse-preview { position: fixed; top: 0; left: 0; width: 300px; height: 200px; background-size: cover; background-position: center; border-radius: 8px; pointer-events: none; transform: translate(-50%, -50%) scale(0); opacity: 0; z-index: 50; transition: transform 0.1s, opacity 0.3s ease; border: 1px solid rgba(126, 34, 206, 0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .mouse-preview.active { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        @media (max-width: 768px) { .mouse-preview { display: none !important; } }
-        .project-img { transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease; }
-        .group:hover .project-img { transform: scale(1.05); filter: grayscale(0%) !important; }
-        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .faq-item.active .faq-content { max-height: 500px; }
-        .faq-item.active .faq-icon { transform: rotate(45deg); }
-        .widget-hidden { opacity: 0; transform: scale(0.95) translateY(10px); pointer-events: none; visibility: hidden; }
-        .widget-visible { opacity: 1; transform: scale(1) translateY(0); pointer-events: auto; visibility: visible; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-    </style>
+    <link rel="stylesheet" href="/assets/css/niche-landing.css">
 <?php wp_head(); ?>
 </head>
 <body class="bg-matte-black bg-noise font-manrope selection:bg-sharp-purple selection:text-white relative">
@@ -1881,7 +1853,7 @@ $master_layout = $master_layout_no_testimonials;
         <div class="perspective-grid"></div>
         <div class="absolute w-32 h-32 rounded-full border border-sharp-purple/20 top-[15%] left-[10%] animate-float" style="animation-delay: 0s;"></div>
         <div class="absolute w-24 h-24 rotate-45 border border-lavender/10 top-[20%] right-[15%] animate-float" style="animation-delay: 1.5s;"></div>
-        
+
         <!-- BREADCRUMBS -->
         <div class="absolute top-24 left-4 md:left-8 z-30 reveal-up" style="animation-delay: 0.1s;">
             <nav aria-label="Breadcrumb">
@@ -1902,7 +1874,7 @@ $master_layout = $master_layout_no_testimonials;
         </div>
 
         <div class="relative z-20 text-center max-w-5xl mx-auto mt-10 md:mt-0">
-            
+
             <!-- THE HERO STAT BADGE -->
             <?php if ($digital_gap_percent > 50): ?>
             <div class="flex items-center justify-center mb-6 reveal-up">
@@ -1917,7 +1889,7 @@ $master_layout = $master_layout_no_testimonials;
                 <?= go_safe_text($niche_name) ?> <span class="text-transparent text-stroke hover:text-sharp-purple transition-colors duration-300 cursor-default"><?= go_safe_text($service_name) ?></span> in <?= go_safe_text($city_name) ?>
             </h1>
             <p class="font-manrope text-lavender/70 text-lg md:text-xl max-w-3xl mx-auto mt-8 leading-relaxed reveal-up" style="animation-delay: 0.4s;">
-                <?= go_spin_text("{Generic templates don't work for {$niche_plural}.|Most {$niche_name} websites are just digital brochures that don't drive real engagement.|You don't just need a website; you need a {$vocab['growth_system']}.}") ?> 
+                <?= go_spin_text("{Generic templates don't work for {$niche_plural}.|Most {$niche_name} websites are just digital brochures that don't drive real engagement.|You don't just need a website; you need a {$vocab['growth_system']}.}") ?>
                 <?php if ($digital_gap_percent > 0): ?>
                     In a market where <strong class="text-white"><?= $digital_gap_percent ?>% of your competitors are invisible online</strong>, we build specialized, high-converting platforms designed to make you the definitive leader in <?= go_safe_text($city_name) ?>.
                 <?php else: ?>
@@ -1962,12 +1934,12 @@ $master_layout = $master_layout_no_testimonials;
 
     <!-- DYNAMIC MACRO-MODULES -->
     <main>
-        <?php 
+        <?php
         $block_count = 0;
         foreach ($master_layout as $block_id) {
             echo $html_blocks[$block_id];
             $block_count++;
-            
+
             if ($block_count === 3): ?>
                 <div class="py-12 px-4 md:px-6 bg-[#0d0d0d] border-b border-lavender/10 flex flex-col sm:flex-row items-center justify-between gap-6 max-w-7xl mx-auto">
                     <p class="font-syne text-lg md:text-2xl font-bold text-lavender text-center sm:text-left">
@@ -1977,7 +1949,7 @@ $master_layout = $master_layout_no_testimonials;
                         <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp Us
                     </a>
                 </div>
-                
+
                 <section class="py-6 bg-sharp-purple overflow-hidden">
                     <div class="marquee-container">
                         <div class="marquee-content font-space font-bold text-black text-lg uppercase tracking-widest">

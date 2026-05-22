@@ -55,7 +55,7 @@ $meta_desc = "GetOnline Studio provides premium, high-converting web design and 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
+
     <!-- DYNAMIC SEO TAGS -->
     <title><?= go_safe_text($meta_title) ?></title>
     <meta name="description" content="<?= go_safe_text($meta_desc) ?>">
@@ -72,19 +72,19 @@ $meta_desc = "GetOnline Studio provides premium, high-converting web design and 
     <meta property="og:url" content="<?= GO_SITE_URL . '/locations/' ?>" />
     <meta property="og:image" content="https://getonlinestudio.com/insights/wp-content/uploads/2026/02/GetOnline_Studio_Logo.jpg" />
     <meta property="og:image:alt" content="GetOnline Studio Logo" />
-    
+
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= go_safe_text($meta_title) ?>">
     <meta name="twitter:description" content="<?= go_safe_text($meta_desc) ?>">
     <meta name="twitter:image" content="https://getonlinestudio.com/insights/wp-content/uploads/2026/02/GetOnline_Studio_Logo.jpg">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Syne:wght@400;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -111,35 +111,7 @@ $meta_desc = "GetOnline Studio provides premium, high-converting web design and 
         }
     </script>
 
-    <style>
-        /* Base Styles */
-        body { background-color: #101010; color: #e9d5ff; overflow-x: hidden; cursor: none; }
-        
-        /* Custom Cursor */
-        .cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999; pointer-events: none; }
-        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
-        .cursor-outline { width: 40px; height: 40px; border: 1px solid #7e22ce; transition: width 0.2s, height 0.2s, background-color 0.2s; }
-        @media (pointer: coarse) { .cursor-dot, .cursor-outline { display: none; } body { cursor: auto; } }
-        body.hovering .cursor-outline { width: 60px; height: 60px; background-color: rgba(126, 34, 206, 0.2); border-color: transparent; }
-
-        /* 3D Grid Animation */
-        .perspective-grid {
-            position: absolute; width: 200%; height: 200%;
-            background-image: linear-gradient(rgba(126, 34, 206, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(126, 34, 206, 0.3) 1px, transparent 1px);
-            background-size: 100px 100px;
-            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
-            animation: gridMove 20s linear infinite; opacity: 0.2; pointer-events: none;
-        }
-        @keyframes gridMove {
-            0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); }
-            100% { transform: perspective(500px) rotateX(60deg) translateY(100px) translateZ(-200px); }
-        }
-
-        /* Reveal Animations */
-        .reveal-up { opacity: 0; transform: translateY(50px); animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-        .text-stroke { -webkit-text-stroke: 1px #e9d5ff; color: transparent; }
-    </style>
+    <link rel="stylesheet" href="/assets/css/locations-index.css">
 <?php wp_head(); ?>
 </head>
 <body class="bg-matte-black bg-noise font-manrope selection:bg-sharp-purple selection:text-white relative">
@@ -159,7 +131,7 @@ $meta_desc = "GetOnline Studio provides premium, high-converting web design and 
     <header class="relative min-h-[60vh] flex flex-col justify-center items-center px-4 overflow-hidden border-b border-lavender/10 pt-32 pb-24 md:pb-32">
         <div class="perspective-grid"></div>
         <div class="absolute w-32 h-32 rounded-full border border-sharp-purple/20 top-[15%] left-[10%] animate-float" style="animation-delay: 0s;"></div>
-        
+
         <div class="relative z-20 text-center max-w-5xl mx-auto mt-10">
             <!-- Location Badge -->
             <div class="flex items-center justify-center mb-6 md:mb-8 reveal-up">
@@ -176,7 +148,7 @@ $meta_desc = "GetOnline Studio provides premium, high-converting web design and 
             <h1 class="font-syne text-[8vw] md:text-[6vw] leading-[1.1] font-bold text-lavender reveal-up" style="animation-delay: 0.2s;">
                 Digital Excellence Across <br><span class="text-transparent text-stroke hover:text-sharp-purple transition-colors duration-300 cursor-default">NIGERIA</span>
             </h1>
-            
+
             <p class="font-manrope text-lavender/70 text-lg md:text-xl max-w-2xl mx-auto mt-8 leading-relaxed reveal-up" style="animation-delay: 0.4s;">
                 We partner with ambitious brands across the country. Select your city below to view our localized web design services and industry solutions.
             </p>
@@ -186,7 +158,7 @@ $meta_desc = "GetOnline Studio provides premium, high-converting web design and 
     <!-- SECTION 2: THE LOCATIONS GRID -->
     <section class="py-24 md:py-32 px-4 md:px-6 bg-[#0a0a0a] relative z-10 min-h-[40vh]">
         <div class="max-w-7xl mx-auto">
-            
+
             <?php if (empty($active_cities)): ?>
             <div class="text-center p-12 border border-lavender/10 rounded-2xl bg-card-dark reveal-up">
                 <i data-lucide="map-pin-off" class="w-12 h-12 text-sharp-purple mx-auto mb-4"></i>
@@ -194,9 +166,9 @@ $meta_desc = "GetOnline Studio provides premium, high-converting web design and 
                 <p class="text-lavender/60">Log into your Command Center to publish your first location.</p>
             </div>
             <?php else: ?>
-            
+
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                <?php foreach($active_cities as $city): 
+                <?php foreach($active_cities as $city):
                     $city_slug = $city->post_name;
                     $link_url = "/locations/" . $city_slug . "/";
                 ?>
@@ -214,7 +186,7 @@ $meta_desc = "GetOnline Studio provides premium, high-converting web design and 
                 </a>
                 <?php endforeach; ?>
             </div>
-            
+
             <?php endif; ?>
         </div>
     </section>
@@ -279,7 +251,7 @@ $meta_desc = "GetOnline Studio provides premium, high-converting web design and 
                 requestAnimationFrame(animateCursor);
             };
             animateCursor();
-            
+
             const addHoverTargets = () => {
                 const hoverTargets = document.querySelectorAll('.hover-target, a, button');
                 hoverTargets.forEach(el => {

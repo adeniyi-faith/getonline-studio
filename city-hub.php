@@ -50,19 +50,19 @@ function parse_ai_markdown($text) {
 function go_spin_text($text, $seed = null) {
     global $city_slug;
     $active_seed = $seed ? $seed : (!empty($city_slug) ? $city_slug : 'locked_seed');
-    
+
     $text = (string) $text;
     $spun = preg_replace_callback('/\{(((?>[^\{\}]+)|(?R))*)\}/x', function ($match) use ($active_seed) {
         $inner = go_spin_text($match[1], $active_seed);
         $parts = explode('|', $inner);
-        
+
         // Deterministic Hash: Ensures the same text is generated on every page refresh!
         $hash = md5($active_seed . $match[0]);
         $index = hexdec(substr($hash, 0, 8)) % count($parts);
-        
+
         return $parts[$index];
     }, $text);
-    
+
     // THE GRAMMAR CLEANSER: Fixes bad AI pluralizations (e.g. {business}s -> businesss)
     $cleanup = [
         'businesss'      => 'businesses',
@@ -90,7 +90,7 @@ $city_name = go_safe_text($city_post->post_title);
 $city_intro = get_post_meta($city_post->ID, 'city_intro', true);
 $city_long_content = get_post_meta($city_post->ID, 'city_long_content', true);
 
-// Aggressively convert the literal word "niche" into natural business terms 
+// Aggressively convert the literal word "niche" into natural business terms
 if (!empty($city_intro)) {
     $city_intro = preg_replace('/\bniches\b/i', '{businesses|brands|companies|organizations}', $city_intro);
     $city_intro = preg_replace('/\bniche\b/i', '{business|brand|company|organization}', $city_intro);
@@ -101,7 +101,7 @@ if (!empty($city_long_content)) {
     $city_long_content = preg_replace('/\bniches\b/i', '{businesses|brands|companies|organizations}', $city_long_content);
     $city_long_content = preg_replace('/\bniche\b/i', '{business|brand|company|organization}', $city_long_content);
     $city_long_content = str_ireplace(['{niche}s', '{niche}'], ['{businesses|brands|companies}', '{business|brand|company}'], $city_long_content);
-    
+
     // Process the AI content to convert asterisks into proper HTML formatting
     $city_long_content = parse_ai_markdown($city_long_content);
 }
@@ -161,7 +161,7 @@ $active_nb = get_post_meta($city_post->ID, '_pseo_active_neighborhoods', true);
 if (!is_array($active_nb)) $active_nb = [];
 
 $neighborhood_links = [];
-$neighborhood_names = []; 
+$neighborhood_names = [];
 $nb_file = __DIR__ . '/neighborhoods.json';
 if (file_exists($nb_file) && !empty($active_nb)) {
     $nb_data = json_decode(file_get_contents($nb_file), true);
@@ -328,7 +328,7 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
+
     <title><?= go_safe_text($meta_title) ?></title>
     <meta name="description" content="<?= go_safe_text($meta_desc) ?>">
     <link rel="canonical" href="<?= GO_SITE_URL . "/locations/{$city_slug}/" ?>">
@@ -339,17 +339,17 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<?= GO_SITE_URL . "/locations/{$city_slug}/" ?>" />
     <meta property="og:image" content="https://getonlinestudio.com/insights/wp-content/uploads/2026/02/GetOnline_Studio_Logo.jpg" />
-    
+
     <script type="application/ld+json"><?= $schema_json_faq ?></script>
     <script type="application/ld+json"><?= $schema_json_local ?></script>
     <script type="application/ld+json"><?= $schema_json_breadcrumb ?></script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Syne:wght@400;700;800&family=Fira+Code:wght@400;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script>
         tailwind.config = {
@@ -361,7 +361,7 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
                         'code-green': '#4ade80', 'panel-dark': '#151515'
                     },
                     fontFamily: {
-                        'syne': ['Syne', 'sans-serif'], 'manrope': ['Manrope', 'sans-serif'], 
+                        'syne': ['Syne', 'sans-serif'], 'manrope': ['Manrope', 'sans-serif'],
                         'mono': ['Fira Code', 'monospace'], 'space': ['Space Grotesk', 'sans-serif'],
                     },
                     backgroundImage: {
@@ -375,85 +375,7 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
         }
     </script>
 
-    <style>
-        body { background-color: #101010; color: #e9d5ff; overflow-x: hidden; cursor: none; }
-        
-        /* HIDDEN SCROLLBAR FOR MOBILE CAROUSEL & WIDGET */
-        .hide-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none; /* Chrome, Safari and Opera */
-        }
-
-        .cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999; pointer-events: none; }
-        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
-        .cursor-outline { width: 40px; height: 40px; border: 1px solid #7e22ce; transition: width 0.2s, height 0.2s, background-color 0.2s; }
-        @media (pointer: coarse) { .cursor-dot, .cursor-outline { display: none; } body { cursor: auto !important; } }
-        body.hovering .cursor-outline { width: 60px; height: 60px; background-color: rgba(126, 34, 206, 0.2); border-color: transparent; }
-
-        .perspective-grid {
-            position: absolute; width: 200%; height: 200%;
-            background-image: linear-gradient(rgba(126, 34, 206, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(126, 34, 206, 0.3) 1px, transparent 1px);
-            background-size: 100px 100px;
-            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
-            animation: gridMove 20s linear infinite; opacity: 0.2; pointer-events: none;
-        }
-        @keyframes gridMove {
-            0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); }
-            100% { transform: perspective(500px) rotateX(60deg) translateY(100px) translateZ(-200px); }
-        }
-
-        .reveal-up { opacity: 0; transform: translateY(50px); animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-        .text-stroke { -webkit-text-stroke: 1px #e9d5ff; color: transparent; transition: all 0.3s ease; }
-
-        .marquee-container { overflow: hidden; white-space: nowrap; display: flex; position: relative; }
-        .marquee-content { display: flex; flex-shrink: 0; min-width: 100%; animation: scroll 30s linear infinite; }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
-
-        .tilt-card { transition: transform 0.1s; transform-style: preserve-3d; }
-        .service-row { transition: border-color 0.3s; }
-        .service-row:hover { border-color: #7e22ce; }
-        .service-row:hover h2 { color: #7e22ce; padding-left: 20px; }
-        .service-row h2 { transition: all 0.4s ease; }
-        
-        .mouse-preview {
-            position: fixed; top: 0; left: 0; width: 300px; height: 200px; background-size: cover; background-position: center;
-            border-radius: 8px; pointer-events: none; transform: translate(-50%, -50%) scale(0); opacity: 0; z-index: 50;
-            transition: transform 0.1s, opacity 0.3s ease; border: 1px solid rgba(126, 34, 206, 0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-        .mouse-preview.active { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        @media (max-width: 768px) { .mouse-preview { display: none !important; } }
-
-        .project-img { transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease; }
-        .group:hover .project-img { transform: scale(1.05); filter: grayscale(0%) !important; }
-
-        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .faq-item.active .faq-content { max-height: 500px; }
-        .faq-item.active .faq-icon { transform: rotate(45deg); }
-
-        /* Custom Prose Styling for the SEO Pillar */
-        .prose-pillar h2 { color: #fff; font-family: 'Syne', sans-serif; font-size: 2.25rem; font-weight: 700; margin-top: 3rem; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-        .prose-pillar h3 { color: #e9d5ff; font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-        .prose-pillar p { color: rgba(233, 213, 255, 0.7); font-family: 'Manrope', sans-serif; font-size: 1.125rem; line-height: 1.8; margin-bottom: 1.25rem; }
-        .prose-pillar strong { color: #fff; font-weight: 700; }
-        .prose-pillar blockquote { 
-            border-left: none; padding: 1.5rem 2rem; margin: 2rem 0; 
-            background-color: rgba(126, 34, 206, 0.1); border: 1px solid rgba(126, 34, 206, 0.3); 
-            border-radius: 1rem; color: #fff; font-size: 1.25rem; font-style: italic; font-family: 'Syne', sans-serif;
-        }
-        .prose-pillar ul { margin-top: 1rem; margin-bottom: 2rem; padding-left: 0; list-style: none; }
-        .prose-pillar li { position: relative; padding-left: 2rem; margin-bottom: 0.75rem; color: rgba(233, 213, 255, 0.8); }
-        .prose-pillar li::before { 
-            content: '→'; position: absolute; left: 0; top: 0; color: #7e22ce; font-family: 'Fira Code', monospace; font-weight: bold;
-        }
-
-        /* Widget Animation */
-        .widget-hidden { opacity: 0; transform: scale(0.95) translateY(10px); pointer-events: none; visibility: hidden; }
-        .widget-visible { opacity: 1; transform: scale(1) translateY(0); pointer-events: auto; visibility: visible; }
-    </style>
+    <link rel="stylesheet" href="/assets/css/city-hub.css">
 </head>
 <body class="bg-matte-black bg-noise font-manrope selection:bg-sharp-purple selection:text-white relative">
 
@@ -533,7 +455,7 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
         <div class="perspective-grid"></div>
         <div class="absolute w-32 h-32 rounded-full border border-sharp-purple/20 top-[15%] left-[10%] animate-float" style="animation-delay: 0s;"></div>
         <div class="absolute w-40 h-40 border-dashed border-sharp-purple/30 rounded-full bottom-[20%] right-[10%] animate-float" style="animation-delay: 3s;"></div>
-        
+
         <div class="absolute top-24 left-4 md:left-8 z-30 reveal-up" style="animation-delay: 0.1s;">
             <nav aria-label="Breadcrumb">
                 <ol class="flex flex-wrap items-center gap-2 text-[10px] md:text-xs font-mono uppercase tracking-widest text-lavender/40">
@@ -574,7 +496,7 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
             <p class="font-mono text-[11px] text-lavender/40 tracking-widest uppercase mt-5 reveal-up" style="animation-delay: 0.3s;">
                 Web Design Company &middot; Web Developer &middot; Digital Agency — <?= go_safe_text($city_name) ?>, Nigeria
             </p>
-            
+
             <p class="font-manrope text-lavender/70 text-lg md:text-xl max-w-2xl mx-auto mt-6 leading-relaxed reveal-up" style="animation-delay: 0.4s;">
                 <?= go_spin_text("{We partner with|Our agency helps|We engineer platforms for} {ambitious brands|industry leaders|forward-thinking businesses} in {$city_name} to {dominate the local market|build high-converting digital ecosystems|scale their operations online}.") ?>
             </p>
@@ -636,7 +558,7 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
                 Web Design Services in <?= go_safe_text($city_name) ?> — From Design to Development
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                <?php 
+                <?php
                 $kw_variants = [
                     ['term' => "Web Designer in {$city_name}",          'icon' => 'pen-tool',     'desc' => "Custom-crafted websites built to reflect your brand and convert visitors into paying clients."],
                     ['term' => "Web Developer in {$city_name}",         'icon' => 'code-2',       'desc' => "Full-stack development for portals, web apps, and high-performance digital platforms."],
@@ -697,7 +619,7 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
     <section class="pb-24 md:pb-32 px-4 md:px-6 bg-[#0a0a0a] border-b border-lavender/5 relative z-10">
         <div class="max-w-4xl mx-auto bg-card-dark border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
             <div class="absolute top-0 right-0 w-64 h-64 bg-sharp-purple/10 rounded-full blur-[80px] pointer-events-none"></div>
-            
+
             <!-- Step 1: Industry Input -->
             <div id="wa-step-1" class="relative z-10 transition-all duration-500">
                 <h3 class="font-syne text-2xl md:text-3xl font-bold text-white mb-3">Don't see your industry?</h3>
@@ -743,11 +665,11 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
                 <h2 class="font-syne text-3xl md:text-5xl font-bold mb-6">Local Rankings & Reviews</h2>
                 <p class="font-manrope text-lavender/60 text-lg">Read our editorial reviews of the top digital agencies across different industries in <?= go_safe_text($city_name) ?>.</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="listicle-grid">
-                <?php 
+                <?php
                 $listicle_count = 0;
-                foreach($city_listicles as $listicle): 
+                foreach($city_listicles as $listicle):
                     $listicle_count++;
                     $dynamic_keyword = preg_replace('/\b20\d{2}\b/', $current_year, $listicle->target_keyword);
                     $hidden_class = $listicle_count > 6 ? 'hidden extra-listicle' : '';
@@ -762,11 +684,11 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
                     <h3 class="font-syne text-xl font-bold text-white mb-3"><?= go_safe_text($dynamic_keyword) ?></h3>
                     <p class="text-sm text-lavender/50 font-manrope">Read the <?= $current_year ?> guide &rarr;</p>
                 </a>
-                <?php 
-                endforeach; 
+                <?php
+                endforeach;
                 ?>
             </div>
-            
+
             <?php if ($listicle_count > 6): ?>
             <div class="mt-12 text-center">
                 <button id="show-more-listicles" class="inline-flex items-center gap-2 font-syne text-sm font-bold tracking-widest uppercase text-lavender hover:text-sharp-purple transition-colors hover-target border border-lavender/20 px-8 py-4 rounded-full hover:border-sharp-purple/50 focus:outline-none">
@@ -787,7 +709,7 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
             <p class="font-manrope text-lavender/50 text-base mb-10 max-w-2xl mx-auto leading-relaxed">
                 <?= go_spin_text("{We engineer|We deploy|We deliver} {high-converting|strategic|performance-driven} digital platforms for businesses, corporate institutions, and SMEs across {$city_name}'s {most prominent|premium|key commercial} districts.") ?>
             </p>
-            
+
             <div class="flex flex-wrap justify-center gap-3">
                 <?php foreach ($neighborhood_links as $link): ?>
                 <a href="<?= esc_url($link['url']) ?>" class="inline-block px-5 py-2.5 bg-card-dark border border-white/10 rounded-full text-xs font-bold text-lavender/70 hover:text-white hover:border-sharp-purple hover:bg-sharp-purple/10 md:hover:-translate-y-1 active:scale-[0.98] transition-all hover-target shadow-lg shadow-black/50">
@@ -1371,7 +1293,7 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
         <div class="max-w-6xl mx-auto text-center">
             <h2 class="font-syne text-3xl md:text-5xl mb-6">The GetOnline Advantage</h2>
             <p class="font-manrope text-lavender/60 text-lg mb-16 max-w-2xl mx-auto">Why the leading companies in <?= go_safe_text($city_name) ?> trust us to build their digital ecosystems.</p>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="p-10 border border-lavender/10 rounded-3xl bg-matte-black hover:border-sharp-purple/50 transition-colors hover-target tilt-card" onmousemove="tiltCard(event, this)" onmouseleave="resetTilt(this)">
                     <div class="w-16 h-16 mx-auto rounded-2xl bg-sharp-purple/10 flex items-center justify-center mb-6">
@@ -1456,7 +1378,7 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
     <?php if (!empty($city_long_content)): ?>
     <section class="py-24 md:py-32 px-4 md:px-6 bg-card-dark border-t border-lavender/10 relative z-10">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20">
-            
+
             <div class="w-full lg:w-1/3">
                 <div class="sticky top-32">
                     <p class="font-mono text-[10px] text-sharp-purple tracking-widest uppercase mb-4">[ Market Analysis ]</p>
@@ -1466,7 +1388,7 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
                     <p class="font-manrope text-lavender/60 text-base leading-relaxed mb-8">
                         Operating a business in <?= go_safe_text($city_name) ?> requires more than just a social media presence. We break down exactly why digital infrastructure is replacing traditional marketing in this city.
                     </p>
-                    
+
                     <div class="bg-matte-black border border-white/5 rounded-2xl p-6 shadow-xl">
                         <div class="flex items-center gap-3 mb-4 pb-4 border-b border-white/5">
                             <div class="w-10 h-10 rounded-full bg-sharp-purple/20 flex items-center justify-center">
@@ -1494,11 +1416,11 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
                     </div>
                 </div>
             </div>
-            
+
             <div class="w-full lg:w-2/3 prose-pillar">
                 <?= go_spin_text($city_long_content) ?>
             </div>
-            
+
         </div>
     </section>
     <?php endif; ?>
@@ -1564,7 +1486,7 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
     <section class="py-24 md:py-32 px-4 md:px-6 bg-[#0a0a0a] border-y border-lavender/10 relative z-10">
         <div class="max-w-3xl mx-auto">
             <h2 class="font-syne text-3xl md:text-5xl font-bold mb-12 text-center">Frequently Asked in <?= go_safe_text($city_name) ?>.</h2>
-            
+
             <div class="space-y-4">
                 <?php foreach($city_faqs as $faq): ?>
                 <div class="faq-item bg-matte-black border border-lavender/10 rounded-2xl overflow-hidden hover-target">
@@ -1859,10 +1781,10 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
                 t.classList.add('border-lavender/20', 'text-lavender/50');
                 t.setAttribute('aria-selected', 'false');
             });
-            
+
             const targetGrid = document.getElementById('grid-' + fmt);
             targetGrid.classList.remove('hidden');
-            
+
             const activeTab = document.getElementById('tab-' + fmt);
             activeTab.classList.add('bg-sharp-purple', 'border-sharp-purple', 'text-white');
             activeTab.classList.remove('border-lavender/20', 'text-lavender/50');
@@ -1870,7 +1792,7 @@ $meta_desc = "GetOnline Studio is a web design company in {$city_name} with over
             // Only reinitialise icons inside the newly shown grid, not the whole page
             lucide.createIcons({ nameAttr: 'data-lucide', nodes: [targetGrid] });
         }
-        
+
         const showMoreBtn = document.getElementById('show-more-listicles');
         if (showMoreBtn) {
             showMoreBtn.addEventListener('click', () => {

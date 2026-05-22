@@ -1,0 +1,131 @@
+/* Base Styles */
+        body {
+            background-color: #101010;
+            color: #e9d5ff;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
+        .cursor-outline {
+            width: 40px; height: 40px;
+            border: 1px solid #7e22ce;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        @media (pointer: coarse) {
+            .cursor-dot, .cursor-outline { display: none; }
+            body { cursor: auto; }
+        }
+        body.hovering .cursor-outline {
+            width: 60px; height: 60px;
+            background-color: rgba(126, 34, 206, 0.2);
+            border-color: transparent;
+        }
+
+        /* Text Stroke */
+        .text-stroke {
+            -webkit-text-stroke: 1px #e9d5ff;
+            color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        /* Reveal Animations */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* Interactive Service List */
+        .service-row {
+            transition: border-color 0.3s;
+        }
+        .service-row:hover {
+            border-color: #7e22ce;
+        }
+        .service-row:hover h2 {
+            color: #7e22ce;
+            padding-left: 20px;
+        }
+        .service-row h2 {
+            transition: all 0.4s ease;
+        }
+
+        /* Floating Preview Card */
+        .mouse-preview {
+            position: fixed;
+            top: 0; left: 0;
+            width: 300px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            z-index: 50;
+            transition: transform 0.1s, opacity 0.3s ease;
+            border: 1px solid rgba(126, 34, 206, 0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .mouse-preview.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        @media (max-width: 768px) {
+            .mouse-preview { display: none !important; }
+        }
+
+        /* 3D Tilt Effect */
+        .tilt-card {
+            transition: transform 0.1s;
+            transform-style: preserve-3d;
+        }
+
+        /* Orbit Animation for Hero */
+        .orbit {
+            border: 1px solid rgba(233, 213, 255, 0.1);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            transform-style: preserve-3d;
+        }
+        .orbit-1 { width: 300px; height: 300px; animation: rotate3d 10s linear infinite; border-color: rgba(126, 34, 206, 0.4); }
+        .orbit-2 { width: 500px; height: 500px; animation: rotate3d 15s linear infinite reverse; }
+        .orbit-3 { width: 700px; height: 700px; animation: rotate3d 20s linear infinite; border-style: dashed; }
+
+        @keyframes rotate3d {
+            0% { transform: translate(-50%, -50%) rotateX(60deg) rotateZ(0deg); }
+            100% { transform: translate(-50%, -50%) rotateX(60deg) rotateZ(360deg); }
+        }
+
+        /* Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            position: relative;
+        }
+        .marquee-content {
+            display: flex;
+            flex-shrink: 0;
+            min-width: 100%; /* Ensures seamless loop */
+            animation: scroll 30s linear infinite;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }

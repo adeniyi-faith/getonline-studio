@@ -1,0 +1,73 @@
+/* Base Styles */
+        body {
+            background-color: #101010;
+            color: #e9d5ff;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
+        .cursor-outline {
+            width: 40px; height: 40px;
+            border: 1px solid #7e22ce;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        @media (pointer: coarse) {
+            .cursor-dot, .cursor-outline { display: none; }
+            body { cursor: auto; }
+        }
+        body.hovering .cursor-outline {
+            width: 60px; height: 60px;
+            background-color: rgba(126, 34, 206, 0.2);
+            border-color: transparent;
+        }
+
+        /* Typography & Layout */
+        .text-stroke {
+            -webkit-text-stroke: 1px #e9d5ff;
+            color: transparent;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* Code Typing Animation Utility */
+        .type-writer {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #7e22ce;
+            width: 0;
+        }
+
+        /* Abstract Server Racks */
+        .server-rack {
+            background: linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(10,10,10,1) 100%);
+            border: 1px solid rgba(233, 213, 255, 0.1);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .server-light {
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        /* Node Network Animation */
+        .node-pulse {
+            animation: pulseNode 2s infinite alternate;
+        }
+        @keyframes pulseNode {
+            from { r: 4; fill: #7e22ce; filter: drop-shadow(0 0 5px #7e22ce); }
+            to { r: 6; fill: #e9d5ff; filter: drop-shadow(0 0 15px #e9d5ff); }
+        }

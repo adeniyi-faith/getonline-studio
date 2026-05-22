@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Brand Identity | GetOnline Studio</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -47,60 +47,7 @@
         }
     </script>
 
-    <style>
-        /* Base Styles */
-        body {
-            background-color: #101010;
-            color: #e9d5ff;
-            overflow-x: hidden;
-            cursor: none;
-        }
-
-        /* Custom Cursor */
-        .cursor-dot, .cursor-outline {
-            position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-        }
-        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
-        .cursor-outline {
-            width: 40px; height: 40px;
-            border: 1px solid #7e22ce;
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-        @media (pointer: coarse) {
-            .cursor-dot, .cursor-outline { display: none; }
-            body { cursor: auto; }
-        }
-        body.hovering .cursor-outline {
-            width: 60px; height: 60px;
-            background-color: rgba(126, 34, 206, 0.2);
-            border-color: transparent;
-        }
-
-        /* Typography & Layout */
-        .text-stroke {
-            -webkit-text-stroke: 1px #e9d5ff;
-            color: transparent;
-        }
-        
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
-
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-
-        /* Card Hover Effects */
-        .hover-target:hover {
-            /* subtle lift or glow if desired */
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/service/branding/index.css">
 <script src="/tracking.js"></script></head>
 <body class="bg-matte-black bg-noise font-manrope selection:bg-sharp-purple selection:text-white relative">
 
@@ -135,7 +82,7 @@
                     A logo is just a mark. A brand is a feeling. We craft visual identities that give your business a voice, a personality, and a place in the market.
                 </p>
             </div>
-            
+
             <!-- Abstract Hero Visual -->
             <div class="relative h-[400px] md:h-[500px] flex items-center justify-center reveal-up" style="animation-delay: 0.2s;">
                 <div class="w-64 h-64 border border-lavender/30 rounded-full animate-spin-slow flex items-center justify-center">
@@ -322,7 +269,7 @@
     <section class="py-20 md:py-32 px-4 md:px-6 bg-matte-black relative z-20">
         <div class="max-w-7xl mx-auto">
             <h2 class="font-syne text-3xl md:text-5xl mb-12">Applications</h2>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Large Item -->
                 <div class="relative h-[400px] bg-card-dark rounded-lg overflow-hidden group hover-target cursor-none">

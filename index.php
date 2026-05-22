@@ -102,77 +102,7 @@
         }
     </script>
 
-    <style>
-        body { background-color: #101010; color: #e9d5ff; overflow-x: hidden; cursor: none; }
-        html { overflow-x: hidden; }
-        .cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999; pointer-events: none; }
-        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
-        .cursor-outline { width: 40px; height: 40px; border: 1px solid #7e22ce; transition: width 0.2s, height 0.2s, background-color 0.2s; }
-        @media (pointer: coarse) { .cursor-dot, .cursor-outline { display: none; } body { cursor: auto !important; } }
-        body.hovering .cursor-outline { width: 60px; height: 60px; background-color: rgba(126,34,206,0.2); border-color: transparent; }
-
-        #intro-overlay { animation: slideUp 0.9s cubic-bezier(0.77,0,0.175,1) forwards; animation-delay: 2.2s; }
-        @keyframes slideUp { to { transform: translateY(-100%); } }
-        .reveal-text { animation: reveal 1.4s cubic-bezier(0.77,0,0.175,1) forwards; }
-        @keyframes reveal { 0% { transform: translateY(100%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
-
-        .text-stroke { -webkit-text-stroke: 1px #e9d5ff; color: transparent; transition: all 0.3s ease; }
-        .group:hover .text-stroke { color: #e9d5ff; -webkit-text-stroke: 0px; }
-
-        .marquee-container { overflow: hidden; white-space: nowrap; display: flex; }
-        .marquee-content { display: flex; flex-shrink: 0; min-width: 100%; animation: scroll 30s linear infinite; }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
-
-        #mobile-menu { transition: transform 0.5s cubic-bezier(0.77,0,0.175,1); }
-        #mobile-menu.open { transform: translateX(0); }
-        .kinetic-text { display: inline-block; }
-        @media (min-width: 768px) { .kinetic-text { will-change: transform; } }
-
-        .scan-line { animation: scan 3s linear infinite; }
-        @keyframes scan { 0% { top: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
-        .code-rain { background: linear-gradient(180deg, transparent, rgba(126,34,206,0.5), transparent); background-size: 100% 200%; animation: codeDrop 2s linear infinite; }
-        @keyframes codeDrop { 0% { background-position: 0% -100%; } 100% { background-position: 0% 200%; } }
-
-        /* FAQ */
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.77,0,0.175,1), opacity 0.4s ease; opacity: 0; }
-        .faq-item.active .faq-answer { max-height: 600px; opacity: 1; }
-        .faq-icon { transition: transform 0.3s ease; }
-        .faq-item.active .faq-icon { transform: rotate(45deg); }
-
-        /* Testimonials */
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-
-        /* Prose */
-        .prose-dark p { color: rgba(233,213,255,0.7); line-height: 1.85; margin-bottom: 1.1rem; font-size: 1.05rem; }
-        .prose-dark strong { color: #fff; }
-
-        /* Service card sticky stack */
-        .service-card { position: relative; }
-        @media (min-width: 768px) { .service-card { position: sticky; top: 0; height: 100vh; } }
-
-        .perspective-grid {
-            position: absolute; width: 200%; height: 200%;
-            background-image: linear-gradient(rgba(126,34,206,0.15) 1px,transparent 1px), linear-gradient(90deg,rgba(126,34,206,0.15) 1px,transparent 1px);
-            background-size: 100px 100px;
-            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
-            opacity: 0.25; pointer-events: none;
-        }
-        @media (min-width: 768px) {
-            .perspective-grid { animation: gridMove 20s linear infinite; }
-        }
-        @keyframes gridMove { 0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); } 100% { transform: perspective(500px) rotateX(60deg) translateY(100px) translateZ(-200px); } }
-
-        /* Mobile: disable heavy float animations to prevent jank */
-        @media (max-width: 767px) {
-            .animate-float { animation: none !important; }
-            .animate-spin-slow, .animate-spin-slow-reverse { animation: none !important; }
-            .marquee-content { animation-duration: 40s; }
-        }
-
-        .reveal-up { opacity: 0; transform: translateY(40px); animation: fadeUp 0.9s cubic-bezier(0.25,1,0.5,1) forwards; }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    </style>
+    <link rel="stylesheet" href="/assets/css/index.css">
 <?php wp_head(); ?>
 </head>
 <body class="bg-matte-black bg-noise font-manrope selection:bg-sharp-purple selection:text-white relative">

@@ -7,7 +7,7 @@
 
 // 1. Boot up WordPress silently
 define('WP_USE_THEMES', false);
-require_once(__DIR__ . '/wp/wp-load.php'); 
+require_once(__DIR__ . '/wp/wp-load.php');
 
 // ─── SUPPRESS WP HEAD/FOOTER JUNK ─────────────────────────────────────────────
 add_action('after_setup_theme', function() {
@@ -97,7 +97,7 @@ $author_email = "adeniyifth@gmail.com";
 
 // Auto-Updating Date Logic for Freshness
 $month_seed = crc32($city_slug . $niche_slug . date('Y-m'));
-$random_day = (abs($month_seed) % 28) + 1; 
+$random_day = (abs($month_seed) % 28) + 1;
 $dynamic_date = mktime(0, 0, 0, date('m'), $random_day, date('Y'));
 if ($dynamic_date > time()) $dynamic_date = time() - (86400 * mt_rand(1, 5)); // Fallback to a few days ago if future
 $last_updated = date('F j, Y', $dynamic_date);
@@ -161,7 +161,7 @@ $clean_content = preg_replace_callback(
     '/<h2[^>]*>(How We Ranked.*?)<\/h2>(.*?)<ul>(.*?)<\/ul>/is',
     function($matches) {
         if (preg_match('/<(table|h[2-6])/i', $matches[2])) {
-            return $matches[0]; 
+            return $matches[0];
         }
         return '<div class="ranking-criteria-box my-10 bg-panel-dark/40 border border-white/5 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.2)]"><div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sharp-purple to-transparent"></div><h2 class="ranking-criteria-heading"><i data-lucide="bar-chart-2" class="w-6 h-6 text-sharp-purple flex-shrink-0"></i> ' . $matches[1] . '</h2>' . $matches[2] . '<ul class="criteria-list mt-6">' . $matches[3] . '</ul></div>';
     },
@@ -215,7 +215,7 @@ if (!empty($related_niches)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
+
     <title><?= esc_html($dynamic_meta_title) ?></title>
     <meta name="description" content="<?= esc_attr($dynamic_meta_desc) ?>">
     <link rel="canonical" href="<?= esc_url($current_url) ?>" />
@@ -233,13 +233,13 @@ if (!empty($related_niches)) {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="<?= esc_attr($dynamic_meta_title) ?>" />
-    
+
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= esc_html($dynamic_meta_title) ?>">
     <meta name="twitter:description" content="<?= esc_attr($dynamic_meta_desc) ?>">
     <meta name="twitter:image" content="<?= esc_url($dynamic_og_image) ?>">
-    
+
     <!-- JSON-LD Schema Markup (Article & Breadcrumbs) -->
     <script type="application/ld+json">
     {
@@ -293,82 +293,7 @@ if (!empty($related_niches)) {
             }
         }
     </script>
-    <style>
-        body { background-color: #0a0a0a; color: #e9d5ff; font-family: 'Manrope', sans-serif; }
-        
-        /* Editorial Typography */
-        .editorial-content h2 { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 700; color: #fff; margin-top: 3.5rem; margin-bottom: 1.5rem; letter-spacing: -0.02em; line-height: 1.2; }
-        .editorial-content h3 { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 700; color: #fff; margin-top: 2.5rem; margin-bottom: 1rem; position: relative; padding-left: 0; }
-        
-        /* Larger font and massive bottom margin for the "Bucket Brigade" reading flow */
-        .editorial-content p { font-size: 1.1875rem; line-height: 1.9; color: rgba(233, 213, 255, 0.85); margin-bottom: 2rem; }
-        
-        .editorial-content ul { list-style-type: none; padding-left: 0; margin-bottom: 2.5rem; }
-        .editorial-content ul li { font-size: 1.1875rem; line-height: 1.9; color: rgba(233, 213, 255, 0.85); margin-bottom: 1rem; padding-left: 1.75rem; position: relative; }
-        .editorial-content ul li::before { content: '→'; position: absolute; left: 0; color: #7e22ce; font-weight: bold; }
-        
-        .editorial-content strong { color: #fff; font-weight: 700; }
-
-        /* ----------------------------------------------------- */
-        /* HOW WE RANKED SECTION                                 */
-        /* ----------------------------------------------------- */
-        .editorial-content h2.ranking-criteria-heading { margin-top: 0; margin-bottom: 1.5rem; font-size: 1.75rem; display: flex; align-items: center; gap: 0.75rem; }
-        .editorial-content .ranking-criteria-box p { font-size: 1.05rem; line-height: 1.8; color: rgba(233, 213, 255, 0.75); margin-bottom: 1.5rem; }
-        .editorial-content .ranking-criteria-box .criteria-list { margin-bottom: 0; }
-        .editorial-content .ranking-criteria-box .criteria-list li { 
-            background: rgba(255,255,255,0.02); 
-            border: 1px solid rgba(255,255,255,0.05); 
-            padding: 1rem 1.25rem 1rem 3rem; 
-            border-radius: 0.75rem; 
-            margin-bottom: 0.75rem; 
-            font-size: 1.05rem; 
-            line-height: 1.6;
-        }
-        .editorial-content .ranking-criteria-box .criteria-list li::before { 
-            content: '✦'; color: #7e22ce; font-size: 1.2rem; top: 1rem; left: 1.25rem; 
-        }
-        
-        /* ----------------------------------------------------- */
-        /* COMPARISON TABLE STYLING */
-        /* ----------------------------------------------------- */
-        .table-responsive-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 0.75rem; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .editorial-content table { width: 100%; border-collapse: collapse; min-width: 600px; margin: 0; background-color: #121212; }
-        .editorial-content thead tr { background-color: rgba(126, 34, 206, 0.15); border-bottom: 2px solid #7e22ce; }
-        .editorial-content th { padding: 1.25rem 1.5rem; font-family: 'Syne', sans-serif; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; text-align: left; }
-        .editorial-content td { padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(233, 213, 255, 0.85); vertical-align: top; font-size: 1rem; line-height: 1.6; }
-        .editorial-content tbody tr:last-child td { border-bottom: none; }
-        .editorial-content tbody tr:hover { background-color: rgba(255,255,255,0.03); }
-        .editorial-content td p { margin: 0; padding: 0; font-size: 1rem; } 
-        .editorial-content td strong { color: #e9d5ff; }
-
-        /* THE GOLDEN BOX (GetOnline Studio #1 Spot) */
-        .agency-card.rank-1 { background: #121212; border: 1px solid rgba(251, 191, 36, 0.3); border-radius: 1rem; padding: 2.5rem; margin: 3rem 0; position: relative; overflow: hidden; background: linear-gradient(145deg, #121212 0%, #1a1500 100%); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
-        .agency-card.rank-1::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #fbbf24; }
-        
-        /* The Runners Up (#2 to #5) */
-        .runner-up-item { padding-left: 1.5rem; border-left: 2px solid rgba(126, 34, 206, 0.3); margin: 3rem 0; }
-        .runner-up-item h3 { margin-top: 0 !important; }
-        .runner-up-item p:last-child { margin-bottom: 0; }
-
-        /* ----------------------------------------------------- */
-        /* PROS AND CONS STYLING */
-        /* ----------------------------------------------------- */
-        .editorial-content .runner-up-item ul { margin-top: 1.5rem; background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 0; }
-        .editorial-content .runner-up-item ul li.pro-item::before { content: '✓'; color: #4ade80; font-size: 1.1em; }
-        .editorial-content .runner-up-item ul li.con-item::before { content: '✕'; color: #f87171; font-size: 0.9em; }
-        .editorial-content .runner-up-item ul li.pro-item strong { color: #4ade80; }
-        .editorial-content .runner-up-item ul li.con-item strong { color: #f87171; }
-        
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0a0a; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #7e22ce; }
-
-        .sticky-element { position: sticky; top: 6rem; }
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
-    </style>
+    <link rel="stylesheet" href="/assets/css/listicle-landing.css">
 <?php wp_head(); ?>
 </head>
 <body class="antialiased relative selection:bg-sharp-purple selection:text-white overflow-x-hidden w-full">
@@ -391,7 +316,7 @@ if (!empty($related_niches)) {
     <!-- Main Content Wrapper -->
     <main class="pt-24 md:pt-32 pb-32 md:pb-24">
         <div class="max-w-7xl mx-auto px-6">
-            
+
             <!-- Breadcrumbs -->
             <div class="flex items-center gap-2 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-lavender/40 mb-8 sm:mb-12 overflow-x-auto whitespace-nowrap pb-2">
                 <a href="/" class="hover:text-sharp-purple transition-colors">Home</a>
@@ -405,7 +330,7 @@ if (!empty($related_niches)) {
 
             <!-- Grid Layout -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-                
+
                 <!-- Left Sidebar: Table of Contents (Desktop) -->
                 <aside class="hidden lg:block lg:col-span-3">
                     <div class="sticky-element bg-panel-dark/50 border border-white/5 rounded-xl p-6">
@@ -420,7 +345,7 @@ if (!empty($related_niches)) {
 
                 <!-- Center Column: Main Article -->
                 <article class="lg:col-span-6 w-full max-w-3xl mx-auto lg:mx-0">
-                    
+
                     <header class="mb-8 md:mb-12">
                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sharp-purple/10 border border-sharp-purple/20 text-sharp-purple text-[10px] font-bold uppercase tracking-widest mb-6">
                             <i data-lucide="check-circle-2" class="w-3 h-3"></i> Verified <?= $current_month ?> <?= $current_year ?> Rankings
@@ -428,7 +353,7 @@ if (!empty($related_niches)) {
                         <h1 class="font-syne text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6">
                             <?= esc_html($listicle->target_keyword) ?>
                         </h1>
-                        
+
                         <div class="flex items-center justify-between border-y border-white/5 py-4">
                             <div class="flex items-center gap-3">
                                 <img src="<?= esc_url($author_avatar) ?>" alt="<?= esc_attr($author_name) ?>" class="w-10 h-10 rounded-full border border-white/10 object-cover">
@@ -478,10 +403,10 @@ if (!empty($related_niches)) {
                     <div class="mt-12 p-6 sm:p-8 bg-card-dark border border-white/10 rounded-2xl relative overflow-hidden group">
                         <!-- Background Glow -->
                         <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-sharp-purple/10 rounded-full blur-[80px] group-hover:bg-sharp-purple/20 transition-colors duration-700 pointer-events-none"></div>
-                        
+
                         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 relative z-10">
                             <img src="<?= esc_url($author_avatar) ?>" alt="<?= esc_attr($author_name) ?>" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-sharp-purple/40 object-cover shadow-[0_0_20px_rgba(126,34,206,0.3)] flex-shrink-0">
-                            
+
                             <div class="flex-1 w-full">
                                 <div class="flex flex-row items-center justify-between gap-3 mb-3">
                                     <div>
@@ -498,7 +423,7 @@ if (!empty($related_niches)) {
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- INTERNAL SEO: Cross-linking Silo Block -->
                     <div class="mt-16 pt-12 border-t border-white/5">
                         <h4 class="font-syne font-bold text-xl text-white mb-6">Explore More Digital Services in <?= esc_html($city_name) ?></h4>
@@ -524,7 +449,7 @@ if (!empty($related_niches)) {
                         <div class="bg-card-dark border border-white/10 rounded-2xl p-6 shadow-2xl relative overflow-hidden group">
                             <!-- Glow effect -->
                             <div class="absolute -top-20 -right-20 w-40 h-40 bg-sharp-purple/30 rounded-full blur-[50px] group-hover:bg-sharp-purple/50 transition-all duration-500"></div>
-                            
+
                             <div class="relative z-10">
                                 <div class="w-12 h-12 bg-sharp-purple/20 rounded-xl flex items-center justify-center mb-6 border border-sharp-purple/30">
                                     <i data-lucide="award" class="w-6 h-6 text-sharp-purple"></i>
@@ -578,35 +503,35 @@ if (!empty($related_niches)) {
             const editorialBody = document.getElementById('editorial-body');
             const tocDesktop = document.getElementById('toc-container-desktop');
             const tocMobile = document.getElementById('toc-container-mobile');
-            
+
             // 1. BULLETPROOF GOLDEN BOX PARSER
             const h3s = editorialBody.querySelectorAll('h3, h2');
             let foundGOS = false;
             let currentVisualRank = 2; // Runners up start at 2
-            
+
             h3s.forEach((heading) => {
                 let text = heading.innerText.trim();
                 const isGOS = text.toLowerCase().includes('getonline studio');
                 const isConclusion = text.toLowerCase().includes('conclusion') || text.toLowerCase().includes('what to look for');
-                
+
                 if (!foundGOS) {
                     if (isGOS) {
                         foundGOS = true;
-                        
+
                         // Strip any accidental numbers the AI might have prepended
-                        let cleanName = text.replace(/^(?:#)?\d+[\.\)]\s*/, '').trim(); 
+                        let cleanName = text.replace(/^(?:#)?\d+[\.\)]\s*/, '').trim();
                         let iconHtml = `<div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center border border-gold/40 shadow-[0_0_15px_rgba(251,191,36,0.3)] flex-shrink-0"><i data-lucide="trophy" class="w-5 h-5 text-gold"></i></div>`;
                         let wrapperClass = 'agency-card rank-1';
-                        
+
                         cleanName = `<a href="<?= esc_url($commercial_url) ?>" class="hover:text-gold transition-colors">GetOnline Studio</a>`;
                         heading.innerHTML = `<div class="flex items-center gap-4 mb-4">${iconHtml} <span class="text-2xl font-bold">${cleanName}</span></div>`;
-                        
+
                         const wrapper = document.createElement('div');
                         wrapper.className = wrapperClass;
                         heading.parentNode.insertBefore(wrapper, heading);
-                        
+
                         let nextNode = heading.nextSibling;
-                        wrapper.appendChild(heading); 
+                        wrapper.appendChild(heading);
 
                         // SCOOP UP ALL PARAGRAPHS until next H2 or H3
                         while (nextNode) {
@@ -626,7 +551,7 @@ if (!empty($related_niches)) {
                             </a>
                         </div>`;
                         wrapper.insertAdjacentHTML('beforeend', btnHtml);
-                        
+
                     } else if (heading.tagName === 'H3') {
                         // It's a heading BEFORE GetOnline Studio (e.g. Ranking Criteria).
                         // Strip away ugly numbers like "#2" to make it a clean, beautiful subheading.
@@ -638,19 +563,19 @@ if (!empty($related_niches)) {
                     // Headings AFTER GetOnline Studio
                     // If it's an H3, treat it as a runner-up (unless we hit 5 or it's the Conclusion)
                     if (heading.tagName === 'H3' && currentVisualRank <= 5 && !isConclusion) {
-                        let cleanName = text.replace(/^(?:#)?\d+[\.\)]?\s*/, '').trim(); 
-                        
+                        let cleanName = text.replace(/^(?:#)?\d+[\.\)]?\s*/, '').trim();
+
                         let iconHtml = `<div class="text-sharp-purple font-syne font-bold text-2xl flex-shrink-0">#${currentVisualRank}</div>`;
                         let wrapperClass = 'runner-up-item';
-                        
+
                         heading.innerHTML = `<div class="flex items-center gap-3 mb-2">${iconHtml} <span class="text-xl font-bold">${cleanName}</span></div>`;
-                        
+
                         const wrapper = document.createElement('div');
                         wrapper.className = wrapperClass;
                         heading.parentNode.insertBefore(wrapper, heading);
-                        
+
                         let nextNode = heading.nextSibling;
-                        wrapper.appendChild(heading); 
+                        wrapper.appendChild(heading);
 
                         // SCOOP UP ALL PARAGRAPHS
                         while (nextNode) {
@@ -670,18 +595,18 @@ if (!empty($related_niches)) {
 
             // 2. Build the Table of Contents dynamically for both Desktop and Mobile
             const h2s = editorialBody.querySelectorAll('h2');
-            
+
             if (h2s.length > 0) {
                 h2s.forEach((h2, index) => {
                     const id = 'section-' + index;
                     h2.id = id;
-                    
+
                     if(tocDesktop) {
                         const liD = document.createElement('li');
                         liD.innerHTML = `<a href="#${id}" class="hover:text-white transition-colors block">${h2.textContent}</a>`;
                         tocDesktop.appendChild(liD);
                     }
-                    
+
                     if(tocMobile) {
                         const liM = document.createElement('li');
                         liM.innerHTML = `<a href="#${id}" class="hover:text-white transition-colors block">${h2.textContent}</a>`;

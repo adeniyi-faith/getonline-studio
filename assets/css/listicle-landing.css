@@ -1,0 +1,74 @@
+body { background-color: #0a0a0a; color: #e9d5ff; font-family: 'Manrope', sans-serif; }
+
+        /* Editorial Typography */
+        .editorial-content h2 { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 700; color: #fff; margin-top: 3.5rem; margin-bottom: 1.5rem; letter-spacing: -0.02em; line-height: 1.2; }
+        .editorial-content h3 { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 700; color: #fff; margin-top: 2.5rem; margin-bottom: 1rem; position: relative; padding-left: 0; }
+
+        /* Larger font and massive bottom margin for the "Bucket Brigade" reading flow */
+        .editorial-content p { font-size: 1.1875rem; line-height: 1.9; color: rgba(233, 213, 255, 0.85); margin-bottom: 2rem; }
+
+        .editorial-content ul { list-style-type: none; padding-left: 0; margin-bottom: 2.5rem; }
+        .editorial-content ul li { font-size: 1.1875rem; line-height: 1.9; color: rgba(233, 213, 255, 0.85); margin-bottom: 1rem; padding-left: 1.75rem; position: relative; }
+        .editorial-content ul li::before { content: '→'; position: absolute; left: 0; color: #7e22ce; font-weight: bold; }
+
+        .editorial-content strong { color: #fff; font-weight: 700; }
+
+        /* ----------------------------------------------------- */
+        /* HOW WE RANKED SECTION                                 */
+        /* ----------------------------------------------------- */
+        .editorial-content h2.ranking-criteria-heading { margin-top: 0; margin-bottom: 1.5rem; font-size: 1.75rem; display: flex; align-items: center; gap: 0.75rem; }
+        .editorial-content .ranking-criteria-box p { font-size: 1.05rem; line-height: 1.8; color: rgba(233, 213, 255, 0.75); margin-bottom: 1.5rem; }
+        .editorial-content .ranking-criteria-box .criteria-list { margin-bottom: 0; }
+        .editorial-content .ranking-criteria-box .criteria-list li {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 1rem 1.25rem 1rem 3rem;
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        .editorial-content .ranking-criteria-box .criteria-list li::before {
+            content: '✦'; color: #7e22ce; font-size: 1.2rem; top: 1rem; left: 1.25rem;
+        }
+
+        /* ----------------------------------------------------- */
+        /* COMPARISON TABLE STYLING */
+        /* ----------------------------------------------------- */
+        .table-responsive-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 0.75rem; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .editorial-content table { width: 100%; border-collapse: collapse; min-width: 600px; margin: 0; background-color: #121212; }
+        .editorial-content thead tr { background-color: rgba(126, 34, 206, 0.15); border-bottom: 2px solid #7e22ce; }
+        .editorial-content th { padding: 1.25rem 1.5rem; font-family: 'Syne', sans-serif; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; text-align: left; }
+        .editorial-content td { padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(233, 213, 255, 0.85); vertical-align: top; font-size: 1rem; line-height: 1.6; }
+        .editorial-content tbody tr:last-child td { border-bottom: none; }
+        .editorial-content tbody tr:hover { background-color: rgba(255,255,255,0.03); }
+        .editorial-content td p { margin: 0; padding: 0; font-size: 1rem; }
+        .editorial-content td strong { color: #e9d5ff; }
+
+        /* THE GOLDEN BOX (GetOnline Studio #1 Spot) */
+        .agency-card.rank-1 { background: #121212; border: 1px solid rgba(251, 191, 36, 0.3); border-radius: 1rem; padding: 2.5rem; margin: 3rem 0; position: relative; overflow: hidden; background: linear-gradient(145deg, #121212 0%, #1a1500 100%); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        .agency-card.rank-1::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #fbbf24; }
+
+        /* The Runners Up (#2 to #5) */
+        .runner-up-item { padding-left: 1.5rem; border-left: 2px solid rgba(126, 34, 206, 0.3); margin: 3rem 0; }
+        .runner-up-item h3 { margin-top: 0 !important; }
+        .runner-up-item p:last-child { margin-bottom: 0; }
+
+        /* ----------------------------------------------------- */
+        /* PROS AND CONS STYLING */
+        /* ----------------------------------------------------- */
+        .editorial-content .runner-up-item ul { margin-top: 1.5rem; background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 0; }
+        .editorial-content .runner-up-item ul li.pro-item::before { content: '✓'; color: #4ade80; font-size: 1.1em; }
+        .editorial-content .runner-up-item ul li.con-item::before { content: '✕'; color: #f87171; font-size: 0.9em; }
+        .editorial-content .runner-up-item ul li.pro-item strong { color: #4ade80; }
+        .editorial-content .runner-up-item ul li.con-item strong { color: #f87171; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #7e22ce; }
+
+        .sticky-element { position: sticky; top: 6rem; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }

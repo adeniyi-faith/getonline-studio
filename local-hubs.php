@@ -30,10 +30,10 @@ if (isset($_POST['action']) && $_POST['action'] === 'toggle_neighborhood') {
     $city_id = intval($_POST['city_id']);
     $nb_slug = sanitize_title($_POST['neighborhood_slug']);
     $new_status = $_POST['status'] === 'active';
-    
+
     $active_neighborhoods = get_post_meta($city_id, '_pseo_active_neighborhoods', true);
     if (!is_array($active_neighborhoods)) $active_neighborhoods = [];
-    
+
     if ($new_status) {
         if (!in_array($nb_slug, $active_neighborhoods)) {
             $active_neighborhoods[] = $nb_slug;
@@ -41,9 +41,9 @@ if (isset($_POST['action']) && $_POST['action'] === 'toggle_neighborhood') {
     } else {
         $active_neighborhoods = array_diff($active_neighborhoods, [$nb_slug]);
     }
-    
+
     update_post_meta($city_id, '_pseo_active_neighborhoods', array_values($active_neighborhoods));
-    
+
     // CRITICAL FIX: Wipe any sneaky PHP warnings/whitespace before sending JSON
     while (ob_get_level() > 0) { ob_end_clean(); }
     header('Content-Type: application/json');
@@ -95,11 +95,7 @@ foreach($active_cities as $city) {
             }
         }
     </script>
-    <style>
-        body { background-color: #0a0a0a; color: #e9d5ff; font-family: 'Manrope', sans-serif; }
-        .nb-btn.active { background-color: #7e22ce; color: white; border-color: #7e22ce; box-shadow: 0 0 15px rgba(126, 34, 206, 0.3); }
-        .nb-btn { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
-    </style>
+    <link rel="stylesheet" href="/assets/css/local-hubs.css">
 </head>
 <body class="min-h-screen p-4 md:p-8 lg:p-12">
 
@@ -130,12 +126,12 @@ foreach($active_cities as $city) {
 
         <div class="mb-10 relative">
             <i data-lucide="search" class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-lavender/30"></i>
-            <input type="text" id="citySearch" onkeyup="filterCities()" placeholder="Search for a city (e.g. Lagos, Abuja)..." 
+            <input type="text" id="citySearch" onkeyup="filterCities()" placeholder="Search for a city (e.g. Lagos, Abuja)..."
                 class="w-full bg-card-dark border border-white/10 rounded-2xl py-5 pl-14 pr-6 text-white focus:border-sharp-purple outline-none shadow-2xl transition-all">
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="cityGrid">
-            <?php foreach ($active_cities as $city): 
+            <?php foreach ($active_cities as $city):
                 $city_nb_list = $nb_library[$city->post_name] ?? [];
                 if (empty($city_nb_list)) continue;
                 $active_nb = get_post_meta($city->ID, '_pseo_active_neighborhoods', true) ?: [];
@@ -152,14 +148,14 @@ foreach($active_cities as $city) {
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="p-6 flex-1">
                     <p class="text-[10px] font-bold text-lavender/20 uppercase tracking-[0.2em] mb-4">Click to Toggle Reach</p>
                     <div class="flex flex-wrap gap-2">
-                        <?php foreach ($city_nb_list as $slug => $name): 
+                        <?php foreach ($city_nb_list as $slug => $name):
                             $is_on = is_array($active_nb) && in_array($slug, $active_nb);
                         ?>
-                        <button type="button" 
+                        <button type="button"
                             onclick="toggleNB(<?= $city->ID ?>, '<?= $slug ?>', this)"
                             data-status="<?= $is_on ? 'active' : 'inactive' ?>"
                             class="nb-btn px-4 py-2.5 rounded-xl border text-[11px] font-bold transition-all
@@ -189,7 +185,7 @@ foreach($active_cities as $city) {
         async function toggleNB(cityId, slug, btn) {
             const current = btn.getAttribute('data-status');
             const target = current === 'active' ? 'inactive' : 'active';
-            
+
             // Optimistic UI change
             if (target === 'active') {
                 btn.classList.add('active');

@@ -116,109 +116,7 @@
         }
     </script>
 
-    <style>
-        body { background-color: #101010; color: #e9d5ff; overflow-x: hidden; cursor: none; }
-        html { overflow-x: hidden; scroll-behavior: smooth; }
-        
-        /* Hide Scrollbar for internal widgets */
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-
-        .cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; transform: translate(-50%,-50%); border-radius: 50%; z-index: 9999; pointer-events: none; }
-        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
-        .cursor-outline { width: 40px; height: 40px; border: 1px solid #7e22ce; transition: width 0.2s, height 0.2s, background-color 0.2s; }
-        @media (pointer: coarse) { .cursor-dot, .cursor-outline { display: none; } body { cursor: auto !important; } }
-        body.hovering .cursor-outline { width: 60px; height: 60px; background-color: rgba(126,34,206,0.2); border-color: transparent; }
-
-        #mobile-menu { transition: transform 0.5s cubic-bezier(0.77,0,0.175,1); }
-        #mobile-menu.open { transform: translateX(0); }
-
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.77,0,0.175,1), opacity 0.4s ease; opacity: 0; }
-        .faq-item.active .faq-answer { max-height: 600px; opacity: 1; }
-        .faq-icon { transition: transform 0.3s ease; }
-        .faq-item.active .faq-icon { transform: rotate(45deg); }
-
-        .marquee-container { overflow: hidden; white-space: nowrap; display: flex; }
-        .marquee-content { display: flex; flex-shrink: 0; min-width: 100%; animation: scroll 40s linear infinite; }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
-
-        .perspective-grid {
-            position: absolute; width: 200%; height: 200%;
-            background-image: linear-gradient(rgba(126,34,206,0.15) 1px,transparent 1px), linear-gradient(90deg,rgba(126,34,206,0.15) 1px,transparent 1px);
-            background-size: 100px 100px;
-            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
-            opacity: 0.2; pointer-events: none;
-        }
-        @media (min-width: 768px) {
-            .perspective-grid { animation: gridMove 20s linear infinite; }
-        }
-        @keyframes gridMove { 0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); } 100% { transform: perspective(500px) rotateX(60deg) translateY(100px) translateZ(-200px); } }
-
-        /* UPGRADED PROSE STYLING */
-        .prose-guide p { 
-            color: rgba(233,213,255,0.8); 
-            font-family: 'Manrope', sans-serif;
-            line-height: 1.8; 
-            margin-bottom: 1.5rem; 
-            font-size: 1.125rem; 
-        }
-        .prose-guide strong { color: #fff; font-weight: 700; }
-        .prose-guide h2 { 
-            font-family: 'Syne', sans-serif; 
-            font-size: clamp(2rem, 4vw, 2.5rem); 
-            font-weight: 800; 
-            color: #fff; 
-            margin-top: 3.5rem; 
-            margin-bottom: 1.5rem; 
-            line-height: 1.2; 
-            letter-spacing: -0.02em;
-        }
-        .prose-guide h3 { 
-            font-family: 'Syne', sans-serif; 
-            font-size: clamp(1.4rem, 2.5vw, 1.75rem); 
-            font-weight: 700; 
-            color: #e9d5ff; 
-            margin-top: 2.5rem; 
-            margin-bottom: 1.25rem; 
-            line-height: 1.3; 
-        }
-        @media (max-width: 768px) {
-            .prose-guide p { font-size: 1.05rem; }
-        }
-
-        /* Step cards */
-        .step-number { font-family: 'Fira Code', monospace; font-size: 0.75rem; color: #7e22ce; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem; font-weight: 600; }
-
-        /* Stat block */
-        .stat-item { padding-left: 1.5rem; border-left: 2px solid rgba(126, 34, 206, 0.4); }
-
-        /* Location pill */
-        .location-pill { display: inline-block; padding: 0.4rem 1rem; border: 1px solid rgba(233,213,255,0.15); border-radius: 9999px; font-family: 'Fira Code', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(233,213,255,0.6); background: rgba(255,255,255,0.03); margin: 0.25rem; transition: all 0.3s ease; }
-        .location-pill:hover { border-color: #7e22ce; color: #fff; background: rgba(126,34,206,0.1); }
-
-        /* TOC */
-        .toc-link { display: flex; align-items: center; gap: 0.75rem; font-family: 'Fira Code', monospace; font-size: 0.75rem; color: rgba(233,213,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.75rem 0; border-bottom: 1px solid rgba(233,213,255,0.06); transition: all 0.3s; }
-        .toc-link:hover { color: #fff; padding-left: 0.5rem; border-color: rgba(126, 34, 206, 0.5); }
-        .toc-link .toc-num { color: #7e22ce; width: 1.5rem; font-weight: 600; }
-
-        /* CTA banner */
-        .cta-banner { background: linear-gradient(135deg, rgba(26,5,51,0.8) 0%, rgba(13,2,24,0.8) 60%, rgba(16,16,16,0.9) 100%); border: 1px solid rgba(126,34,206,0.3); position: relative; overflow: hidden; }
-        .cta-banner::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(126,34,206,0.1) 0%, transparent 50%); pointer-events: none; }
-
-        /* Reveal animation - ONLY USED ON HERO NOW for stability in reading */
-        .reveal-up { opacity: 0; transform: translateY(40px); }
-        .revealed { animation: fadeUp 0.8s cubic-bezier(0.25,1,0.5,1) forwards; }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-
-        /* Checklist */
-        .check-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid rgba(233,213,255,0.06); transition: background-color 0.3s; }
-        .check-item:hover { background-color: rgba(255,255,255,0.02); }
-        .check-icon { flex-shrink: 0; width: 1.5rem; height: 1.5rem; margin-top: 0.1rem; }
-
-        /* WhatsApp Widget Animation */
-        .widget-hidden { opacity: 0; transform: scale(0.95) translateY(10px); pointer-events: none; visibility: hidden; }
-        .widget-visible { opacity: 1; transform: scale(1) translateY(0); pointer-events: auto; visibility: visible; }
-    </style>
+    <link rel="stylesheet" href="/assets/css/get-online.css">
 </head>
 <body class="bg-matte-black bg-noise font-manrope selection:bg-sharp-purple selection:text-white relative">
 
@@ -298,7 +196,7 @@
     <!-- ═══════════════════════════════════════ -->
     <header class="relative min-h-[85vh] flex flex-col justify-center items-center px-4 md:px-8 overflow-hidden pt-32 pb-20 border-b border-lavender/10">
         <div class="perspective-grid"></div>
-        
+
         <!-- Floating Elements for Premium Feel -->
         <div class="absolute w-40 h-40 rounded-full border border-sharp-purple/20 top-[15%] left-[5%] animate-float" style="animation-delay: 0s;"></div>
         <div class="absolute w-24 h-24 rotate-45 border-dashed border-lavender/20 bottom-[20%] right-[10%] animate-float" style="animation-delay: 2s;"></div>
@@ -319,17 +217,17 @@
                 <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-code-green opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-code-green"></span></span>
                 The Complete Guide
             </p>
-            
+
             <h1 class="font-syne font-extrabold text-[9vw] md:text-6xl lg:text-7xl leading-[1.05] text-lavender mb-6 reveal-up" style="animation-delay: 0.1s;">
                 How to Get Your<br>
                 <span class="text-transparent text-stroke cursor-default hover:text-sharp-purple transition-colors duration-300">Business Online</span><br>
                 (Step by Step)
             </h1>
-            
+
             <p class="font-manrope text-lavender/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-6 reveal-up" style="animation-delay: 0.2s;">
                 Whether you are in <strong class="text-white">India, the UK, the US, the UAE, Australia,</strong> or anywhere else — this guide walks you through exactly what it takes to get your business online and in front of the right customers.
             </p>
-            
+
             <p class="font-mono text-[10px] text-lavender/35 tracking-widest uppercase mb-10 reveal-up" style="animation-delay: 0.3s;">
                 Last Updated: <?= date('F Y') ?> &nbsp;·&nbsp; 12 min read &nbsp;·&nbsp; By GetOnline Studio
             </p>
@@ -976,7 +874,7 @@
     <footer class="bg-[#0d0d0d] border-t border-lavender/10 relative z-20 overflow-hidden px-4 md:px-8">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(126,34,206,0.08),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(34,197,94,0.05),transparent_28%)] pointer-events-none"></div>
         <div class="max-w-7xl mx-auto relative">
-            
+
             <div class="py-16 md:py-20 grid lg:grid-cols-2 gap-12 border-b border-lavender/10">
                 <div>
                     <p class="font-mono text-[10px] text-sharp-purple tracking-widest uppercase mb-4">[ Let's Build Something Strong ]</p>
@@ -1112,12 +1010,12 @@
             const cursorDot = document.querySelector('.cursor-dot');
             const cursorOutline = document.querySelector('.cursor-outline');
             let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
-            
+
             window.addEventListener('mousemove', e => {
                 mouseX = e.clientX; mouseY = e.clientY;
                 cursorDot.style.transform = `translate(${mouseX}px,${mouseY}px) translate(-50%,-50%)`;
             });
-            
+
             const animateCursor = () => {
                 outlineX += (mouseX - outlineX) * 0.15;
                 outlineY += (mouseY - outlineY) * 0.15;
@@ -1125,7 +1023,7 @@
                 requestAnimationFrame(animateCursor);
             };
             animateCursor();
-            
+
             document.querySelectorAll('.hover-target, a, button, .faq-item, .check-item').forEach(el => {
                 el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
                 el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
@@ -1153,7 +1051,7 @@
                 }
             });
         }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-        
+
         document.querySelectorAll('.reveal-up').forEach(el => revealObserver.observe(el));
 
         // Cookie banner logic

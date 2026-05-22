@@ -92,7 +92,7 @@ if (!$niche_post || $niche_post->post_status !== 'publish') {
 $niche_name   = isset($niche_dict[$niche_slug]) ? $niche_dict[$niche_slug] : ucwords(str_replace('-', ' ', $niche_slug));
 $service_name = ucwords(str_replace('-', ' ', $service_slug));
 if ($service_slug === 'website-designer' && $raw_slug === $niche_slug) {
-    $service_name = "Digital Agency"; 
+    $service_name = "Digital Agency";
 }
 
 // --- NATIONAL OVERRIDES ---
@@ -273,7 +273,7 @@ $feature_order = [1, 2, 3, 4, 5, 6];
 shuffle($feature_order);
 
 mt_srand($master_seed + 300);
-$faq_order = [1, 2, 3, 4, 5, 6]; 
+$faq_order = [1, 2, 3, 4, 5, 6];
 shuffle($faq_order);
 
 // ─── VOCABULARY ENGINE ───────────────────────────────────────────────────────
@@ -285,7 +285,7 @@ $service_vocab_map = [
         'sv_identity'  => 'web design agency', 'sv_action' => '{deliver|build and manage|launch}', 'sv_output' => '{a complete digital marketing presence|a full-service website solution|an end-to-end online platform}', 'sv_proof' => '{handles your marketing while you run your business|takes the stress out of getting online|brings everything together in one place}', 'sv_tools' => '{smart design, clear copywriting, and reliable ongoing support|a dedicated team approach, modern design, and everyday reliability}', 'sv_clientwin' => '{focus on running your business while we handle the digital side|get a complete, stress-free digital upgrade|stop worrying about your website and start getting actual results}',
     ]
 ];
-$sv = strpos($service_slug, 'agency') !== false ? $service_vocab_map['web-design-agency'] : $service_vocab_map['website-designer']; 
+$sv = strpos($service_slug, 'agency') !== false ? $service_vocab_map['web-design-agency'] : $service_vocab_map['website-designer'];
 
 // Strip commercial terms from SV if non-profit
 if ($is_non_profit) {
@@ -1081,7 +1081,7 @@ if ($is_non_profit) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
+
     <title><?= go_safe_text($meta_title) ?></title>
     <meta name="description" content="<?= go_safe_text($meta_desc) ?>">
     <link rel="canonical" href="<?= esc_url($canonical_url) ?>">
@@ -1189,13 +1189,13 @@ if ($is_non_profit) {
     ?>
     <script type="application/ld+json"><?= json_encode($breadcrumb_hub, JSON_UNESCAPED_SLASHES) ?></script>
     <script type="application/ld+json"><?= json_encode($rating_hub, JSON_UNESCAPED_SLASHES) ?></script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Syne:wght@400;700;800&family=Fira+Code:wght@400;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -1217,29 +1217,7 @@ if ($is_non_profit) {
             }
         }
     </script>
-    <style>
-        body { background-color: #101010; color: #e9d5ff; overflow-x: hidden; cursor: none; }
-        .cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999; pointer-events: none; }
-        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
-        .cursor-outline { width: 40px; height: 40px; border: 1px solid #7e22ce; transition: width 0.2s, height 0.2s, background-color 0.2s; }
-        @media (pointer: coarse) { .cursor-dot, .cursor-outline { display: none; } body { cursor: auto; } }
-        body.hovering .cursor-outline { width: 60px; height: 60px; background-color: rgba(126, 34, 206, 0.2); border-color: transparent; }
-        .perspective-grid { position: absolute; width: 200%; height: 200%; background-image: linear-gradient(rgba(126, 34, 206, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(126, 34, 206, 0.3) 1px, transparent 1px); background-size: 100px 100px; transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px); animation: gridMove 20s linear infinite; opacity: 0.2; pointer-events: none; }
-        @keyframes gridMove { 0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); } 100% { transform: perspective(500px) rotateX(60deg) translateY(100px) translateZ(-200px); } }
-        .reveal-up { opacity: 0; transform: translateY(50px); animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-        .text-stroke { -webkit-text-stroke: 1px #e9d5ff; color: transparent; transition: all 0.3s ease; }
-        .marquee-container { overflow: hidden; white-space: nowrap; display: flex; position: relative; }
-        .marquee-content { display: flex; flex-shrink: 0; min-width: 100%; animation: scroll 30s linear infinite; }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
-        .tilt-card { transition: transform 0.1s; transform-style: preserve-3d; }
-        .project-img { transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease; }
-        .group:hover .project-img { transform: scale(1.05); filter: grayscale(0%) !important; }
-        .widget-hidden { display: none !important; }
-        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .faq-item.active .faq-content { max-height: 500px; }
-        .faq-item.active .faq-icon { transform: rotate(45deg); }
-    </style>
+    <link rel="stylesheet" href="/assets/css/niche-hub.css">
 <?php wp_head(); ?>
 </head>
 <body class="bg-matte-black bg-noise font-manrope selection:bg-sharp-purple selection:text-white relative">
@@ -1297,7 +1275,7 @@ if ($is_non_profit) {
         <div class="perspective-grid"></div>
         <div class="absolute w-40 h-40 rounded-full border border-sharp-purple/20 top-[15%] left-[10%] animate-float" style="animation-delay: 0s;"></div>
         <div class="absolute w-32 h-32 rotate-45 border border-lavender/10 top-[30%] right-[15%] animate-float" style="animation-delay: 1.5s;"></div>
-        
+
         <div class="absolute top-24 left-4 md:left-8 z-30 reveal-up" style="animation-delay: 0.1s;">
             <nav aria-label="Breadcrumb">
                 <ol class="flex flex-wrap items-center gap-2 text-[10px] md:text-xs font-mono uppercase tracking-widest text-lavender/40">
@@ -1320,7 +1298,7 @@ if ($is_non_profit) {
                     <span>National Authority &middot; Nigeria</span>
                 </div>
             </div>
-            
+
             <h1 class="font-syne text-[8vw] md:text-[5vw] leading-[1.1] font-bold text-lavender reveal-up" style="animation-delay: 0.2s;">
                 <?= go_safe_text($niche_name) ?> <span class="text-transparent text-stroke hover:text-sharp-purple transition-colors duration-300 cursor-default"><?= go_safe_text($service_name) ?></span> in Nigeria
             </h1>
@@ -1344,7 +1322,7 @@ if ($is_non_profit) {
                 </div>
                 <?php endforeach; ?>
             </div>
-            
+
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal-up" style="animation-delay: 0.6s;">
                 <a href="#locations" class="w-full sm:w-auto bg-sharp-purple text-white px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-matte-black transition-all hover-target shadow-[0_0_30px_rgba(126,34,206,0.3)]">
                     Find Your City &rarr;
@@ -1615,7 +1593,7 @@ if ($is_non_profit) {
     <!-- THE NATIONAL SILO GRID -->
     <section id="locations" class="py-24 md:py-32 px-4 md:px-6 bg-[#0B0A0F] border-b border-lavender/10 relative z-10 overflow-hidden">
         <div class="absolute right-0 top-0 w-96 h-96 bg-sharp-purple/10 blur-[100px] rounded-full pointer-events-none"></div>
-        
+
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <p class="font-mono text-[10px] text-sharp-purple tracking-widest uppercase mb-4">[ Nationwide Coverage ]</p>
@@ -1626,7 +1604,7 @@ if ($is_non_profit) {
             </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <?php foreach($all_cities as $c_slug => $c_name): 
+                <?php foreach($all_cities as $c_slug => $c_name):
                     $target_url = "/locations/{$c_slug}/{$niche_slug}-{$service_slug}/";
                 ?>
                 <a href="<?= esc_url($target_url) ?>" class="group block bg-card-dark border border-white/5 p-5 rounded-2xl hover:border-sharp-purple/50 hover:bg-[#15121c] transition-all duration-300 hover-target text-center relative overflow-hidden">

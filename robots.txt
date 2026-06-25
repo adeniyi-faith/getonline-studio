@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Block WordPress admin areas from being crawled
+Disallow: /wp-admin/
+Disallow: /wp/wp-admin/
+Disallow: /wp/wp-login.php
+Disallow: /wp/wp-includes/
+
+# Block utility/import scripts
+Disallow: /import-pseo-data.php
+
+Sitemap: https://getonlinestudio.com/sitemap.xml

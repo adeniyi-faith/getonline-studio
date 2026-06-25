@@ -35,7 +35,7 @@ if (!is_array($approved_nb)) {
 
 while (ob_get_level() > 0) ob_end_clean();
 header("Content-Type: text/xml;charset=UTF-8");
-$base_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'];
+$base_url = 'https://getonlinestudio.com';
 
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";

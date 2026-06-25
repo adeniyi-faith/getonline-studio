@@ -1,9 +1,17 @@
 # ======================================================================
-# GETONLINE STUDIO - PROGRAMMATIC SEO ROUTING (v5.4 - SAFE + NEIGHBORHOODS)
+# GETONLINE STUDIO - PROGRAMMATIC SEO ROUTING (v5.5 - HTTPS + SITEMAP FIXES)
 # ======================================================================
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
+
+# --- HTTPS Enforcement (redirect all HTTP traffic to HTTPS) ---
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# --- WWW to non-WWW (getonlinestudio.com is the canonical host) ---
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
 
 # --- 0. SITEMAP ARCHITECTURE (MODULAR INDEXING) ---
 RewriteRule ^sitemap\.xml$ sitemap-index.php [L]

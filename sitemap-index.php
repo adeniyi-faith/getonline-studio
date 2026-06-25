@@ -17,7 +17,11 @@ $active_cities = get_posts([
 while (ob_get_level() > 0) ob_end_clean();
 header("Content-Type: text/xml;charset=UTF-8");
 
-$base_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'];
+$base_url = 'https://getonlinestudio.com';
+
+$core_lastmod = !empty($active_cities)
+    ? date('Y-m-d', max(array_map(fn($c) => strtotime($c->post_modified), $active_cities)))
+    : date('Y-m-d');
 
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
@@ -25,6 +29,7 @@ echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n"
 // 1. Link to the Core Hubs & Listicles
 echo "  <sitemap>\n";
 echo "    <loc>{$base_url}/sitemap-core.xml</loc>\n";
+echo "    <lastmod>{$core_lastmod}</lastmod>\n";
 echo "  </sitemap>\n";
 
 // 2. Link to every City-specific Sitemap

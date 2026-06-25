@@ -1,4 +1,4 @@
-<?php define("WP_USE_THEMES", false); require_once(__DIR__ . "/wp/wp-load.php"); ?>
+<?php define("WP_USE_THEMES", false); require_once(__DIR__ . "/insights/wp-load.php"); ?>
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -13,7 +13,7 @@
     <link rel="canonical" href="https://getonlinestudio.com/">
 
     <!-- ═══ FAVICON ═══ -->
-    <link rel="icon" type="image/jpeg" href="https://getonlinestudio.com/insights/wp-content/uploads/2026/02/GetOnline_Studio_Logo.jpg">
+    <link rel="icon" type="image/png" href="https://getonlinestudio.com/insights/wp-content/uploads/2026/02/GetOnline_Studio_Logo.jpg">
     <link rel="apple-touch-icon" href="https://getonlinestudio.com/insights/wp-content/uploads/2026/02/GetOnline_Studio_Logo.jpg">
 
     <!-- ═══ OPEN GRAPH ═══ -->

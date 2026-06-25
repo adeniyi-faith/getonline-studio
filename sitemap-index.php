@@ -4,7 +4,7 @@
  * Points Google to smaller city-specific chunks.
  */
 define('WP_USE_THEMES', false);
-require_once(__DIR__ . '/wp/wp-load.php');
+require_once(__DIR__ . '/insights/wp-load.php');
 
 $active_cities = get_posts([
     'post_type'   => 'pseo_location',
@@ -17,7 +17,7 @@ $active_cities = get_posts([
 while (ob_get_level() > 0) ob_end_clean();
 header("Content-Type: text/xml;charset=UTF-8");
 
-$base_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'];
+$base_url = 'https://getonlinestudio.com';
 
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";

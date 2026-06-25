@@ -4,7 +4,7 @@
  * Contains only High-Priority Hubs and Listicles.
  */
 define('WP_USE_THEMES', false);
-require_once(__DIR__ . '/wp/wp-load.php');
+require_once(__DIR__ . '/insights/wp-load.php');
 
 // 1. Fetch active data
 $active_cities = get_posts([
@@ -23,17 +23,25 @@ $wpdb->suppress_errors($suppress);
 while (ob_get_level() > 0) ob_end_clean();
 header("Content-Type: text/xml;charset=UTF-8");
 
-$base_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'];
+$base_url = 'https://getonlinestudio.com';
 
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+
+// --- 0. Homepage (most important page) ---
+echo "  <url>\n";
+echo "    <loc>{$base_url}/</loc>\n";
+echo "    <lastmod>" . date('Y-m-d') . "</lastmod>\n";
+echo "    <changefreq>weekly</changefreq>\n";
+echo "    <priority>1.0</priority>\n";
+echo "  </url>\n";
 
 // --- 1. Main Index Pages ---
 echo "  <url>\n";
 echo "    <loc>{$base_url}/locations/</loc>\n";
 echo "    <lastmod>" . date('Y-m-d') . "</lastmod>\n";
-echo "    <changefreq>daily</changefreq>\n";
-echo "    <priority>1.0</priority>\n";
+echo "    <changefreq>weekly</changefreq>\n";
+echo "    <priority>0.9</priority>\n";
 echo "  </url>\n";
 
 // --- 2. City Hubs (/locations/lagos/) ---

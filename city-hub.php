@@ -6,7 +6,7 @@
 
 // 1. Boot up WordPress silently
 define('WP_USE_THEMES', false);
-require_once(__DIR__ . '/wp/wp-load.php');
+require_once(__DIR__ . '/insights/wp-load.php');
 
 // ─── SUPPRESS WP HEAD/FOOTER JUNK ─────────────────────────────────────────────
 add_action('after_setup_theme', function() {

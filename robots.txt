@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Block WordPress admin and system paths from being crawled
+Disallow: /insights/wp-admin/
+Disallow: /insights/wp-login.php
+Disallow: /insights/wp-json/
+Disallow: /insights/wp-includes/
+Disallow: /insights/xmlrpc.php
+Disallow: /insights/wp-trackback.php
+Disallow: /insights/wp-cron.php
+Disallow: /insights/wp-signup.php
+Disallow: /insights/wp-activate.php
+
+# Block internal admin tools
+Disallow: /wp/
+Disallow: /import-pseo-data.php
+Disallow: /reality-dashboard.php
+Disallow: /module-calculator.php
+Disallow: /city-pillar-editor.php
+Disallow: /get-online.php
+Disallow: /blueprint/
+
+# Sitemap location
+Sitemap: https://getonlinestudio.com/sitemap.xml

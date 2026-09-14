@@ -9,21 +9,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Syne:wght@400;700;800&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+
+    <!-- Shared brand theme -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <script src="/assets/js/theme.js"></script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        'matte-black': '#101010',
-                        'lavender': '#e9d5ff',
-                        'sharp-purple': '#7e22ce',
-                    },
+                    colors: { ...GO_COLORS },
                     fontFamily: {
-                        'syne': ['Syne', 'sans-serif'],
-                        'manrope': ['Manrope', 'sans-serif'],
+                        ...GO_FONTS,
                         'space': ['Space Grotesk', 'sans-serif'],
                     },
                     animation: {
@@ -56,25 +55,12 @@
     </script>
 
     <style>
+        /* Base styles (cursor, body bg) now live in /assets/css/theme.css —
+           this page overrides overflow to hidden since it's a static,
+           non-scrolling screen. */
         body {
-            background-color: #101010;
-            color: #e9d5ff;
             overflow: hidden;
-            cursor: none;
         }
-
-        /* Custom Cursor */
-        .cursor-dot, .cursor-outline {
-            position: fixed;
-            top: 0; left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-        }
-        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
-        .cursor-outline { width: 40px; height: 40px; border: 1px solid #7e22ce; transition: width 0.2s, height 0.2s, background-color 0.2s; }
-        body.hovering .cursor-outline { width: 60px; height: 60px; background-color: rgba(126, 34, 206, 0.2); border-color: transparent; }
 
         /* Glitch Text */
         .glitch {
@@ -131,7 +117,7 @@
             The page you are looking for has drifted into the void. Let's get you back to solid ground.
         </p>
 
-        <a href="index.html" class="group inline-flex items-center gap-3 border border-lavender px-8 py-4 rounded-full text-sm font-bold uppercase hover:bg-lavender hover:text-matte-black transition-all duration-300 hover-target">
+        <a href="/" class="group inline-flex items-center gap-3 border border-lavender px-8 py-4 rounded-full text-sm font-bold uppercase hover:bg-lavender hover:text-matte-black transition-all duration-300 hover-target">
             <span>Return to Base</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />

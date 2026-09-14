@@ -9,7 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Syne:wght@400;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-    
+
+    <!-- Shared brand theme -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <script src="/assets/js/theme.js"></script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -17,22 +21,17 @@
             theme: {
                 extend: {
                     colors: {
-                        'matte-black': '#101010',
-                        'card-dark': '#0a0a0a',
-                        'lavender': '#e9d5ff',
-                        'sharp-purple': '#7e22ce',
-                        'off-white': '#f5f5f5',
+                        ...GO_COLORS,
                         'code-green': '#4ade80',
                         'code-blue': '#60a5fa',
                         'code-pink': '#f472b6'
                     },
                     fontFamily: {
-                        'syne': ['Syne', 'sans-serif'],
-                        'manrope': ['Manrope', 'sans-serif'],
+                        ...GO_FONTS,
                         'mono': ['Fira Code', 'monospace'],
                     },
                     backgroundImage: {
-                        'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
+                        'noise': GO_NOISE_BG,
                     },
                     animation: {
                         'spin-slow': 'spin 15s linear infinite',
@@ -63,52 +62,8 @@
     </script>
 
     <style>
-        /* Base Styles */
-        body {
-            background-color: #101010;
-            color: #e9d5ff;
-            overflow-x: hidden;
-            cursor: none;
-        }
-
-        /* Custom Cursor */
-        .cursor-dot, .cursor-outline {
-            position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-        }
-        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
-        .cursor-outline {
-            width: 40px; height: 40px;
-            border: 1px solid #7e22ce;
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-        @media (pointer: coarse) {
-            .cursor-dot, .cursor-outline { display: none; }
-            body { cursor: auto; }
-        }
-        body.hovering .cursor-outline {
-            width: 60px; height: 60px;
-            background-color: rgba(126, 34, 206, 0.2);
-            border-color: transparent;
-        }
-
-        /* Typography & Layout */
-        .text-stroke {
-            -webkit-text-stroke: 1px #e9d5ff;
-            color: transparent;
-        }
-        
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(40px);
-            animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        /* Base styles (cursor, text-stroke, reveal-up, body bg) now live in
+           /assets/css/theme.css — only this page's own effects stay here. */
 
         /* Code Typing Animation Utility */
         .type-writer {
@@ -145,12 +100,7 @@
     <div class="cursor-outline"></div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-40 px-4 md:px-6 py-4 md:py-6 flex justify-between items-center mix-blend-difference text-lavender">
-        <a href="https://getonlinestudio.com" class="font-syne font-bold text-xl md:text-2xl hover:text-sharp-purple transition-colors hover-target">GO.</a>
-        <a href="https://getonlinestudio.com" class="text-xs md:text-sm font-bold tracking-widest uppercase border border-lavender px-4 md:px-6 py-2 rounded-full hover:bg-lavender hover:text-matte-black transition-all duration-300 bg-matte-black/20 backdrop-blur-sm hover-target">
-            Back Home
-        </a>
-    </nav>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php'; ?>
 
     <!-- Hero Section -->
     <header class="relative min-h-screen flex flex-col justify-center px-4 md:px-6 border-b border-lavender/10 overflow-hidden">
@@ -477,17 +427,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 md:py-20 px-4 md:px-6 bg-matte-black flex flex-col md:flex-row justify-between items-start md:items-end border-t border-lavender/20 relative z-20">
-        <div class="w-full md:w-auto">
-            <h2 class="font-syne text-5xl md:text-8xl mb-4 md:mb-6 text-lavender">LET'S TALK</h2>
-            <a href="mailto:hello@getonlinestudio.com" class="text-lg md:text-2xl text-sharp-purple hover:text-white transition-colors font-manrope underline decoration-1 underline-offset-8 break-all hover-target">hello@getonlinestudio.com</a>
-        </div>
-        <div class="mt-10 md:mt-0 flex flex-wrap gap-6 font-manrope text-xs md:text-sm uppercase tracking-widest w-full md:w-auto">
-            <a href="#" class="hover:text-sharp-purple hover-target">Instagram</a>
-            <a href="#" class="hover:text-sharp-purple hover-target">Twitter</a>
-            <a href="#" class="hover:text-sharp-purple hover-target">LinkedIn</a>
-        </div>
-    </footer>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php'; ?>
 
     <script>
         // High Performance Cursor

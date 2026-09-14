@@ -69,6 +69,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Syne:wght@400;700;800&family=Fira+Code:wght@400;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Shared brand theme -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <script src="/assets/js/theme.js"></script>
+
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -76,17 +81,16 @@
             theme: {
                 extend: {
                     colors: {
-                        'matte-black': '#101010', 'card-dark': '#0a0a0a',
-                        'lavender': '#e9d5ff', 'sharp-purple': '#7e22ce',
-                        'off-white': '#f5f5f5', 'code-green': '#4ade80',
+                        ...GO_COLORS,
+                        'code-green': '#4ade80',
                         'panel-dark': '#151515',
                     },
                     fontFamily: {
-                        'syne': ['Syne', 'sans-serif'], 'manrope': ['Manrope', 'sans-serif'],
+                        ...GO_FONTS,
                         'mono': ['Fira Code', 'monospace'], 'space': ['Space Grotesk', 'sans-serif'],
                     },
                     backgroundImage: {
-                        'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
+                        'noise': GO_NOISE_BG,
                     },
                     animation: {
                         'spin-slow': 'spin 15s linear infinite',
@@ -103,21 +107,14 @@
     </script>
 
     <style>
-        body { background-color: #101010; color: #e9d5ff; overflow-x: hidden; cursor: none; }
+        /* Base styles (cursor, text-stroke, body bg) now live in
+           /assets/css/theme.css — only this page's own effects stay here. */
         html { overflow-x: hidden; }
-        .cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999; pointer-events: none; }
-        .cursor-dot { width: 8px; height: 8px; background-color: #e9d5ff; }
-        .cursor-outline { width: 40px; height: 40px; border: 1px solid #7e22ce; transition: width 0.2s, height 0.2s, background-color 0.2s; }
-        @media (pointer: coarse) { .cursor-dot, .cursor-outline { display: none; } body { cursor: auto !important; } }
-        body.hovering .cursor-outline { width: 60px; height: 60px; background-color: rgba(126,34,206,0.2); border-color: transparent; }
 
         #intro-overlay { animation: slideUp 0.9s cubic-bezier(0.77,0,0.175,1) forwards; animation-delay: 2.2s; }
         @keyframes slideUp { to { transform: translateY(-100%); } }
         .reveal-text { animation: reveal 1.4s cubic-bezier(0.77,0,0.175,1) forwards; }
         @keyframes reveal { 0% { transform: translateY(100%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
-
-        .text-stroke { -webkit-text-stroke: 1px #e9d5ff; color: transparent; transition: all 0.3s ease; }
-        .group:hover .text-stroke { color: #e9d5ff; -webkit-text-stroke: 0px; }
 
         .marquee-container { overflow: hidden; white-space: nowrap; display: flex; }
         .marquee-content { display: flex; flex-shrink: 0; min-width: 100%; animation: scroll 30s linear infinite; }

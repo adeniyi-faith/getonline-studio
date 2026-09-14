@@ -631,6 +631,35 @@
                     </div>
                 </a>
 
+                <?php
+                // Projects marked "Featured on homepage" from /wp/admin/portfolio.php.
+                $go_home_portfolio_path = $_SERVER['DOCUMENT_ROOT'] . '/data/portfolio.json';
+                $go_home_portfolio = is_file($go_home_portfolio_path) ? json_decode(file_get_contents($go_home_portfolio_path), true) : [];
+                $go_featured_projects = is_array($go_home_portfolio) ? array_values(array_filter($go_home_portfolio, function ($p) { return !empty($p['featured']); })) : [];
+                foreach ($go_featured_projects as $go_i => $go_project):
+                    $go_num = str_pad((string) (5 + $go_i), 2, '0', STR_PAD_LEFT);
+                ?>
+                <a href="/work/<?php echo htmlspecialchars($go_project['slug']); ?>" class="group block hover-target<?php echo $go_i % 2 === 1 ? ' md:mt-20' : ''; ?>">
+                    <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-card-dark border border-lavender/10">
+                        <?php if (!empty($go_project['cover_image'])): ?>
+                            <img src="<?php echo htmlspecialchars($go_project['cover_image']); ?>" alt="<?php echo htmlspecialchars($go_project['title']); ?>" class="w-full h-full object-cover object-top filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105">
+                        <?php endif; ?>
+                        <div class="absolute top-4 left-4"><span class="font-mono text-[10px] text-white bg-black/60 px-3 py-1 rounded-full backdrop-blur-md border border-white/20"><?php echo htmlspecialchars($go_num); ?></span></div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                        <div>
+                            <h3 class="font-syne text-3xl font-bold mb-2 group-hover:text-sharp-purple transition-colors"><?php echo htmlspecialchars(strtoupper($go_project['title'])); ?></h3>
+                            <?php if (!empty($go_project['summary'])): ?>
+                                <p class="font-manrope text-lavender/60 text-sm leading-relaxed max-w-md"><?php echo htmlspecialchars($go_project['summary']); ?></p>
+                            <?php endif; ?>
+                        </div>
+                        <?php if (!empty($go_project['tags'][0])): ?>
+                            <span class="font-mono text-[10px] text-sharp-purple border border-sharp-purple/30 px-3 py-1 rounded-full whitespace-nowrap self-start"><?php echo htmlspecialchars($go_project['tags'][0]); ?></span>
+                        <?php endif; ?>
+                    </div>
+                </a>
+                <?php endforeach; ?>
+
             </div>
         </div>
         <div class="py-16 md:py-24 text-center">

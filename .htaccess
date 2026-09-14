@@ -1,4 +1,14 @@
 # ======================================================================
+# RUN PHP INSIDE .html FILES
+# So pages like /about/index.html can `include` the shared
+# partials/header.php and partials/footer.php without changing any
+# URLs. If this ever causes a server error, the fix is to replace the
+# line below with the PHP handler name your host uses (check cPanel ->
+# MultiPHP Manager), or remove the line to go back to static .html.
+# ======================================================================
+AddType application/x-httpd-php .html
+
+# ======================================================================
 # GETONLINE STUDIO - PROGRAMMATIC SEO ROUTING (v5.4 - SAFE + NEIGHBORHOODS)
 # ======================================================================
 <IfModule mod_rewrite.c>

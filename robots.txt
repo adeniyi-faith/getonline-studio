@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /wp/
+Disallow: /insights/wp-admin/
+Disallow: /data/
+Disallow: /reality-dashboard.php
+Disallow: /module-calculator.php
+Disallow: /get-online.php
+Disallow: /import-pseo-data.php
+Disallow: /city-pillar-editor.php
+Disallow: /city-hub.php
+Disallow: /niche-hub.php
+Disallow: /niche-landing.php
+Disallow: /listicle-landing.php
+Disallow: /locations-index.php
+Disallow: /services-index.php
+
+Sitemap: https://getonlinestudio.com/sitemap.xml

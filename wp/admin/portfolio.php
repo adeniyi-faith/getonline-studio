@@ -35,6 +35,7 @@ function go_rebuild_portfolio_json() {
             'external_link' => get_post_meta($p->ID, 'go_external_link', true),
             'accent_hex'    => get_post_meta($p->ID, 'go_accent_hex', true) ?: '#7e22ce',
             'order'         => (int) get_post_meta($p->ID, 'go_order', true),
+            'featured'      => (bool) get_post_meta($p->ID, 'go_featured', true),
         ];
     }
 
@@ -77,6 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['go_action'])) {
                 $accent = preg_match('/^#[0-9a-fA-F]{6}$/', $_POST['accent_hex'] ?? '') ? $_POST['accent_hex'] : '#7e22ce';
                 update_post_meta($post_id, 'go_accent_hex', $accent);
                 update_post_meta($post_id, 'go_order', (int) ($_POST['order'] ?? 0));
+                update_post_meta($post_id, 'go_featured', isset($_POST['featured']) ? 1 : 0);
 
                 $sections = json_decode(stripslashes($_POST['sections_json'] ?? '[]'), true);
                 update_post_meta($post_id, 'go_sections', is_array($sections) ? $sections : []);
@@ -128,6 +130,7 @@ include __DIR__ . '/_layout_top.php';
     $external_link = $post_id ? get_post_meta($post_id, 'go_external_link', true) : '';
     $accent_hex = $post_id ? (get_post_meta($post_id, 'go_accent_hex', true) ?: '#7e22ce') : '#7e22ce';
     $order = $post_id ? (int) get_post_meta($post_id, 'go_order', true) : 0;
+    $featured = $post_id ? (bool) get_post_meta($post_id, 'go_featured', true) : false;
     $sections = $post_id ? get_post_meta($post_id, 'go_sections', true) : [];
     $is_published = $post_id ? ($editing->post_status === 'publish') : true;
 ?>
@@ -183,6 +186,11 @@ include __DIR__ . '/_layout_top.php';
         <div class="flex items-center gap-2">
             <input type="checkbox" id="publish" name="publish" <?php echo $is_published ? 'checked' : ''; ?> class="w-4 h-4">
             <label for="publish" class="text-sm text-lavender/70">Published (visible on the live site)</label>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <input type="checkbox" id="featured" name="featured" <?php echo $featured ? 'checked' : ''; ?> class="w-4 h-4">
+            <label for="featured" class="text-sm text-lavender/70">Featured on homepage (shows in the "Selected Work" section on /)</label>
         </div>
 
         <div class="border-t border-lavender/10 pt-6">
@@ -262,6 +270,9 @@ include __DIR__ . '/_layout_top.php';
                                 <span class="text-xs px-2 py-1 rounded-full <?php echo $p->post_status === 'publish' ? 'bg-green-500/10 text-green-400' : 'bg-yellow-500/10 text-yellow-400'; ?>">
                                     <?php echo htmlspecialchars(ucfirst($p->post_status)); ?>
                                 </span>
+                                <?php if (get_post_meta($p->ID, 'go_featured', true)): ?>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-sharp-purple/10 text-sharp-purple ml-1">Featured</span>
+                                <?php endif; ?>
                             </td>
                             <td class="px-5 py-4 text-lavender/40">/work/<?php echo htmlspecialchars($p->post_name); ?></td>
                             <td class="px-5 py-4 text-right space-x-3">

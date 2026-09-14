@@ -75,6 +75,20 @@ RewriteRule ^services/([a-zA-Z0-9-]+)/?$ niche-hub.php?niche=$1 [L,QSA]
 # --- LEGACY /wp/ PREFIX REDIRECT ---
 RewriteRule ^wp/locations/(.*)$ /locations/$1 [R=301,L]
 
+# --- 4. ADMIN-MANAGED CONTENT (Portfolio & Site Pages) ---
+# Only kicks in when nothing on disk already matches — a hand-built
+# case-study folder like /work/dekompany/ still wins over this.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^work/([a-zA-Z0-9-]+)/?$ portfolio-view.php?slug=$1 [L,QSA]
+
+# Catch-all for admin-created "site pages" (e.g. /refund-policy). Must
+# stay last in this block so it never shadows a more specific route
+# above it or a real file/folder on disk.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9-]+)/?$ page-view.php?slug=$1 [L,QSA]
+
 </IfModule>
 # ======================================================================
 # END GETONLINE PSEO ROUTING

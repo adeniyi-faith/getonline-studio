@@ -187,6 +187,43 @@
                     </div>
                 </a>
 
+                <?php
+                // Projects added from the admin at /wp/admin/portfolio.php —
+                // no file to hand-edit, they just appear here.
+                $go_portfolio_path = $_SERVER['DOCUMENT_ROOT'] . '/data/portfolio.json';
+                $go_portfolio = is_file($go_portfolio_path) ? json_decode(file_get_contents($go_portfolio_path), true) : [];
+                if (is_array($go_portfolio)):
+                    foreach ($go_portfolio as $go_i => $go_project):
+                        $go_num = str_pad((string) (7 + $go_i), 2, '0', STR_PAD_LEFT);
+                ?>
+                <a href="/work/<?php echo htmlspecialchars($go_project['slug']); ?>" class="group block hover-target reveal-up<?php echo $go_i % 2 === 1 ? ' md:mt-24' : ''; ?>">
+                    <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 bg-card-dark border border-lavender/10">
+                        <?php if (!empty($go_project['cover_image'])): ?>
+                            <img src="<?php echo htmlspecialchars($go_project['cover_image']); ?>" alt="<?php echo htmlspecialchars($go_project['title']); ?>" class="w-full h-full object-cover object-top project-img filter grayscale opacity-80">
+                        <?php endif; ?>
+                        <div class="absolute top-4 left-4">
+                            <span class="font-mono text-[10px] md:text-xs text-white bg-black/60 px-3 py-1 rounded-full backdrop-blur-md border border-white/20"><?php echo htmlspecialchars($go_num); ?></span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+                        <div class="flex-1">
+                            <h3 class="font-syne text-3xl md:text-4xl font-bold mb-3 group-hover:text-sharp-purple transition-colors"><?php echo htmlspecialchars(strtoupper($go_project['title'])); ?></h3>
+                            <?php if (!empty($go_project['summary'])): ?>
+                                <p class="font-manrope text-lavender/60 text-sm md:text-base leading-relaxed max-w-md"><?php echo htmlspecialchars($go_project['summary']); ?></p>
+                            <?php endif; ?>
+                        </div>
+                        <?php if (!empty($go_project['tags'][0])): ?>
+                        <div class="flex flex-col items-start md:items-end gap-3 flex-shrink-0">
+                            <span class="font-mono text-[10px] text-sharp-purple tracking-widest uppercase border border-sharp-purple/30 px-3 py-1 rounded-full"><?php echo htmlspecialchars($go_project['tags'][0]); ?></span>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                </a>
+                <?php
+                    endforeach;
+                endif;
+                ?>
+
             </div>
         </div>
 

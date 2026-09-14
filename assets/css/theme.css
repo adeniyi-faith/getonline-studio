@@ -70,6 +70,11 @@ body.hovering .cursor-outline {
     -webkit-text-stroke: 0px;
 }
 
+/* Full-site nav overlay, shared by partials/header.php on every page */
+#go-mobile-menu {
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
 /* Scroll-triggered fade-up used across every page's sections */
 .reveal-up {
     opacity: 0;

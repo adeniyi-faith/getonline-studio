@@ -1,0 +1,17 @@
+{
+    "nav_items": [
+        { "label": "Work", "url": "/work", "order": 10 },
+        { "label": "Services", "url": "/services", "order": 20 },
+        { "label": "About", "url": "/about", "order": 30 },
+        { "label": "Locations", "url": "/locations/", "order": 40 },
+        { "label": "Contact", "url": "/contact", "order": 50 }
+    ],
+    "contact_email": "hello@getonlinestudio.com",
+    "whatsapp_primary": "2348108275013",
+    "whatsapp_secondary": "2348080732660",
+    "social": {
+        "instagram": "",
+        "twitter": "",
+        "linkedin": ""
+    }
+}

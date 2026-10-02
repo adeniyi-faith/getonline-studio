@@ -1,12 +1,12 @@
 # ======================================================================
-# RUN PHP INSIDE .html FILES
-# So pages like /about/index.html can `include` the shared
-# partials/header.php and partials/footer.php without changing any
-# URLs. If this ever causes a server error, the fix is to replace the
-# line below with the PHP handler name your host uses (check cPanel ->
-# MultiPHP Manager), or remove the line to go back to static .html.
+# FOLDER HOMEPAGES
+# Pages that include the shared partials (header/footer) are named
+# index.php so the server runs them with the site's normal PHP version.
+# They used to be index.html with an "AddType ... .html" line, but on
+# this host that sent .html files to an older PHP that can't read the
+# partials, so those pages stopped right after <body> and showed blank.
 # ======================================================================
-AddType application/x-httpd-php .html
+DirectoryIndex index.php index.html
 
 # ======================================================================
 # GETONLINE STUDIO - PROGRAMMATIC SEO ROUTING (v5.4 - SAFE + NEIGHBORHOODS)

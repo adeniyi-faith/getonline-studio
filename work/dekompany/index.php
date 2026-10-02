@@ -316,7 +316,7 @@
     <!-- Next Project Nav -->
     <?php
     $go_prev = ['href' => '/work/oa-global', 'label' => 'OA Global'];
-    $go_next = ['href' => '/work/rafflekings', 'label' => 'RaffleKings'];
+    $go_next = ['href' => '/work/k-logistics-hub', 'label' => 'K-logistics Hub'];
     include $_SERVER['DOCUMENT_ROOT'] . '/partials/project-nav.php';
     ?>
 

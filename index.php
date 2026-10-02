@@ -573,6 +573,28 @@
             <h2 class="font-syne text-3xl md:text-6xl font-bold text-white max-w-4xl leading-tight">Platforms we've built for ambitious brands.</h2>
         </div>
         <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <!-- Featured case study: K-logistics Hub -->
+            <a href="/work/k-logistics-hub" class="group block hover-target relative rounded-3xl overflow-hidden border border-lavender/10 hover:border-[#ea7c0a]/50 transition-colors duration-500 mb-16 md:mb-24 bg-gradient-to-br from-[#13203d] via-[#0b1428] to-[#2a1606]">
+                <div class="absolute -top-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-[#ea7c0a]/15 blur-3xl pointer-events-none"></div>
+                <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center p-6 sm:p-10 md:p-14">
+                    <div>
+                        <div class="flex flex-wrap items-center gap-3 mb-6">
+                            <span class="font-mono text-[10px] font-bold text-black bg-[#ea7c0a] px-3 py-1 rounded-full uppercase tracking-widest">New case study</span>
+                            <span class="font-mono text-[10px] text-[#ea7c0a] border border-[#ea7c0a]/40 px-3 py-1 rounded-full uppercase tracking-widest">Mobile App / AI</span>
+                        </div>
+                        <h3 class="font-syne text-4xl md:text-6xl font-bold text-white leading-[0.95] mb-5">K-LOGISTICS HUB</h3>
+                        <p class="font-syne text-xl md:text-2xl text-white/90 leading-snug mb-4">From paper and phone calls to <span class="text-[#ea7c0a]">one app that runs the whole business.</span></p>
+                        <p class="font-manrope text-lavender/60 text-sm md:text-base leading-relaxed max-w-lg mb-8">A mobile app for a Port Harcourt health products distributor: orders, stock, deliveries and money for the owner, office staff and riders, with an AI assistant that answers business questions in plain English. Design to first version in two days.</p>
+                        <span class="inline-flex items-center gap-3 font-manrope text-sm font-bold uppercase tracking-widest text-white group-hover:text-[#ea7c0a] transition-colors">Read the case study <span class="group-hover:translate-x-2 transition-transform duration-300">→</span></span>
+                    </div>
+                    <div class="flex justify-center items-end gap-3 sm:gap-5">
+                        <img src="/work/k-logistics-hub/img/rider-home.webp" alt="K-logistics Hub rider app" width="585" height="1266" loading="lazy" class="w-[30%] max-w-[180px] rounded-[1.4rem] border-[5px] border-[#1c1f29] shadow-2xl -rotate-6 translate-y-4 opacity-90 group-hover:rotate-0 group-hover:translate-y-0 transition-transform duration-700">
+                        <img src="/work/k-logistics-hub/img/admin-home.webp" alt="K-logistics Hub owner dashboard showing today's profit" width="585" height="1266" loading="lazy" class="w-[36%] max-w-[220px] rounded-[1.6rem] border-[6px] border-[#1c1f29] shadow-2xl relative z-10 group-hover:-translate-y-3 transition-transform duration-700">
+                        <img src="/work/k-logistics-hub/img/ai-assistant.webp" alt="K-logistics Hub AI business assistant" width="585" height="1266" loading="lazy" class="w-[30%] max-w-[180px] rounded-[1.4rem] border-[5px] border-[#1c1f29] shadow-2xl rotate-6 translate-y-4 opacity-90 group-hover:rotate-0 group-hover:translate-y-0 transition-transform duration-700">
+                    </div>
+                </div>
+            </a>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20">
 
                 <a href="/work/rafflekings" class="group block hover-target">

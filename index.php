@@ -587,10 +587,10 @@
                         <p class="font-manrope text-lavender/60 text-sm md:text-base leading-relaxed max-w-lg mb-8">A mobile app for a Port Harcourt health products distributor: orders, stock, deliveries and money for the owner, office staff and riders, with an AI assistant that answers business questions in plain English. Design to first version in two days.</p>
                         <span class="inline-flex items-center gap-3 font-manrope text-sm font-bold uppercase tracking-widest text-white group-hover:text-[#ea7c0a] transition-colors">Read the case study <span class="group-hover:translate-x-2 transition-transform duration-300">→</span></span>
                     </div>
-                    <div class="flex justify-center items-end gap-3 sm:gap-5">
-                        <img src="/work/k-logistics-hub/img/rider-home.webp" alt="K-logistics Hub rider app" width="585" height="1266" loading="lazy" class="w-[30%] max-w-[180px] rounded-[1.4rem] border-[5px] border-[#1c1f29] shadow-2xl -rotate-6 translate-y-4 opacity-90 group-hover:rotate-0 group-hover:translate-y-0 transition-transform duration-700">
-                        <img src="/work/k-logistics-hub/img/admin-home.webp" alt="K-logistics Hub owner dashboard showing today's profit" width="585" height="1266" loading="lazy" class="w-[36%] max-w-[220px] rounded-[1.6rem] border-[6px] border-[#1c1f29] shadow-2xl relative z-10 group-hover:-translate-y-3 transition-transform duration-700">
-                        <img src="/work/k-logistics-hub/img/ai-assistant.webp" alt="K-logistics Hub AI business assistant" width="585" height="1266" loading="lazy" class="w-[30%] max-w-[180px] rounded-[1.4rem] border-[5px] border-[#1c1f29] shadow-2xl rotate-6 translate-y-4 opacity-90 group-hover:rotate-0 group-hover:translate-y-0 transition-transform duration-700">
+                    <div class="flex justify-center items-center">
+                        <img src="/work/k-logistics-hub/img/rider-home.webp" alt="K-logistics Hub rider app" width="540" height="1169" loading="lazy" decoding="async" class="w-[30%] max-w-[180px] rounded-2xl ring-1 ring-white/10 shadow-2xl opacity-80 -mr-[6%] group-hover:opacity-100 transition-opacity duration-500">
+                        <img src="/work/k-logistics-hub/img/admin-home.webp" alt="K-logistics Hub owner dashboard showing today's profit" width="540" height="1169" loading="lazy" decoding="async" class="w-[36%] max-w-[220px] rounded-2xl ring-1 ring-white/10 shadow-2xl relative z-10 group-hover:-translate-y-2 transition-transform duration-500">
+                        <img src="/work/k-logistics-hub/img/ai-assistant.webp" alt="K-logistics Hub AI business assistant" width="540" height="1169" loading="lazy" decoding="async" class="w-[30%] max-w-[180px] rounded-2xl ring-1 ring-white/10 shadow-2xl opacity-80 -ml-[6%] group-hover:opacity-100 transition-opacity duration-500">
                     </div>
                 </div>
             </a>

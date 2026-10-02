@@ -1,9 +1,11 @@
 <?php
-// Draws one app screenshot inside a phone frame.
-function kl_phone($file, $alt, $extra = '') {
+// Draws one app screenshot as a clean rounded card. Screens below the
+// first view load only when the visitor scrolls near them.
+function kl_phone($file, $alt, $eager = false) {
     $src = '/work/k-logistics-hub/img/' . $file . '.webp';
-    echo '<div class="kl-phone ' . htmlspecialchars($extra) . '">'
-       . '<img src="' . htmlspecialchars($src) . '" alt="' . htmlspecialchars($alt) . '" width="585" height="1266" decoding="async">'
+    $load = $eager ? 'fetchpriority="high"' : 'loading="lazy"';
+    echo '<div class="kl-shot">'
+       . '<img src="' . htmlspecialchars($src) . '" alt="' . htmlspecialchars($alt) . '" width="540" height="1169" ' . $load . ' decoding="async">'
        . '</div>';
 }
 ?>
@@ -22,48 +24,15 @@ function kl_phone($file, $alt, $extra = '') {
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Syne:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Shared brand theme -->
     <link rel="stylesheet" href="/assets/css/theme.css">
-    <script src="/assets/js/theme.js"></script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        ...GO_COLORS,
-                        /* K-logistics Hub brand colours */
-                        'kl-navy': '#13203d',
-                        'kl-deep': '#0b1428',
-                        'kl-orange': '#ea7c0a',
-                        'kl-green': '#4ade80',
-                    },
-                    fontFamily: { ...GO_FONTS },
-                    backgroundImage: {
-                        'noise': GO_NOISE_BG,
-                    },
-                    animation: {
-                        'float': 'float 7s ease-in-out infinite',
-                        'void-shift': 'voidShift 12s ease-in-out infinite alternate',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-14px)' }
-                        },
-                        voidShift: {
-                            '0%': { backgroundPosition: '0% 50%' },
-                            '100%': { backgroundPosition: '100% 50%' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- This page's styles are pre-built (no Tailwind CDN) so it loads fast.
+         After changing classes in this file, rebuild page.css — see the
+         note at the top of tailwind.config.js in this folder. -->
+    <link rel="stylesheet" href="/work/k-logistics-hub/page.css">
 
     <style>
         /* Cursor themed to K-logistics orange/navy */
@@ -100,30 +69,28 @@ function kl_phone($file, $alt, $extra = '') {
         .on-scroll.is-visible { opacity: 1; transform: none; }
         @media (prefers-reduced-motion: reduce) {
             .reveal-up, .on-scroll { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
-            .animate-float { animation: none !important; }
         }
 
         .text-stroke-orange { -webkit-text-stroke: 1px #ea7c0a; color: transparent; }
 
-        /* Phone frame around each app screenshot */
-        .kl-phone {
-            position: relative;
-            border-radius: 2.4rem;
-            padding: 0.55rem;
-            background: linear-gradient(145deg, #2a2f3d, #0d0f15);
-            box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 30px 60px -20px rgba(0,0,0,0.8), 0 0 80px -30px rgba(234,124,10,0.35);
-        }
-        .kl-phone img {
-            display: block; width: 100%; height: auto;
-            border-radius: 1.9rem;
+        /* App screenshot shown as a clean rounded card */
+        .kl-shot {
+            border-radius: 1.25rem;
+            overflow: hidden;
             background: #f3f4f7;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.10), 0 24px 48px -24px rgba(0,0,0,0.75);
         }
+        .kl-shot img { display: block; width: 100%; height: auto; }
 
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.06);
         }
+
+        /* Soft orange glows, drawn as gradients (cheaper than blur filters) */
+        .kl-glow-tr { background: radial-gradient(60% 50% at 85% 10%, rgba(234,124,10,0.16), transparent 70%); }
+        .kl-glow-bl { background: radial-gradient(50% 60% at 0% 100%, rgba(234,124,10,0.18), transparent 70%); }
+        .kl-glow-r  { background: radial-gradient(45% 55% at 100% 50%, rgba(234,124,10,0.12), transparent 70%); }
 
         /* Sideways-scrolling strip of screens on small phones */
         .kl-strip { scroll-snap-type: x mandatory; scrollbar-width: none; }
@@ -142,10 +109,10 @@ function kl_phone($file, $alt, $extra = '') {
 
     <!-- ═══════════ HERO ═══════════ -->
     <header class="relative overflow-hidden border-b border-lavender/10">
-        <div class="absolute inset-0 bg-gradient-to-br from-matte-black via-kl-deep to-[#3a1d05] bg-[length:200%_200%] animate-void-shift opacity-90"></div>
-        <div class="absolute -top-40 -right-40 w-[38rem] h-[38rem] rounded-full bg-kl-orange/10 blur-3xl pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-matte-black via-kl-deep to-[#2a1606]"></div>
+        <div class="absolute inset-0 kl-glow-tr pointer-events-none"></div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pt-32 md:pt-40 pb-20 md:pb-28 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pt-28 md:pt-40 pb-16 md:pb-28 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             <div class="lg:col-span-6">
                 <div class="flex flex-wrap items-center gap-3 mb-6 reveal-up">
                     <span class="px-3 py-1 bg-kl-orange text-matte-black rounded-full text-[10px] font-bold uppercase tracking-widest">New case study</span>
@@ -182,18 +149,16 @@ function kl_phone($file, $alt, $extra = '') {
                 </dl>
             </div>
 
-            <!-- Three phones fanned out -->
-            <div class="lg:col-span-6 relative h-[480px] sm:h-[560px] md:h-[640px] reveal-up" style="animation-delay: 0.5s;">
-                <div class="absolute left-1/2 top-1/2 -translate-x-[115%] -translate-y-[44%] w-[38%] max-w-[230px] -rotate-[8deg] opacity-80">
-                    <?php kl_phone('rider-home', "Rider's home screen showing the next delivery and cash to collect"); ?>
+            <!-- Three app screens side by side -->
+            <div class="lg:col-span-6 flex justify-center items-center reveal-up" style="animation-delay: 0.5s;">
+                <div class="w-[30%] max-w-[200px] -mr-[5%] opacity-80">
+                    <?php kl_phone('rider-home', "Rider's home screen showing the next delivery and cash to collect", true); ?>
                 </div>
-                <div class="absolute left-1/2 top-1/2 translate-x-[15%] -translate-y-[44%] w-[38%] max-w-[230px] rotate-[8deg] opacity-80">
-                    <?php kl_phone('ai-assistant', 'AI assistant answering a question about profit and low stock'); ?>
+                <div class="relative z-10 w-[40%] max-w-[260px]">
+                    <?php kl_phone('admin-home', "Owner's home screen showing today's orders, cost of goods, expenses and profit", true); ?>
                 </div>
-                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[44%] max-w-[270px] z-10">
-                    <div class="animate-float">
-                        <?php kl_phone('admin-home', "Owner's home screen showing today's orders, cost of goods, expenses and profit"); ?>
-                    </div>
+                <div class="w-[30%] max-w-[200px] -ml-[5%] opacity-80">
+                    <?php kl_phone('ai-assistant', 'AI assistant answering a question about profit and low stock', true); ?>
                 </div>
             </div>
         </div>
@@ -263,7 +228,7 @@ function kl_phone($file, $alt, $extra = '') {
 
     <!-- ═══════════ THE GOAL ═══════════ -->
     <section class="relative py-24 md:py-36 px-4 md:px-8 bg-kl-navy overflow-hidden">
-        <div class="absolute -bottom-32 -left-32 w-[30rem] h-[30rem] rounded-full bg-kl-orange/15 blur-3xl pointer-events-none"></div>
+        <div class="absolute inset-0 kl-glow-bl pointer-events-none"></div>
         <div class="relative max-w-5xl mx-auto text-center on-scroll">
             <h2 class="font-mono text-xs text-kl-orange uppercase tracking-widest mb-8">// The goal</h2>
             <p class="font-syne text-3xl md:text-5xl leading-tight text-white">
@@ -319,9 +284,9 @@ function kl_phone($file, $alt, $extra = '') {
                 </ul>
             </div>
             <div class="lg:order-1 kl-strip flex lg:justify-center gap-5 md:gap-6 overflow-x-auto lg:overflow-visible -mx-4 px-4 pb-4 lg:mx-0 lg:px-0 on-scroll">
-                <div class="shrink-0 w-[62%] sm:w-[40%] lg:w-[31%] max-w-[240px]"><?php kl_phone('staff-home', "Staff home screen: today's deliveries, stock levels and riders"); ?></div>
-                <div class="shrink-0 w-[62%] sm:w-[40%] lg:w-[31%] max-w-[240px] lg:mt-12"><?php kl_phone('orders-today', "Today's orders and deliveries, filterable by rider"); ?></div>
-                <div class="shrink-0 w-[62%] sm:w-[40%] lg:w-[31%] max-w-[240px] lg:mt-24"><?php kl_phone('stock', 'Stock screen showing what is in store and what is running low'); ?></div>
+                <div class="shrink-0 w-[46%] sm:w-[36%] lg:w-[31%] max-w-[240px]"><?php kl_phone('staff-home', "Staff home screen: today's deliveries, stock levels and riders"); ?></div>
+                <div class="shrink-0 w-[46%] sm:w-[36%] lg:w-[31%] max-w-[240px] lg:mt-12"><?php kl_phone('orders-today', "Today's orders and deliveries, filterable by rider"); ?></div>
+                <div class="shrink-0 w-[46%] sm:w-[36%] lg:w-[31%] max-w-[240px] lg:mt-24"><?php kl_phone('stock', 'Stock screen showing what is in store and what is running low'); ?></div>
             </div>
         </div>
     </section>
@@ -339,9 +304,9 @@ function kl_phone($file, $alt, $extra = '') {
                 </ul>
             </div>
             <div class="kl-strip flex lg:justify-center gap-5 md:gap-6 overflow-x-auto lg:overflow-visible -mx-4 px-4 pb-4 lg:mx-0 lg:px-0 on-scroll">
-                <div class="shrink-0 w-[62%] sm:w-[40%] lg:w-[31%] max-w-[240px]"><?php kl_phone('rider-home', "Rider's home screen: next delivery, cash to collect and money earned today"); ?></div>
-                <div class="shrink-0 w-[62%] sm:w-[40%] lg:w-[31%] max-w-[240px] lg:mt-12"><?php kl_phone('order-details', 'Order details with options to change it, mark it delivered or record a failed delivery'); ?></div>
-                <div class="shrink-0 w-[62%] sm:w-[40%] lg:w-[31%] max-w-[240px] lg:mt-24"><?php kl_phone('delivery-proof', 'Delivery proof showing the time, the rider and who received the order'); ?></div>
+                <div class="shrink-0 w-[46%] sm:w-[36%] lg:w-[31%] max-w-[240px]"><?php kl_phone('rider-home', "Rider's home screen: next delivery, cash to collect and money earned today"); ?></div>
+                <div class="shrink-0 w-[46%] sm:w-[36%] lg:w-[31%] max-w-[240px] lg:mt-12"><?php kl_phone('order-details', 'Order details with options to change it, mark it delivered or record a failed delivery'); ?></div>
+                <div class="shrink-0 w-[46%] sm:w-[36%] lg:w-[31%] max-w-[240px] lg:mt-24"><?php kl_phone('delivery-proof', 'Delivery proof showing the time, the rider and who received the order'); ?></div>
             </div>
         </div>
     </section>
@@ -381,10 +346,10 @@ function kl_phone($file, $alt, $extra = '') {
 
     <!-- ═══════════ AI ASSISTANT ═══════════ -->
     <section class="relative py-20 md:py-32 px-4 md:px-8 overflow-hidden">
-        <div class="absolute top-1/2 right-0 -translate-y-1/2 w-[40rem] h-[40rem] rounded-full bg-kl-orange/10 blur-3xl pointer-events-none"></div>
+        <div class="absolute inset-0 kl-glow-r pointer-events-none"></div>
         <div class="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             <div class="flex justify-center on-scroll">
-                <div class="w-[68%] max-w-[300px] animate-float"><?php kl_phone('ai-assistant', 'AI assistant answering "Which products are running low?" with a list from live stock'); ?></div>
+                <div class="w-[64%] max-w-[280px]"><?php kl_phone('ai-assistant', 'AI assistant answering "Which products are running low?" with a list from live stock'); ?></div>
             </div>
             <div class="on-scroll">
                 <span class="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-kl-orange border border-kl-orange/40 px-3 py-1 rounded-full mb-6">✦ An AI business assistant</span>
@@ -480,7 +445,7 @@ function kl_phone($file, $alt, $extra = '') {
 
     <!-- ═══════════ IN ONE LINE ═══════════ -->
     <section class="py-24 md:py-36 px-4 md:px-8 bg-kl-navy relative overflow-hidden">
-        <div class="absolute -top-24 right-0 w-[28rem] h-[28rem] rounded-full bg-kl-orange/15 blur-3xl pointer-events-none"></div>
+        <div class="absolute inset-0 kl-glow-tr pointer-events-none"></div>
         <blockquote class="relative max-w-5xl mx-auto text-center on-scroll">
             <span class="font-mono text-xs text-kl-orange uppercase tracking-widest">In one line</span>
             <p class="font-syne text-3xl md:text-5xl text-white leading-tight mt-8">K-logistics Hub Ltd went from paper, phone calls and guesswork to <span class="text-kl-orange">one app where every order, delivery, product and naira is recorded and visible in real time.</span></p>
